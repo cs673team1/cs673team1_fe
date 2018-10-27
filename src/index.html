@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>C3PO </title>
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+    
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+        <!-- Story Pop up -->    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+        <!-- Google Sign In-->
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="659197638484-0r394k07fsa5ar9duq3u3q0f4pkk46tj.apps.googleusercontent.com">
+
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        
+        
+        <!-- Database Functions -->
+        <script type="text/javascript">
+        
+            var projectName = "C3Po";
+            var email = "abouch@bu.edu";
+        
+            function setup()
+            {
+                // Presentation 
+                document.getElementById("project").innerHTML = projectName;
+            
+                // Gets appropriate lists for each section from database
+                loadData("bug");
+                loadData("story");
+                loadData("chat");
+            
+                // Adds eventlisteners
+                document.getElementById("storySubmit").addEventListener("click", storySubmit);
+            
+            }
+            
+            function loadData(section)
+            {
+                if(window.XMLHttpRequest)
+                {
+                    xmlhttp = new XMLHttpRequest();
+                }
+                else
+                {
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+        
+                xmlhttp.onreadystatechange = function()
+                {
+                    if(this.readyState == 4 && this.status == 200)
+                    {
+                        document.getElementById(section).innerHTML = this.responseText;
+                    }
+                };
+            
+                connect_string = 'db_connect.php?t=' + section + '&u=' + email + '&p=' + projectName;
+                xmlhttp.open("GET", connect_string, true);
+                xmlhttp.send();
+            }
+            
+            function storySubmit()
+            {
+                var http = new XMLHttpRequest();
+                var url = 'insert.php';
+                
+                var params = 'table=story';
+                params += '&project=' + projectName;
+                params += '&user=' + email;
+                params += '&name=' + document.forms["newStoryForm"].elements["storyname"].value;
+                params += '&size=' + document.forms["newStoryForm"].elements["storysize"].value;
+                params += '&desc=' + document.forms["newStoryForm"].elements["storydesc"].value;
+                
+                http.open('POST', url, true);
+
+                //Send the proper header information along with the request
+                http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+                http.onreadystatechange = function() 
+                {
+                
+                    //Call a function when the state changes.
+                    if(http.readyState == 4 && http.status == 200)
+                    {
+                        // Refresh stories
+                        loadData("story");
+                
+                    }
+                }
+                http.send(params);
+                
+
+                // Clear form
+                document.forms["newStoryForm"].elements["storyname"].value = "";
+                document.forms["newStoryForm"].elements["storysize"].value = "undef";
+                document.forms["newStoryForm"].elements["storydesc"].value = "";
+            }
+            
+            window.onload = setup;
+        
+        </script>
+    </head>
+    
+    <body>
+
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                    <a class="navbar-brand" href="#">Core Communication Collaboration Portal</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="html/bug.html">Bugs</a></li>
+                        <li><a href="html/story.html">User Stories</a></li>
+                        <li><a href="html/chat.html">Chat</a></li>
+                    </ul>
+                    
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li>    
+                            <div id="my-signin2"></div>
+                            <script>
+    
+                                function onSuccess(googleUser) 
+                                {
+                                    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+                                }
+                                
+                                function onFailure(error) 
+                                {
+                                    console.log(error);
+                                }
+                            
+                                function renderButton() 
+                                {
+                                    gapi.signin2.render('my-signin2', 
+                                    {
+                                        'scope': 'profile email',
+                                        'width': 240,
+                                        'height': 50,
+                                        'longtitle': true,
+                                        'theme': 'dark',
+                                        'onsuccess': onSuccess,
+                                        'onfailure': onFailure
+      
+                                    });
+                                }
+ 
+                            </script>
+
+                            <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+            
+                        </li>
+                        <li>
+                            <a href="#" onclick="signOut();">Sign out</a>
+                            <script>
+                                function signOut() 
+                                {
+                                    var auth2 = gapi.auth2.getAuthInstance();
+                                    auth2.signOut().then(function () {
+                                    console.log('User signed out.');
+                                });
+                                }
+
+                            </script>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <h1>Current project: <span id="project"></span></h1>
+    
+        <!-- FIRST COMUMN---------->
+    
+        <div class="col-sm-4">
+            <h2>Bugs</h2>
+            <h2>-----------------</h2>
+            <p id="bug">Coming Soon...</p>
+        </div>
+
+
+        <!-- MIDDLE COLUMN ---------->       
+    
+        <div class="col-md-4">
+        
+            <h2>User Stories</h2>
+            <h2>-----------------</h2>
+        
+            <table class="table table-primary" id="story">
+    
+                <tr>
+                    <th>Story: </th>
+                    <th>story title from db</th>
+                </tr>
+            
+                <tr>
+                    <td>Size: </td>
+                    <td>s/m/l from db</td>
+                </tr>
+                <tr>
+                    <td>Owner: </td>
+                    <td>id from creator</td>
+                </tr>
+                <tr>
+                    <td>Description: </td>
+                    <td>description from db</td>
+                </tr>
+            </table>
+            
+            <br/>
+            <br/>       
+    
+            <div class="container">
+                <!-- Trigger the modal with a button -->
+    
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Story</button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+    
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="modal-title">Story</h2>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                                    
+                                <form action="" id="newStoryForm">
+                                    <p class="modaltext">Story Name: <input id="storyname" type="text" name="Name" placeholder="Story Name..."></p>
+                                    <p class="modaltext">Story size: 
+                                        <select id="storysize" name="Size">
+                                            <option value="undef"></option>
+                                            <option value="small">Small</option>
+                                            <option value="medium">Medium</option>
+                                            <option value="large">Large</option>
+                                        </select>
+                                    </p>
+                                    <p class="modaltext">Story Description:</p>
+                                    <textarea id="storydesc" rows="4" cols="30" name="comment" placeholder="Enter story description here..."></textarea>
+                                </form>
+                                <br/>
+                                <br/>
+
+                
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="storySubmit" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+                        </div>
+                
+                    </div>
+                </div>
+            </div>
+        </div>       
+        
+        <!-- RIGHT COLUMN ---------->
+    
+        <div class="col-sm-4">
+            <h2>Chat</h2>
+            <h2>-----------------</h2>
+            <p id="chat">Coming Soon...</p>
+        </div> 
+
+    </body>
+</html>
+
