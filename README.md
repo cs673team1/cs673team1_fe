@@ -26,11 +26,13 @@ Chat works by ...
 
 ### Sprint Management Feature
 
-
+TODO
+Sprint management ...
 
 ### Requirements Management Feature
 
-Requirements are managed in a pan
+TODO
+Requirements (aka user stories) are managed in a panel ...
 
 ### Bug Management Feature
 
