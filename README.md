@@ -146,7 +146,7 @@ object file'.  See
 https://stackoverflow.com/questions/27566999/git-with-intellij-idea-could-not-read-from-remote-repository for more.
 
 If you use https for the git connection, set the remote repository to this repository by selecting VCS --> Git --> 
-Remotes and entering '+' and then origin https://github.com/jonathanshapiro/cs673team1_fe.git in the pop up box.
+Remotes and entering '+' and then origin https://github.com/cs673team1/cs673team1_fe.git in the pop up box.
 
 It is also useful to tell PhpStorm that GitHub is being used.  Go to Settings --> Version Control --> GitHub and 'get a
 token' by selecting the '+', enter your user name and password.  Now PhpStorm Git Push command will push back to GitHub
