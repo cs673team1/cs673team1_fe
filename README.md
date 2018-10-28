@@ -155,6 +155,21 @@ without asking for additional login information each time.
 Note that to make the Version Control window appear (default location is at the bottom of the PhpStorm IDE) it may
 be necessary to enter 'Alt + 9'.  
 
+PHPUnit can be used for unit testing of class files.  See installation and use notes at 
+https://www.jetbrains.com/help/phpstorm/enabling-php-unit-support.html for more details.  Briefly, install the 
+phpunit.phar (PHP Archive file) on the previously created php binary directory (C:\php).  The .phar file can be 
+obtained from https://phar.phpunit.de, instructions for PHPUnit 7 can be found at 
+https://phpunit.de/getting-started/phpunit-7.html, which suggests the following to install:
+
+```
+wget -O phpunit https://phar.phpunit.de/phpunit-7.phar
+chmod +x phpunit
+./phpunit --version
+PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+```
+
+To use this the php directory must be C:\bin not C:\php ... argh.
+
 #### mySQL
 
 TODO 
