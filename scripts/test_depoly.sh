@@ -12,7 +12,7 @@ fi
 loc_root="/var/www"
 target_loc="${loc_root}/$1"
 
-# stop here until tested ...
+# stop here until tested ... still and again
 echo "in debug ... do not use yet!"
 exit
 
