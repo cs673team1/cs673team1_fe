@@ -30,53 +30,17 @@
    <script src="https://apis.google.com/js/platform.js" async defer></script>
    <link rel="stylesheet" href="scroll.css">
 
-   <!-- JavaScript for Ajax -->
+   <!-- Import JavaScript functionality and set window.onload -->
+   <script src="js/chat.js"></script>
+   <script src="js/users.js"></script>
    <script type="text/javascript">
-      function getMessages() {
-         if (window.XMLHttpRequest) {
-            http = new XMLHttpRequest();
-         }
-         else {
-            http = new ActiveXObject("Microsoft.XMLHTTP");
-         }
-
-         http.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-               const data = JSON.parse(this.responseText);
-               msgs =  "";
-               for (x in data) {
-                  msgs +=
-                     "<div class=\'\'>\n" +
-                     "   <div class=\'panel panel-white post panel-shadow\'>\n" +
-                     "      <div class=\'post-heading\'>\n" +
-                     "         <div class=\'pull-left image\'>\n" +
-                     "            <img src=\'http://bootdey.com/img/Content/user_1.jpg\' class=\'img-circle avatar\' alt=\'user profile image\' />\n" +
-                     "         </div>\n" +
-                     "         <div class=\"pull-left meta\">\n" +
-                     "            <div class=\"title h5\">\n" +
-                     "               <a href=\"#\"><b>" + data[x].user_userID + "</b></a>\n" +
-                     "            </div>\n" +
-                     "            <h6 class=\"text-muted time\">" + data[x].timeSent + "</h6>\n" +
-                     "         </div>\n" +
-                     "      </div>\n" +
-                     "      <div class=\"card\" style=\"height: 12rem\">\n" +
-                     "         <p class=\"card-text\">" + data[x].content + "</p>\n" +
-                     "      </div>\n" +
-                     "   </div>\n" +
-                     "</div>\n\n";
-               }
-
-               document.getElementById("chatPane").innerHTML = msgs;
-            }
-         };
-
-         // TODO: Get this part working.
-         http.open('POST', 'php/chatHandler.php', true);
-         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-         http.send('request=get');
+      function startup()
+      {
+         getMessages();
+         getUsers();
       }
 
-      window.onload = getMessages;
+      window.onload = startup;
    </script>
 </head>
 
@@ -106,13 +70,13 @@
                      User Login
                      <span class="caret"></span>
                   </button>
-                  <ul class="dropdown-menu" role="menu">
-                     <li><a href="#">Allen</a></li>
-                     <li><a href="#">Andrew</a></li>
+                  <ul class="dropdown-menu" role="menu" id="user-list">
+
+                    <!-- <li><a href="#">Andrew</a></li>
                      <li><a href="#">Jonathon</a></li>
                      <li><a href="#">Kevin</a></li>
                      <li><a href="#">Lynn</a></li>
-                     <li><a href="#">Ron</a></li>
+                     <li><a href="#">Ron</a></li> -->
                   </ul>
                </div>
             </li>
@@ -129,7 +93,7 @@
       </div>
       <div class="">
          <div class="widget-area no-padding blank">
-            <div class="status-upload">\
+            <div class="status-upload">
                <form>
                   <textarea class="" placeholder="What are you doing right now?"></textarea>
                   <button type="submit" class="btn btn-primary btn-lg"><i class="fa fa-share"></i> Share</button>
