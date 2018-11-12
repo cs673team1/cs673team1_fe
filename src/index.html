@@ -1,810 +1,692 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>C3PO </title>
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
-    
-    
+   <title>C3PO </title>
+   <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+   <!-- Latest compiled and minified CSS -->
+   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    
-<!-- Story Pop up -->    
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
-<!-- Google Sign In-->
-<meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="659197638484-0r394k07fsa5ar9duq3u3q0f4pkk46tj.apps.googleusercontent.com">
+   <!-- Optional theme -->
+   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+         integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <link rel="stylesheet" href="scroll.css">         
-</head>
-<body>
+   <!-- Latest compiled and minified JavaScript -->
+   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+           integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+           crossorigin="anonymous"></script>
 
+   <!-- Story Pop up -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="index.html">Core Communication Collaboration Portal</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="index.html">Home</a></li>
-        <li class="dropdown"><a href='html/bug.html'>Bugs</a>
-        </li>
-        <li><a href="html/story.html">User Stories</a></li>
-        <li><a href="html/chat.html">Chat</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
+   <!-- Google Sign In-->
+   <meta name="google-signin-scope" content="profile email">
+   <meta name="google-signin-client_id"
+         content="659197638484-0r394k07fsa5ar9duq3u3q0f4pkk46tj.apps.googleusercontent.com">
+   <script src="https://apis.google.com/js/platform.js" async defer></script>
+   <link rel="stylesheet" href="scroll.css">
 
-          <li>
-          <div class = "btn-group">
-   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-      User Login 
-      <span class = "caret"></span>
-   </button>
-   
-   <ul class = "dropdown-menu" role = "menu">
-      <li><a href = "#">Allen</a></li>
-      <li><a href = "#">Andrew</a></li>
-      <li><a href = "#">Jonathon</a></li>
-      <li><a href = "#">Kevin</a></li>
-      <li><a href = "#">Lynn</a></li>
-      <li><a href = "#">Ron</a></li>
-       
-   </ul>
-   
-</div>
+   <!-- JavaScript for Ajax -->
+   <script type="text/javascript">
+      function getMessages() {
+         if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+         }
+         else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+         }
 
-          </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-    
-       
-<div class="row">
-    
-<!-- Chat COMUMN---------->
-    
-<div class="col-sm-3" id="left" height: 100px>
-        <h2 class="panel panel-white post text-center">Chat</h2>
+         xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+               const data = JSON.parse(this.responseText);
+               msgs =  "";
+               for (x in data) {
+                  msgs +=
+                     "<div class=\'\'>\n" +
+                     "   <div class=\'panel panel-white post panel-shadow\'>\n" +
+                     "      <div class=\'post-heading\'>\n" +
+                     "         <div class=\'pull-left image\'>\n" +
+                     "            <img src=\'http://bootdey.com/img/Content/user_1.jpg\' class=\'img-circle avatar\' alt=\'user profile image\' />\n" +
+                     "         </div>\n" +
+                     "         <div class=\"pull-left meta\">\n" +
+                     "            <div class=\"title h5\">\n" +
+                     "               <a href=\"#\"><b>" + data[x].user_userID + "</b></a>\n" +
+                     "            </div>\n" +
+                     "            <h6 class=\"text-muted time\">" + data[x].timeSent + "</h6>\n" +
+                     "         </div>\n" +
+                     "      </div>\n" +
+                     "      <div class=\"card\" style=\"height: 12rem\">\n" +
+                     "         <p class=\"card-text\">" + data[x].content + "</p>\n" +
+                     "      </div>\n" +
+                     "   </div>\n" +
+                     "</div>\n\n";
+               }
 
-<div class="">
-
-        <div class="">
-            <div class="panel panel-white post panel-shadow">
-                <div class="post-heading">
-                    <div class="pull-left image">
-                        <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
-                    </div>
-                    <div class="pull-left meta">
-                        <div class="title h5">
-                            <a href="#"><b>Andrew Altizer</b></a>
-            
-                        </div>
-                        <h6 class="text-muted time">1 minute ago</h6>
-                    </div>
-                </div> 
-                <div  class="card" style="height: 12rem"> 
-                    &nbsp;
-                    <p class="card-text">Bootdey iweb designers</p>
-      
-                </div>
-            </div>
-        </div>
-        <div class="">
-            <div class="panel panel-white post panel-shadow">
-                <div class="post-heading">
-                    <div class="pull-left image">
-                        <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
-                    </div>
-                    <div class="pull-left meta">
-                        <div class="title h5">
-                            <a href="#"><b>Andrew Altizer</b></a>
-                            
-                        </div>
-                        <h6 class="text-muted time">1 minute ago</h6>
-                    </div>
-                </div> 
-                <div  class="card" style="height: 12rem"> 
-                    &nbsp;
-                    <p class="card-text">Bootdey iweb designers</p>
-
-                </div>
-            </div>
-        </div>
-
-  
-    
-    <div class="">
-    						<div class="widget-area no-padding blank">
-								<div class="status-upload">
-									<form>
-										<textarea class="" placeholder="What are you doing right now?" ></textarea>
-					
-										<button type="submit" class="btn btn-primary btn-lg"><i class="fa fa-share"></i> Share</button>
-									</form>
-								</div><!-- Status Upload  -->
-							</div><!-- Widget Area -->
-						</div>
-        
-
-    
-</div>
-            
-    </div>   
-    
-<!-- Cuttent Iteration COLUMN ---------->       
-    
-<div class="col-sm-3" id="middleLeft" height: 100px>
-        
-        <h2 class="panel panel-white post panel-shadow text-center">Current Iteration</h2>
-        
-        
-
-        
-        
-<div class="card" style="width: auto;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<div class = "btn-group">
-   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-      Move 
-      <span class = "caret"></span>
-   </button>
-   
-   <ul class = "dropdown-menu" role = "menu">
-      <li><a href = "#">Action</a></li>
-      <li><a href = "#">Another action</a></li>
-      <li><a href = "#">Something else here</a></li>
-      
-      <li class = "divider"></li>
-      <li><a href = "#">Separated link</a></li>
-   </ul>
-   
-</div>
-      
-      
-      
-      
-  </div>
-</div>
-        
-    <br>
-        
-<div class="card" style="width: auto;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<div class = "btn-group">
-   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-      Move 
-      <span class = "caret"></span>
-   </button>
-   
-   <ul class = "dropdown-menu" role = "menu">
-      <li><a href = "#">Action</a></li>
-      <li><a href = "#">Another action</a></li>
-      <li><a href = "#">Something else here</a></li>
-      
-      <li class = "divider"></li>
-      <li><a href = "#">Separated link</a></li>
-   </ul>
-   
-</div>
-  </div>
-        </div>
-    <br>
-        
-<div class="card" style="width: auto;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<div class = "btn-group">
-   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-      Move 
-      <span class = "caret"></span>
-   </button>
-   
-   <ul class = "dropdown-menu" role = "menu">
-      <li><a href = "#">Action</a></li>
-      <li><a href = "#">Another action</a></li>
-      <li><a href = "#">Something else here</a></li>
-      
-      <li class = "divider"></li>
-      <li><a href = "#">Separated link</a></li>
-   </ul>
-   
-</div>
-  </div>
-</div>    
-    
-        <br>
-<div class="card" style="width: auto;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<div class = "btn-group">
-   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-      Move 
-      <span class = "caret"></span>
-   </button>
-   
-   <ul class = "dropdown-menu" role = "menu">
-      <li><a href = "#">Action</a></li>
-      <li><a href = "#">Another action</a></li>
-      <li><a href = "#">Something else here</a></li>
-      
-      <li class = "divider"></li>
-      <li><a href = "#">Separated link</a></li>
-   </ul>
-   
-</div>
-      
-      
-      
-      
-  </div>
-</div>
-        
-    <br>
-        
-<div class="card" style="width: auto;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<div class = "btn-group">
-   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-      Move 
-      <span class = "caret"></span>
-   </button>
-   
-   <ul class = "dropdown-menu" role = "menu">
-      <li><a href = "#">Action</a></li>
-      <li><a href = "#">Another action</a></li>
-      <li><a href = "#">Something else here</a></li>
-      
-      <li class = "divider"></li>
-      <li><a href = "#">Separated link</a></li>
-   </ul>
-   
-</div>
-  </div>
-        </div>
-    <br>
-        
-<div class="card" style="width: auto;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<div class = "btn-group">
-   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-      Move 
-      <span class = "caret"></span>
-   </button>
-   
-   <ul class = "dropdown-menu" role = "menu">
-      <li><a href = "#">Action</a></li>
-      <li><a href = "#">Another action</a></li>
-      <li><a href = "#">Something else here</a></li>
-      
-      <li class = "divider"></li>
-      <li><a href = "#">Separated link</a></li>
-   </ul>
-   
-</div>
-  </div>
-</div> 
-        <br>       
-    
-<div class="card" style="width: auto;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<div class = "btn-group">
-   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-      Move 
-      <span class = "caret"></span>
-   </button>
-   
-   <ul class = "dropdown-menu" role = "menu">
-      <li><a href = "#">Action</a></li>
-      <li><a href = "#">Another action</a></li>
-      <li><a href = "#">Something else here</a></li>
-      
-      <li class = "divider"></li>
-      <li><a href = "#">Separated link</a></li>
-   </ul>
-   
-</div>
-      
-      
-      
-      
-  </div>
-</div>
-        
-    <br>
-        
-<div class="card" style="width: auto;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<div class = "btn-group">
-   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-      Move 
-      <span class = "caret"></span>
-   </button>
-   
-   <ul class = "dropdown-menu" role = "menu">
-      <li><a href = "#">Action</a></li>
-      <li><a href = "#">Another action</a></li>
-      <li><a href = "#">Something else here</a></li>
-      
-      <li class = "divider"></li>
-      <li><a href = "#">Separated link</a></li>
-   </ul>
-   
-</div>
-  </div>
-        </div>
-    <br>
-        
-<div class="card" style="width: auto;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<div class = "btn-group">
-   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-      Move 
-      <span class = "caret"></span>
-   </button>
-   
-   <ul class = "dropdown-menu" role = "menu">
-      <li><a href = "#">Action</a></li>
-      <li><a href = "#">Another action</a></li>
-      <li><a href = "#">Something else here</a></li>
-      
-      <li class = "divider"></li>
-      <li><a href = "#">Separated link</a></li>
-   </ul>
-   
-</div>
-  </div>
-</div> 
-  
-
-     </div>     
-    
-<!-- Backlog-->    
-    
-<div class="col-sm-3" id="middleRight">
-        
-        <h2 class="panel panel-white post text-center">Backlog</h2>
-        
-<div class="card" style="width: auto;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<div class = "btn-group">
-   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-      Move 
-      <span class = "caret"></span>
-   </button>
-   
-   <ul class = "dropdown-menu" role = "menu">
-      <li><a href = "#">Action</a></li>
-      <li><a href = "#">Another action</a></li>
-      <li><a href = "#">Something else here</a></li>
-      
-      <li class = "divider"></li>
-      <li><a href = "#">Separated link</a></li>
-   </ul>
-   
-</div>   
-  </div>
-</div>
-        
-    <br>
-        
-<div class="card" style="width: auto;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<div class = "btn-group">
-   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-      Move 
-      <span class = "caret"></span>
-   </button>
-   
-   <ul class = "dropdown-menu" role = "menu">
-      <li><a href = "#">Action</a></li>
-      <li><a href = "#">Another action</a></li>
-      <li><a href = "#">Something else here</a></li>
-      
-      <li class = "divider"></li>
-      <li><a href = "#">Separated link</a></li>
-   </ul>
-   
-</div>
-  </div>
-        </div>
-    <br>
-        
-<div class="card" style="width: auto;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<div class="btn-group">
-   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-      Move 
-      <span class = "caret"></span>
-   </button>
-   
-   <ul class = "dropdown-menu" role = "menu">
-      <li><a href = "#">Action</a></li>
-      <li><a href = "#">Another action</a></li>
-      <li><a href = "#">Something else here</a></li>
-      
-      <li class = "divider"></li>
-      <li><a href = "#">Separated link</a></li>
-   </ul>
-   
-</div>
-  </div>
-</div>    
-        <br>
-<div class="card" style="width: auto;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<div class = "btn-group">
-   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-      Move 
-      <span class = "caret"></span>
-   </button>
-   
-   <ul class = "dropdown-menu" role = "menu">
-      <li><a href = "#">Action</a></li>
-      <li><a href = "#">Another action</a></li>
-      <li><a href = "#">Something else here</a></li>
-      
-      <li class = "divider"></li>
-      <li><a href = "#">Separated link</a></li>
-   </ul>
-   
-</div>   
-  </div>
-</div>
-        
-    <br>
-        
-<div class="card" style="width: auto;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<div class = "btn-group">
-   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-      Move 
-      <span class = "caret"></span>
-   </button>
-   
-   <ul class = "dropdown-menu" role = "menu">
-      <li><a href = "#">Action</a></li>
-      <li><a href = "#">Another action</a></li>
-      <li><a href = "#">Something else here</a></li>
-      
-      <li class = "divider"></li>
-      <li><a href = "#">Separated link</a></li>
-   </ul>
-   
-</div>
-  </div>
-        </div>
-    <br>
-        
-<div class="card" style="width: auto;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<div class="btn-group">
-   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-      Move 
-      <span class = "caret"></span>
-   </button>
-   
-   <ul class = "dropdown-menu" role = "menu">
-      <li><a href = "#">Action</a></li>
-      <li><a href = "#">Another action</a></li>
-      <li><a href = "#">Something else here</a></li>
-      
-      <li class = "divider"></li>
-      <li><a href = "#">Separated link</a></li>
-   </ul>
-   
-</div>
-  </div>
-</div>    
-        <br>
-<div class="card" style="width: auto;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<div class = "btn-group">
-   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-      Move 
-      <span class = "caret"></span>
-   </button>
-   
-   <ul class = "dropdown-menu" role = "menu">
-      <li><a href = "#">Action</a></li>
-      <li><a href = "#">Another action</a></li>
-      <li><a href = "#">Something else here</a></li>
-      
-      <li class = "divider"></li>
-      <li><a href = "#">Separated link</a></li>
-   </ul>
-   
-</div>   
-  </div>
-</div>
-        
-    <br>
-        
-<div class="card" style="width: auto;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<div class = "btn-group">
-   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-      Move 
-      <span class = "caret"></span>
-   </button>
-   
-   <ul class = "dropdown-menu" role = "menu">
-      <li><a href = "#">Action</a></li>
-      <li><a href = "#">Another action</a></li>
-      <li><a href = "#">Something else here</a></li>
-      
-      <li class = "divider"></li>
-      <li><a href = "#">Separated link</a></li>
-   </ul>
-   
-</div>
-  </div>
-        </div>
-    <br>
-        
-<div class="card" style="width: auto;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<div class="btn-group">
-   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-      Move 
-      <span class = "caret"></span>
-   </button>
-   
-   <ul class = "dropdown-menu" role = "menu">
-      <li><a href = "#">Action</a></li>
-      <li><a href = "#">Another action</a></li>
-      <li><a href = "#">Something else here</a></li>
-      
-      <li class = "divider"></li>
-      <li><a href = "#">Separated link</a></li>
-   </ul>
-   
-</div>
-  </div>
-</div>    
-        <br>    
-        <br>       
-    
-<div class="container-fluid">
-    <div class="text-ceter">
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">Add Story</button>
-    </div>
-
-  <!-- Modal -->
-  <div class="modal fade " id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header" method="post">
-        <h2 class="modal-title">Story</h2>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-        </div>
-        <div class="modal-body">
-          
-            <p class="modaltext">Story Name:</p>
-      <textarea rows="1" cols="30" name="comment" form="userdescription" id="storyName1"
-          placeholder="Enter story description here...">
-        </textarea>    
-            
-          <p class="modaltext" id="sizeSelect1">Select story size: </p><br>
-          <label class="modaltext" id="radiobuttons">S
-              <input type="radio" checked="checked" name="radio" id="sizeSmall1">
-              <span class="checkmark"></span>
-         
-                M <input type="radio" id="sizeMedium1" name="radio">
-              <span class="checkmark"></span>
-                L <input type="radio" id="sizeLarge1" name="radio">
-              <span class="checkmark"></span>
-          </label>
-
-<br>
-    <p class="modaltext" id="storyDes1">Story Description:</p>
-      <textarea rows="4" cols="30" name="comment" form="userdescription"
-          placeholder="Enter story description here...">
-        </textarea>
-<br>
-<br>
-    <form id="ownerName1" >
-        <p class="modaltext">Story Owner: <input type="text" name="Owner" placeholder="Owner Name..."></p>
-    </form> <br>
-    
-
-    </div>
-          
- <!-- Add On click JS to this button to add info to DB. Send the request to a php file.  On the PHP side, run an insert command -->         
-        </div>
-        <script>    
-            var http = new XMLHttpRequest();
-            var url = 'get_data.php';
-            var params = 'orem=ipsum&name=binny';
-            http.open('POST', 'db_connect.php', true);
-
-            //Send the proper header information along with the request
-            
-            http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-            http.onreadystatechange = function() {
-                
-                //Call a function when the state changes.
-                if(http.readyState == 4 && http.status == 200) {
-                    alert(http.responseText);
-                }
+               document.getElementById("chatPane").innerHTML = msgs;
             }
-            http.send(params);
-            
-            
-        </script>
-        
-        
-        <div class="modal-footer">
-          <button id="submit1" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
-        </div>
+         };
+
+         // TODO: Get this part working.
+         xmlhttp.open('POST', 'php/chatHandler.php?req=get', true);
+         xmlhttp.send();
+      }
+
+      window.onload = getMessages;
+   </script>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse">
+   <div class="container-fluid">
+      <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+         </button>
+         <a class="navbar-brand" href="index.html">Core Communication Collaboration Portal</a>
       </div>
-      
-    </div>
-  </div>
-  
+      <div class="collapse navbar-collapse" id="myNavbar">
+         <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li class="dropdown"><a href='html/bug.html'>Bugs</a>
+            </li>
+            <li><a href="html/story.html">User Stories</a></li>
+            <li><a href="html/chat.html">Chat</a></li>
+         </ul>
+         <ul class="nav navbar-nav navbar-right">
+            <li>
+               <div class="btn-group">
+                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                     User Login
+                     <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                     <li><a href="#">Allen</a></li>
+                     <li><a href="#">Andrew</a></li>
+                     <li><a href="#">Jonathon</a></li>
+                     <li><a href="#">Kevin</a></li>
+                     <li><a href="#">Lynn</a></li>
+                     <li><a href="#">Ron</a></li>
+                  </ul>
+               </div>
+            </li>
+         </ul>
+      </div>
+   </div>
+</nav>
+<div class="row">
+   <!-- Chat COLUMN---------->
+   <div class="col-sm-3" id="left" height: 100px>
+      <h2 class="panel panel-white post text-center">Chat</h2>
+      <div class="" id="chatPane">
+         <!-- Filled in by script -->
+      </div>
+      <div class="">
+         <div class="widget-area no-padding blank">
+            <div class="status-upload">\
+               <form>
+                  <textarea class="" placeholder="What are you doing right now?"></textarea>
+                  <button type="submit" class="btn btn-primary btn-lg"><i class="fa fa-share"></i> Share</button>
+               </form>
+            </div>
+            <!-- Status Upload  -->
+         </div>
+         <!-- Widget Area -->
+      </div>
+   </div>
+   <!-- Current Iteration COLUMN ---------->
+   <div class="col-sm-3" id="middleLeft" height: 100px>
+      <h2 class="panel panel-white post panel-shadow text-center">Current Iteration</h2>
+      <div class="card" style="width: auto;">
+         <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+               content.</p>
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Move
+                  <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="card" style="width: auto;">
+         <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+               content.</p>
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Move
+                  <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="card" style="width: auto;">
+         <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+               content.</p>
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Move
+                  <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="card" style="width: auto;">
+         <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+               content.</p>
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Move
+                  <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="card" style="width: auto;">
+         <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+               content.</p>
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Move
+                  <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="card" style="width: auto;">
+         <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+               content.</p>
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Move
+                  <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="card" style="width: auto;">
+         <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+               content.</p>
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Move
+                  <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="card" style="width: auto;">
+         <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+               content.</p>
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Move
+                  <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="card" style="width: auto;">
+         <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+               content.</p>
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Move
+                  <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- Backlog-->
+   <div class="col-sm-3" id="middleRight">
+      <h2 class="panel panel-white post text-center">Backlog</h2>
+      <div class="card" style="width: auto;">
+         <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+               content.</p>
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Move
+                  <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="card" style="width: auto;">
+         <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+               content.</p>
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Move
+                  <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="card" style="width: auto;">
+         <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+               content.</p>
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Move
+                  <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="card" style="width: auto;">
+         <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+               content.</p>
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Move
+                  <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="card" style="width: auto;">
+         <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+               content.</p>
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Move
+                  <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="card" style="width: auto;">
+         <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+               content.</p>
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Move
+                  <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="card" style="width: auto;">
+         <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+               content.</p>
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Move
+                  <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="card" style="width: auto;">
+         <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+               content.</p>
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Move
+                  <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="card" style="width: auto;">
+         <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+               content.</p>
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Move
+                  <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <br>
+      <br>
+      <div class="container-fluid">
+         <div class="text-ceter">
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
+               Add Story
+            </button>
+         </div>
+         <!-- Modal -->
+         <div class="modal fade " id="myModal" role="dialog">
+            <div class="modal-dialog">
+               <!-- Modal content-->
+               <div class="modal-content">
+                  <div class="modal-header" method="post">
+                     <h2 class="modal-title">Story</h2>
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                     <p class="modaltext">Story Name:</p>
+                     <textarea rows="1" cols="30" name="comment" form="userdescription" id="storyName1"
+                               placeholder="Enter story description here...">
+        </textarea>
+                     <p class="modaltext" id="sizeSelect1">Select story size: </p>
+                     <br>
+                     <label class="modaltext" id="radiobuttons">S
+                        <input type="radio" checked="checked" name="radio" id="sizeSmall1">
+                        <span class="checkmark"></span>
+                        M <input type="radio" id="sizeMedium1" name="radio">
+                        <span class="checkmark"></span>
+                        L <input type="radio" id="sizeLarge1" name="radio">
+                        <span class="checkmark"></span>
+                     </label>
+                     <br>
+                     <p class="modaltext" id="storyDes1">Story Description:</p>
+                     <textarea rows="4" cols="30" name="comment" form="userdescription"
+                               placeholder="Enter story description here...">
+        </textarea>
+                     <br>
+                     <br>
+                     <form id="ownerName1">
+                        <p class="modaltext">Story Owner: <input type="text" name="Owner" placeholder="Owner Name...">
+                        </p>
+                     </form>
+                     <br>
+                  </div>
+                  <!-- Add On click JS to this button to add info to DB. Send the request to a php file.  On the PHP side, run an insert command -->
+               </div>
 
-     </div>   
-        
-<!-- Bug COLUMN ---------->   
+               <script>
+                  // TODO: Clean this up. Move it?
+                  /*var http = new XMLHttpRequest();
+                  var url = 'get_data.php';
+                  var params = 'orem=ipsum&name=binny';
+                  http.open('POST', 'php/db_connect.php', true);
 
-<div class="col-sm-3" id="right">
+                  //Send the proper header information along with the request
 
-    <h2 class="panel panel-white post text-center">Bugs</h2>
-        
-<div class="card" style="width: auto;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<div class = "btn-group">
-   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-      Move 
-      <span class = "caret"></span>
-   </button>
-   
-   <ul class = "dropdown-menu" role = "menu">
-      <li><a href = "#">Action</a></li>
-      <li><a href = "#">Another action</a></li>
-      <li><a href = "#">Something else here</a></li>
-      
-      <li class = "divider"></li>
-      <li><a href = "#">Separated link</a></li>
-   </ul>
-   
-</div>   
-  </div>
+                  http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+                  http.onreadystatechange = function() {
+
+                      //Call a function when the state changes.
+                      if(http.readyState == 4 && http.status == 200) {
+                          alert(http.responseText);
+                      }
+                  };
+                  http.send(params);*/
+
+
+               </script>
+               <div class="modal-footer">
+                  <button id="submit1" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- Bug COLUMN ---------->
+   <div class="col-sm-3" id="right">
+      <h2 class="panel panel-white post text-center">Bugs</h2>
+      <div class="card" style="width: auto;">
+         <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+               content.</p>
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Move
+                  <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="card" style="width: auto;">
+         <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+               content.</p>
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Move
+                  <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="card" style="width: auto;">
+         <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+               content.</p>
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Move
+                  <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
 </div>
-        
-    <br>
-        
-<div class="card" style="width: auto;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<div class = "btn-group">
-   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-      Move 
-      <span class = "caret"></span>
-   </button>
-   
-   <ul class = "dropdown-menu" role = "menu">
-      <li><a href = "#">Action</a></li>
-      <li><a href = "#">Another action</a></li>
-      <li><a href = "#">Something else here</a></li>
-      
-      <li class = "divider"></li>
-      <li><a href = "#">Separated link</a></li>
-   </ul>
-   
-</div>
-  </div>
-        </div>
-    <br>
-        
-<div class="card" style="width: auto;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<div class="btn-group">
-   <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-      Move 
-      <span class = "caret"></span>
-   </button>
-   
-   <ul class = "dropdown-menu" role = "menu">
-      <li><a href = "#">Action</a></li>
-      <li><a href = "#">Another action</a></li>
-      <li><a href = "#">Something else here</a></li>
-      
-      <li class = "divider"></li>
-      <li><a href = "#">Separated link</a></li>
-   </ul>
-   
-</div>
-  </div>
-</div> 
-        
-    </div>
-
-    
-</div>
-
 </body>
 </html>
-
