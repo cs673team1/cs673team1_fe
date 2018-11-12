@@ -46,13 +46,21 @@ if ($request == "get")
     else {
         $dbata[0] = "No messages";
     }
+
+    echo json_encode($dbdata);
 }
 elseif ($request == "send") {
-        // TODO: Send Message
-}
-else {
-    $dbdata[0] = "Invalid request: " . $request;
+    $userName = "Allen Bouchard"; //$_POST["user"];
+    $content = "Yet another test message"; //$_POST["content"];
+    $projectName = "The Project";
+
+    $result = $project->getProjectIdByName($projectName);
+    $result2 = $user->getUserIdByUserName($userName);
+    if ($result->num_rows > 0 AND $result2->num_rows > 0) {
+        $projectID = $result->fetch_assoc()['projectID'];
+        $userID = $result2->fetch_assoc()['userID'];
+        $result = $message->addMessage($content, $projectID, $userID);
+    }
 }
 
-echo json_encode($dbdata);
-
+$db->closeDB();

@@ -41,6 +41,7 @@
       }
 
       window.onload = startup;
+
    </script>
 </head>
 
@@ -71,12 +72,7 @@
                      <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" role="menu" id="user-list">
-
-                    <!-- <li><a href="#">Andrew</a></li>
-                     <li><a href="#">Jonathon</a></li>
-                     <li><a href="#">Kevin</a></li>
-                     <li><a href="#">Lynn</a></li>
-                     <li><a href="#">Ron</a></li> -->
+                     <!-- List of users loaded by script -->
                   </ul>
                </div>
             </li>
@@ -95,8 +91,9 @@
          <div class="widget-area no-padding blank">
             <div class="status-upload">
                <form>
-                  <textarea class="" placeholder="What are you doing right now?"></textarea>
-                  <button type="submit" class="btn btn-primary btn-lg"><i class="fa fa-share"></i> Share</button>
+                  <textarea class="" placeholder="What are you doing right now?" id="chat-content"></textarea>
+                  <button type="submit" id="send-message" class="btn btn-primary btn-lg"><i class="fa fa-share"></i> Share</button>
+                  <script type="text/javascript">document.getElementById("send-message").addEventListener("click", sendMessage);</script>
                </form>
             </div>
             <!-- Status Upload  -->

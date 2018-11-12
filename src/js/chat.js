@@ -47,5 +47,22 @@ function getMessages()
 
 function sendMessage()
 {
+   if (window.XMLHttpRequest)
+   {
+      http = new XMLHttpRequest();
+   }
+   else {
+      http = new ActiveXObject("Microsoft.XMLHTTP");
+   }
 
+   http.onreadystatechange = function ()
+   {
+      getMessages();
+   }
+
+   http.open('POST', 'php/chatHandler.php', true);
+   http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+   http.send('request=send&user=Allen Bouchard&content=' + document.getElementById("chat-content").value);
 }
+
+
