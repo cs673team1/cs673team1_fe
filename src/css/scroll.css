@@ -1,0 +1,52 @@
+@media (min-width: 768px){
+  #left {
+    position: absolute;
+    top: 70px;
+    bottom: 0;
+    left: 0;
+    width: 25%;
+    overflow-y: scroll; 
+  }
+
+  #middleLeft {
+    position: absolute;
+    top: 70px;
+    bottom: 0;
+    left: 350px;
+    overflow-y: scroll;
+    width: 25%;
+  }
+    
+  #middleRight {
+    position:absolute;
+    top: 70px;
+    bottom: 0;
+    left: 750px;
+    overflow-y: scroll;
+    width: 25%;
+  }    
+      #right {
+    position: absolute;
+    top: 70px;
+    bottom: 0;
+    left: 1100px;
+    overflow-y: scroll;
+    width: 25%;
+  }
+}
+.footer1 {
+    position: fixed;
+    left: -10;
+    bottom: 0;
+    color: black;
+    background-color: #2d2d2d;
+    text-align: center;
+}
+.divsticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: ;
+    padding: 50px;
+    font-size: 20px;
+}
