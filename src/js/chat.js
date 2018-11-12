@@ -47,6 +47,7 @@ function getMessages()
 
 function sendMessage()
 {
+
    if (window.XMLHttpRequest)
    {
       http = new XMLHttpRequest();
@@ -55,14 +56,16 @@ function sendMessage()
       http = new ActiveXObject("Microsoft.XMLHTTP");
    }
 
-   http.onreadystatechange = function ()
-   {
-      getMessages();
+   http.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+         getMessages();
+      }
    }
 
    http.open('POST', 'php/chatHandler.php', true);
    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
    http.send('request=send&user=Allen Bouchard&content=' + document.getElementById("chat-content").value);
+
 }
 
 
