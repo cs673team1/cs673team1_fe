@@ -13,7 +13,7 @@ require_once('message.php');
 
 $db = new dB();
 $user = new user($db);
-//$project = new project($db);
+$project = new project($db);
 $message = new message($db);
 
 $request = $_POST['request'];
@@ -48,10 +48,10 @@ if ($request == "get")
     }
 
     echo json_encode($dbdata);
-}
-elseif ($request == "send") {
-    $userName = "Allen Bouchard"; //$_POST["user"];
-    $content = "Yet another test message"; //$_POST["content"];
+} elseif ($request == "send")
+{
+    $userName = $_POST["user"];
+    $content =  $_POST["content"];
     $projectName = "The Project";
 
     $result = $project->getProjectIdByName($projectName);
@@ -60,7 +60,17 @@ elseif ($request == "send") {
         $projectID = $result->fetch_assoc()['projectID'];
         $userID = $result2->fetch_assoc()['userID'];
         $result = $message->addMessage($content, $projectID, $userID);
+        if (!$result)
+        {
+            //echo "Could not add " . $content . " to messages)" . "\n";
+        }
+    }else
+    {
+        //echo "User name or project name not found\n";
     }
+
+    //change
 }
+
 
 $db->closeDB();
