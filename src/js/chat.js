@@ -60,6 +60,7 @@ function sendMessage()
       if (this.readyState == 4 && this.status == 200) {
          getMessages();
       }
+      // change
    }
 
    http.open('POST', 'php/chatHandler.php', true);
