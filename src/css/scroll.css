@@ -57,7 +57,7 @@
     background-color: #24292d;
     text-align: center;
     width: 100%;
-    padding: 10px;
+    padding: 0px;
 }
 div.sticky {
     position: -webkit-sticky;
@@ -65,4 +65,10 @@ div.sticky {
     top: 0;
     padding: 10px;
     font-size: 20px;
+}
+.button1{
+    padding: 50px;
+    font-size: 20px;
+    position: fixed;
+    top: 10px;
 }
