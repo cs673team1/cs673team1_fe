@@ -16,9 +16,7 @@ $user = new user($db);
 //$project = new project($db);
 $message = new message($db);
 
-// TODO: Uncomment next line when going live
-//$request = $_POST["req"];
-$request = "get";
+$request = $_POST['request'];
 
 if ($request == "get")
 {
@@ -47,8 +45,6 @@ if ($request == "get")
                 echo "<br>";
             }
         }
-
-        echo json_encode($dbdata);
     }
     else {
         echo "0 results";
@@ -58,6 +54,8 @@ elseif ($request == "send") {
         // TODO: Send Message
 }
 else {
-    echo "<script>alert('Invalid Request');</script>";
+    $dbdata = "Invalid request: " . $request;
 }
+
+echo json_encode($dbdata);
 
