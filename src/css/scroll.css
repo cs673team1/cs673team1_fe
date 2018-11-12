@@ -2,7 +2,7 @@
   #left {
     position: absolute;
     top: 70px;
-    bottom: 0;
+    bottom: 55px;
     left: 0;
     width: 25%;
     overflow-y: scroll; 
@@ -11,7 +11,7 @@
   #middleLeft {
     position: absolute;
     top: 70px;
-    bottom: 0;
+    bottom: 55px;
     left: 350px;
     overflow-y: scroll;
     width: 25%;
@@ -20,7 +20,7 @@
   #middleRight {
     position:absolute;
     top: 70px;
-    bottom: 0;
+    bottom: 55px;
     left: 750px;
     overflow-y: scroll;
     width: 25%;
@@ -28,7 +28,7 @@
       #right {
     position: absolute;
     top: 70px;
-    bottom: 0;
+    bottom: 55px;
     left: 1100px;
     overflow-y: scroll;
     width: 25%;
@@ -37,7 +37,7 @@
 .footer1 {
     position: fixed;
     left: -10;
-    bottom: 50px;
+    bottom: 55px;
     color: black;
     background-color: #ffffff;
     text-align: center;
@@ -45,7 +45,7 @@
 .footer {
     position: fixed;
     left: -10;
-    bottom: 50px;
+    bottom: 55px;
     color: black;
     text-align: center;
 }
