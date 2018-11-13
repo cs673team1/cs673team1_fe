@@ -12,10 +12,10 @@ function getUsers()
       if (this.readyState == 4 && this.status == 200)
       {
          const data = JSON.parse(this.responseText);
-         users =  "";
+         users =  "<option default=\"login\">User Login</option>";
          for (x in data)
          {
-           users += "<li><a href=\"#\">" + data[x].userName + "</a></li>\n";
+           users += "<option value=\"" + data[x].userName + "\">" + data[x].userName + "</option>";
          }
 
          document.getElementById("user-list").innerHTML = users;

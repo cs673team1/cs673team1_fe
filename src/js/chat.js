@@ -47,26 +47,38 @@ function getMessages()
 
 function sendMessage()
 {
+   content = document.getElementById("chat-content").value;
+   user = document.getElementById("user-list").value;
 
-   if (window.XMLHttpRequest)
-   {
-      http = new XMLHttpRequest();
-   }
-   else {
-      http = new ActiveXObject("Microsoft.XMLHTTP");
-   }
+   if (user != "User Login") {
+      if (content.length <= 500 || content.length == 0) {
+         if (window.XMLHttpRequest) {
+            http = new XMLHttpRequest();
+         }
+         else {
+            http = new ActiveXObject("Microsoft.XMLHTTP");
+         }
 
-   http.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-         getMessages();
+         http.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+               getMessages();
+            }
+
+         }
+
+         http.open('POST', 'php/chatHandler.php', true);
+         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+         http.send('request=send&user=' + user + '&content=' + content);
+      } else {
+         if (content.length == 0) {
+            alert("Please type a message to send.");
+         } else {
+            alert("Message must be no longer than 500 characters. Current lemgth is" + content.length);
+         }
       }
-      // change
+   } else {
+      alert("Please identify which user you are.")
    }
-
-   http.open('POST', 'php/chatHandler.php', true);
-   http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-   http.send('request=send&user=Allen Bouchard&content=' + document.getElementById("chat-content").value);
-
 }
 
 
