@@ -72,3 +72,10 @@ div.sticky {
     position: fixed;
     top: 10px;
 }
+.filterDiv {
+  display: none;
+}
+
+.show {
+  display: block;
+}
