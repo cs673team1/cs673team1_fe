@@ -95,13 +95,16 @@
          <!-- Widget Area -->
       </div>
    </div>
+    
    <!-- Current Iteration COLUMN ---------->
+    
    <div class="col-sm-3" id="middleLeft" height: 100px>
-       <div class="sticky">
+       <div class="sticky HoverOver">
       <h2 class="panel panel-white post panel-shadow text-center">Current Iteration</h2>
         <div class="dropdown myBtnContainer">
-  <button class="default btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"onclick="filterSelection('all')"> Show all<span class="caret"></span></button>
+  <button class="default btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Filter <span class="caret"></span></button>
   <ul class="dropdown-menu">
+    <li><a onclick="filterSelection('all')"> Show All</a></li>
     <li><a onclick="filterSelection('State1')"> State 1</a></li>
     <li><a onclick="filterSelection('State2')"> State 2</a></li>
     <li><a onclick="filterSelection('State3')"> State 3</a></li>
