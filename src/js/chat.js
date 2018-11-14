@@ -47,11 +47,13 @@ function getMessages()
 
 function sendMessage()
 {
+   //alert(document.getElementById("chat-content").value.length);/*
+
    content = document.getElementById("chat-content").value;
    user = document.getElementById("user-list").value;
 
    if (user != "User Login") {
-      if (content.length <= 500 || content.length == 0) {
+      if (content.length <= 500 && content.length > 0) {
          if (window.XMLHttpRequest) {
             http = new XMLHttpRequest();
          }
@@ -62,6 +64,7 @@ function sendMessage()
          http.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                getMessages();
+               document.getElementById("chat-content").value = "";
             }
 
          }
@@ -73,12 +76,13 @@ function sendMessage()
          if (content.length == 0) {
             alert("Please type a message to send.");
          } else {
-            alert("Message must be no longer than 500 characters. Current lemgth is" + content.length);
+            alert("Message must be no longer than 500 characters. Current length is " + content.length);
          }
       }
    } else {
       alert("Please identify which user you are.")
    }
+   //*/
 }
 
 

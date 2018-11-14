@@ -30,19 +30,7 @@
    <script src="https://apis.google.com/js/platform.js" async defer></script>
    <link rel="stylesheet" href="scroll.css">
 
-   <!-- Import JavaScript functionality and set window.onload -->
-   <script src="js/chat.js"></script>
-   <script src="js/users.js"></script>
-   <script type="text/javascript">
-      function startup()
-      {
-         getMessages();
-         getUsers();
-      }
 
-      window.onload = startup;
-
-   </script>
     <link rel="stylesheet" href="css/scroll.css"/>
 
 </head>
@@ -98,8 +86,8 @@
             <div class="status-upload">
                <form>
                   <textarea class="" placeholder="What are you doing right now?" id="chat-content"></textarea>
-                  <button type="submit" id="send-message" class="btn btn-primary btn-lg"><i class="fa fa-share"></i> Share</button>
-                  <script type="text/javascript">document.getElementById("send-message").addEventListener("click", sendMessage);</script>
+                  <button type="button" id="send-message" class="btn btn-primary btn-lg"><i class="fa fa-share"></i> Share</button>
+
                </form>
             </div>
             <!-- Status Upload  -->
@@ -716,5 +704,17 @@
          </ul>
       </div>
    </div></div>
+
+<!-- Import JavaScript functionality and set window.onload -->
+<script src="js/chat.js"></script>
+<script src="js/users.js"></script>
+<script type="text/javascript">
+   getMessages();
+   getUsers();
+
+   document.getElementById("send-message").addEventListener("click", sendMessage);
+</script>
+
+
 </body>
 </html>
