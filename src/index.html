@@ -143,6 +143,15 @@ for (var i = 0; i < btns.length; i++) {
    <div class="col-sm-3" id="middleLeft" height: 100px>
        <div class="sticky">
       <h2 class="panel panel-white post panel-shadow text-center">Current Iteration</h2>
+        <div class="dropdown myBtnContainer">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"onclick="filterSelection('all')"> Show all<span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a onclick="filterSelection('State1')"> State 1</a></li>
+    <li><a onclick="filterSelection('State2')"> State 2</a></li>
+    <li><a onclick="filterSelection('State3')"> State 3</a></li>
+    <li><a onclick="filterSelection('State4')"> State 4</a></li>
+  </ul>
+</div>
        </div>
            <div class="card" style="width: auto;"> <!-- Story Card -->
          <div class="card-body">
