@@ -37,7 +37,7 @@
 
 <body>
 <!--Filtering --> 
-<script> 
+<script>
 filterSelection("all")
 function filterSelection(c) {
   var x, i;
@@ -144,7 +144,7 @@ for (var i = 0; i < btns.length; i++) {
        <div class="sticky">
       <h2 class="panel panel-white post panel-shadow text-center">Current Iteration</h2>
         <div class="dropdown myBtnContainer">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"onclick="filterSelection('all')"> Show all<span class="caret"></span></button>
+  <button class="default btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"onclick="filterSelection('all')"> Show all<span class="caret"></span></button>
   <ul class="dropdown-menu">
     <li><a onclick="filterSelection('State1')"> State 1</a></li>
     <li><a onclick="filterSelection('State2')"> State 2</a></li>
@@ -153,9 +153,10 @@ for (var i = 0; i < btns.length; i++) {
   </ul>
 </div>
        </div>
-           <div class="card" style="width: auto;"> <!-- Story Card -->
+       
+           <div class="card filterDiv State1" style="width: auto;"> <!-- Story Card -->
          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">State 1 Card title</h5>
             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                content.</p>
@@ -175,9 +176,10 @@ for (var i = 0; i < btns.length; i++) {
          </div>
       </div> <!--End Story Card -->
       <br>
-      <div class="card" style="width: auto;"> <!-- Story Card -->
+       
+           <div class="card filterDiv State4" style="width: auto;"> <!-- Story Card -->
          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">State 4 Card title</h5>
             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                content.</p>
@@ -197,9 +199,11 @@ for (var i = 0; i < btns.length; i++) {
          </div>
       </div> <!--End Story Card -->
       <br>
-             <div class="card" style="width: auto;"> <!-- Story Card -->
+       
+       
+           <div class="card filterDiv State3" style="width: auto;"> <!-- Story Card -->
          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">State 3 Card title</h5>
             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                content.</p>
@@ -219,9 +223,10 @@ for (var i = 0; i < btns.length; i++) {
          </div>
       </div> <!--End Story Card -->
       <br>
-             <div class="card" style="width: auto;"> <!-- Story Card -->
+       
+           <div class="card filterDiv State2" style="width: auto;"> <!-- Story Card -->
          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">State 2 Card title</h5>
             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                content.</p>
@@ -241,9 +246,10 @@ for (var i = 0; i < btns.length; i++) {
          </div>
       </div> <!--End Story Card -->
       <br>
-             <div class="card" style="width: auto;"> <!-- Story Card -->
+       
+           <div class="card filterDiv State1" style="width: auto;"> <!-- Story Card -->
          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">State 1 Card title</h5>
             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                content.</p>
@@ -263,9 +269,11 @@ for (var i = 0; i < btns.length; i++) {
          </div>
       </div> <!--End Story Card -->
       <br>
-             <div class="card" style="width: auto;"> <!-- Story Card -->
+       
+       
+           <div class="card filterDiv State2" style="width: auto;"> <!-- Story Card -->
          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">State 2 Card title</h5>
             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                content.</p>
@@ -285,248 +293,11 @@ for (var i = 0; i < btns.length; i++) {
          </div>
       </div> <!--End Story Card -->
       <br>
-             <div class="card" style="width: auto;"> <!-- Story Card -->
-         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-               content.</p>
-            <div class="btn-group">
-               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                  Move
-                  <span class="caret"></span>
-               </button>
-               <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-               </ul>
-            </div>
-         </div>
-      </div> <!--End Story Card -->
-      <br>
-             <div class="card" style="width: auto;"> <!-- Story Card -->
-         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-               content.</p>
-            <div class="btn-group">
-               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                  Move
-                  <span class="caret"></span>
-               </button>
-               <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-               </ul>
-            </div>
-         </div>
-      </div> <!--End Story Card -->
-      <br>
-             <div class="card" style="width: auto;"> <!-- Story Card -->
-         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-               content.</p>
-            <div class="btn-group">
-               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                  Move
-                  <span class="caret"></span>
-               </button>
-               <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-               </ul>
-            </div>
-         </div>
-      </div> <!--End Story Card -->
-      <br>
-             <div class="card" style="width: auto;"> <!-- Story Card -->
-         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-               content.</p>
-            <div class="btn-group">
-               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                  Move
-                  <span class="caret"></span>
-               </button>
-               <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-               </ul>
-            </div>
-         </div>
-      </div> <!--End Story Card -->
-      <br>
-             <div class="card" style="width: auto;"> <!-- Story Card -->
-         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-               content.</p>
-            <div class="btn-group">
-               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                  Move
-                  <span class="caret"></span>
-               </button>
-               <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-               </ul>
-            </div>
-         </div>
-      </div> <!--End Story Card -->
-      <br>
-             <div class="card" style="width: auto;"> <!-- Story Card -->
-         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-               content.</p>
-            <div class="btn-group">
-               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                  Move
-                  <span class="caret"></span>
-               </button>
-               <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-               </ul>
-            </div>
-         </div>
-      </div> <!--End Story Card -->
-      <br>
-             <div class="card" style="width: auto;"> <!-- Story Card -->
-         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-               content.</p>
-            <div class="btn-group">
-               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                  Move
-                  <span class="caret"></span>
-               </button>
-               <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-               </ul>
-            </div>
-         </div>
-      </div> <!--End Story Card -->
-      <br>
-             <div class="card" style="width: auto;"> <!-- Story Card -->
-         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-               content.</p>
-            <div class="btn-group">
-               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                  Move
-                  <span class="caret"></span>
-               </button>
-               <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-               </ul>
-            </div>
-         </div>
-      </div> <!--End Story Card -->
-      <br>
-             <div class="card" style="width: auto;"> <!-- Story Card -->
-         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-               content.</p>
-            <div class="btn-group">
-               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                  Move
-                  <span class="caret"></span>
-               </button>
-               <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-               </ul>
-            </div>
-         </div>
-      </div> <!--End Story Card -->
-      <br>
-             <div class="card" style="width: auto;"> <!-- Story Card -->
-         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-               content.</p>
-            <div class="btn-group">
-               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                  Move
-                  <span class="caret"></span>
-               </button>
-               <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-               </ul>
-            </div>
-         </div>
-      </div> <!--End Story Card -->
-      <br>
-             <div class="card" style="width: auto;"> <!-- Story Card -->
-         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-               content.</p>
-            <div class="btn-group">
-               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                  Move
-                  <span class="caret"></span>
-               </button>
-               <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-               </ul>
-            </div>
-         </div>
-      </div> <!--End Story Card -->
-      <br>
+       
+       
+       
+       
+       
    </div>
    <!-- Backlog-->
    <div class="col-sm-3" id="middleRight">
