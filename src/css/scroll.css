@@ -1,38 +1,49 @@
 @media (min-width: 768px){
   #left {
-    position: absolute;
     top: 70px;
     bottom: 55px;
     left: 0;
     width: 25%;
-    overflow-y: scroll; 
+      height: 100%;
+      overflow-y: scroll;
+      padding-bottom: 55px;
   }
 
   #middleLeft {
-    position: absolute;
     top: 70px;
-    bottom: 55px;
-    left: 350px;
+    bottom: 155px;
     overflow-y: scroll;
     width: 25%;
+      height: 100%;
+      padding-bottom: 55px;
+
   }
     
   #middleRight {
-    position:absolute;
     top: 70px;
     bottom: 55px;
-    left: 750px;
-    overflow-y: scroll;
+      overflow-y: scroll;
     width: 25%;
+      height: 100%;
+      padding-bottom: 55px;
+
   }    
       #right {
-    position: absolute;
     top: 70px;
     bottom: 55px;
-    left: 1100px;
     overflow-y: scroll;
     width: 25%;
-  }
+    height: 100%;
+          padding-bottom: 55px;
+
+      }
+}
+.Fixedtop{
+    position: fixed;
+    top: 40px;
+    text-align: center;
+    width: 20%;
+    z-index: 1000000;
 }
 .footer1 {
     position: fixed;
@@ -50,14 +61,21 @@
     text-align: center;
 }
 .BottomFooter {
-    position: absolute;
+    position: fixed;
     left: -10;
     bottom: 0;
     color: #9d9d9d;
     background-color: #24292d;
     text-align: center;
     width: 100%;
-    padding: 0px;
+}
+.Header {
+    position: fixed;
+    left: -10;
+    top: 0;
+    width: 100%;
+    z-index: 9000000;
+
 }
 div.sticky {
     position: -webkit-sticky;

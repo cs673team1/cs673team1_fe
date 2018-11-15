@@ -5,6 +5,8 @@
    <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <script src="js/jquery-3.3.1.js"></script>
+
    <!-- Latest compiled and minified CSS -->
    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -28,8 +30,8 @@
    <meta name="google-signin-client_id"
          content="659197638484-0r394k07fsa5ar9duq3u3q0f4pkk46tj.apps.googleusercontent.com">
    <script src="https://apis.google.com/js/platform.js" async defer></script>
-   <link rel="stylesheet" href="scroll.css">
 
+   <!-- <link rel="stylesheet" href="css/scroll.css"> -->
 
     <link rel="stylesheet" href="css/scroll.css"/>
 
@@ -37,7 +39,7 @@
 
 <body>
 <!-- NavBar -->
-<nav class="navbar navbar-inverse">
+<nav class="Header navbar navbar-inverse">
    <div class="container-fluid">
       <div class="navbar-header">
          <a class="navbar-brand" href="index.html">Core Communication Collaboration Portal</a>
@@ -55,21 +57,28 @@
       </div>
    </div>
 </nav>
-<div> <!-- Main Body --> 
+
+<div> <!-- Main Body -->
+
 <div class="row" id="container">
+
    <!-- Chat COLUMN---------->
-   <div class="col-sm-3" id="left" height: 100px>
+
+   <div class="col-sm-3" id="left">
     <div class="sticky">   
-      <h2 class="panel panel-white post text-center">Chat</h2>
+      <h2 class="Fixedtop panel panel-white post text-center">Chat</h2>
     </div>
        <div class="" id="chatPane">
          <!-- Filled in by script -->
       </div>
+
+     <!-- Chat Form and Submit-->
+
       <div class="footer1">
          <div class="widget-area no-padding blank">
             <div class="status-upload">
                <form>
-                  <textarea class="" placeholder="What are you doing right now?" id="chat-content"></textarea>
+                  <textarea class="" placeholder="Let's get chatty... " id="chat-content"></textarea>
                   <button type="button" id="send-message" class="btn btn-primary btn-lg"><i class="fa fa-share"></i> Share</button>
 
                </form>
@@ -82,10 +91,11 @@
     
    <!-- Current Iteration COLUMN ---------->
     
-   <div class="col-sm-3" id="middleLeft" height: 100px>
+   <div class="col-sm-3" id="middleLeft">
        <div class="sticky HoverOver">
-      <h2 class="panel panel-white post panel-shadow text-center">Current Iteration</h2>
-<!--Filter Button-->           
+      <h2 class="Fixedtop panel panel-white post panel-shadow text-center">Current Iteration</h2>
+<!--Filter Button-->
+           <br>
 <div class="dropdown myBtnContainer">
   <button class="default btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Filter <span class="caret"></span></button>
   <ul class="dropdown-menu">
@@ -246,7 +256,7 @@
    <!-- Backlog-->
    <div class="col-sm-3" id="middleRight">
     <div class="sticky"> 
-      <h2 class="panel panel-white post text-center">Backlog</h2>
+      <h2 class="Fixedtop panel panel-white post text-center">Backlog</h2>
        </div>
       <div class="card" style="width: auto;">
          <div class="card-body">
@@ -291,7 +301,7 @@
                   </div>
                   <div class="modal-body">
                      <p class="modaltext">Story Name:</p>
-                     <textarea rows="1" cols="30" name="comment" form="userdescription" id="storyName1"
+                     <textarea rows="1" cols="30" name="comment" form= "userdescription" id="storyName1"
                                placeholder="Enter story description here...">
         </textarea>
                      <p class="modaltext" id="sizeSelect1">Select story size: </p>
@@ -330,7 +340,7 @@
    <!-- Bug COLUMN ---------->
    <div class="col-sm-3" id="right">
     <div class="sticky"> 
-      <h2 class="panel panel-white post text-center">Bugs</h2>
+      <h2 class="Fixedtop panel panel-white post text-center">Bugs</h2>
        </div>
       <div class="card" style="width: auto;">
          <div class="card-body">
@@ -366,8 +376,7 @@
          <!-- Modal -->
          <div class="modal fade " id="myBugModal" role="dialog">
             <div class="modal-dialog">
-               <!-- Modal content-->
-               <div class="modal-content">
+               <!-- Modal content--><div class="modal-content">
                   <div class="modal-header" method="post">
                      <h2 class="modal-title">Bug</h2>
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -393,29 +402,6 @@
                   </div>
                   <!-- Add On click JS to this button to add info to DB. Send the request to a php file.  On the PHP side, run an insert command -->
                </div>
-
-               <script>
-                  // TODO: Clean this up. Move it?
-                  /*var http = new XMLHttpRequest();
-                  var url = 'get_data.php';
-                  var params = 'orem=ipsum&name=binny';
-                  http.open('POST', 'php/db_connect.php', true);
-
-                  //Send the proper header information along with the request
-
-                  http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-                  http.onreadystatechange = function() {
-
-                      //Call a function when the state changes.
-                      if(http.readyState == 4 && http.status == 200) {
-                          alert(http.responseText);
-                      }
-                  };
-                  http.send(params);*/
-
-
-               </script>
                <div class="modal-footer">
                   <button id="submit1" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
                </div>
@@ -426,7 +412,7 @@
 </div>
 </div> <!--End of Main Body-->
 
-<!--Footer-->    
+<!--Footer-->
 <div class="BottomFooter navbar-inverse">
    <div class=" container-fluid">
       <div class="navbar-header">
