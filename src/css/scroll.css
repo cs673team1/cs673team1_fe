@@ -38,6 +38,13 @@
 
       }
 }
+.Fixedtop{
+    position: fixed;
+    top: 40px;
+    text-align: center;
+    width: 20%;
+    z-index: 1000000;
+}
 .footer1 {
     position: fixed;
     left: -10;
@@ -61,6 +68,14 @@
     background-color: #24292d;
     text-align: center;
     width: 100%;
+}
+.Header {
+    position: fixed;
+    left: -10;
+    top: 0;
+    width: 100%;
+    z-index: 9000000;
+
 }
 div.sticky {
     position: -webkit-sticky;
