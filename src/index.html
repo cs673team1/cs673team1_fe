@@ -39,7 +39,7 @@
 
 <body>
 <!-- NavBar -->
-<nav class="navbar navbar-inverse">
+<nav class="Header navbar navbar-inverse">
    <div class="container-fluid">
       <div class="navbar-header">
          <a class="navbar-brand" href="index.html">Core Communication Collaboration Portal</a>
@@ -57,21 +57,28 @@
       </div>
    </div>
 </nav>
-<div> <!-- Main Body --> 
+
+<div> <!-- Main Body -->
+
 <div class="row" id="container">
+
    <!-- Chat COLUMN---------->
+
    <div class="col-sm-3" id="left">
     <div class="sticky">   
-      <h2 class="panel panel-white post text-center">Chat</h2>
+      <h2 class="Fixedtop panel panel-white post text-center">Chat</h2>
     </div>
        <div class="" id="chatPane">
          <!-- Filled in by script -->
       </div>
+
+     <!-- Chat Form and Submit-->
+
       <div class="footer1">
          <div class="widget-area no-padding blank">
             <div class="status-upload">
                <form>
-                  <textarea class="" placeholder="What are you doing right now?" id="chat-content"></textarea>
+                  <textarea class="" placeholder="Let's get chatty... " id="chat-content"></textarea>
                   <button type="button" id="send-message" class="btn btn-primary btn-lg"><i class="fa fa-share"></i> Share</button>
 
                </form>
@@ -86,8 +93,9 @@
     
    <div class="col-sm-3" id="middleLeft">
        <div class="sticky HoverOver">
-      <h2 class="panel panel-white post panel-shadow text-center">Current Iteration</h2>
-<!--Filter Button-->           
+      <h2 class="Fixedtop panel panel-white post panel-shadow text-center">Current Iteration</h2>
+<!--Filter Button-->
+           <br>
 <div class="dropdown myBtnContainer">
   <button class="default btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Filter <span class="caret"></span></button>
   <ul class="dropdown-menu">
@@ -248,7 +256,7 @@
    <!-- Backlog-->
    <div class="col-sm-3" id="middleRight">
     <div class="sticky"> 
-      <h2 class="panel panel-white post text-center">Backlog</h2>
+      <h2 class="Fixedtop panel panel-white post text-center">Backlog</h2>
        </div>
       <div class="card" style="width: auto;">
          <div class="card-body">
@@ -332,7 +340,7 @@
    <!-- Bug COLUMN ---------->
    <div class="col-sm-3" id="right">
     <div class="sticky"> 
-      <h2 class="panel panel-white post text-center">Bugs</h2>
+      <h2 class="Fixedtop panel panel-white post text-center">Bugs</h2>
        </div>
       <div class="card" style="width: auto;">
          <div class="card-body">
