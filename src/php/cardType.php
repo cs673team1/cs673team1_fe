@@ -38,4 +38,9 @@ class cardType
         return $result;
     }
 
+    public function getCardTypesByID($cardTypeID)
+    {
+        $result = self::$dbInterface -> query("SELECT typeName FROM cardType WHERE typeID=$cardTypeID");
+        return $result;
+    }
 }

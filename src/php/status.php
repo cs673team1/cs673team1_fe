@@ -38,4 +38,9 @@ class status
         return $result;
     }
 
+    public function getStatusByID($statusID)
+    {
+        $result = self::$dbInterface -> query("SELECT statusName FROM status WHERE statusID=$statusID");
+        return $result;
+    }
 }
