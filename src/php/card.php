@@ -44,6 +44,21 @@ class card
         return $result;
     }
 
+    /**
+     * Get check if card is in database
+     *
+     * @param $cardID the cardID
+     * @return mixed The result of the mysqli::query() function
+     */
+    public function exists($cardID)
+    {
+        $result = self::$dbInterface->query("SELECT cardID FROM card WHERE cardID = '" . $cardID . "'");
+        if ($result->num_rows > 0) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 
     /**
      * Get all cards from database for listID
@@ -90,6 +105,32 @@ class card
                                                 complexity, list_listID) 
                                                 VALUES (DEFAULT, '".$cardName."', '".$typeID."', '".$description."',
                                                 '".$statusID."', '".$complexity."', '".$listID."')");
+        return $result;
+    }
+
+    /**
+     * Update card status
+     *
+     * @param $cardID,
+     * @param $status
+     * @return mixed The result of the mysqli::query() function
+     */
+    public function updateCardStatus($cardID, $status)
+    {
+        $result = self::$dbInterface->query("UPDATE card SET status= '" . $status . "' WHERE cardID= '" . $cardID . "'");
+        return $result;
+    }
+
+    /**
+     * Update card type
+     *
+     * @param $cardID,
+     * @param $cardType
+     * @return mixed The result of the mysqli::query() function
+     */
+    public function updateCardType($cardID, $cardType)
+    {
+        $result = self::$dbInterface->query("UPDATE card SET cardType= '" . $cardType . "' WHERE cardID= '" . $cardID . "'");
         return $result;
     }
 

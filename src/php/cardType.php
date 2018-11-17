@@ -38,9 +38,20 @@ class cardType
         return $result;
     }
 
-    public function getCardTypesByID($cardTypeID)
+    /**
+     * Check if cardTypeID exists in database
+     *
+     * @param $cardTypeID the cardTypeID
+     * @return boolean 1 if cardTypeID exists 0 if it doesn't exist
+     */
+    public function exists($cardTypeID)
     {
-        $result = self::$dbInterface -> query("SELECT typeName FROM cardType WHERE typeID=$cardTypeID");
-        return $result;
+        $result = self::$dbInterface->query("SELECT typeID FROM cardType WHERE typeID = '" . $cardTypeID . "'");
+        if ($result->num_rows > 0) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
+
 }
