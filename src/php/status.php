@@ -38,4 +38,19 @@ class status
         return $result;
     }
 
+    /**
+     * Check if statusID exists in database
+     *
+     * @param $statusID the statusID
+     * @return boolean 1 if statusID exists 0 if it doesn't exist
+     */
+    public function exists($statusID)
+    {
+        $result = self::$dbInterface->query("SELECT statusID FROM status WHERE statusID = '" . $statusID . "'");
+        if ($result->num_rows > 0) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 }
