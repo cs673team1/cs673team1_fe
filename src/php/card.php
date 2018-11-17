@@ -121,4 +121,17 @@ class card
         return $result;
     }
 
+    /**
+     * Update card type
+     *
+     * @param $cardID,
+     * @param $cardType
+     * @return mixed The result of the mysqli::query() function
+     */
+    public function updateCardType($cardID, $cardType)
+    {
+        $result = self::$dbInterface->query("UPDATE card SET cardType= '" . $cardType . "' WHERE cardID= '" . $cardID . "'");
+        return $result;
+    }
+
 }
