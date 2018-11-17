@@ -9,7 +9,7 @@
 require_once('dB.php');
 require_once('user.php');
 require_once('project.php');
-require_once('chat.php');
+require_once('card.php');
 require_once ('status.php');
 require_once ('cardType.php');
 
@@ -21,7 +21,9 @@ $card = new card($db);
 $status = new status($db);
 $cardType = new cardType($db);
 
-$request = $_POST['request'];
+
+//$request = $_POST['request'];
+$request = "get";
 
 if ($request == "get")
 {
@@ -35,7 +37,7 @@ if ($request == "get")
         // output data of each row
         while($row = $result->fetch_assoc())
         {
-            $statusID = $row["status"];
+            /*$statusID = $row["status"];
             $statusResult = $status->getStatusByID($statusID);
             if ($statusResult->num_rows > 0)
             {
@@ -53,7 +55,7 @@ if ($request == "get")
             }
             else {
                 $row["status"] = "Card Type is NULL";
-            }
+            }*/
 
             $dbdata[]=$row;
         }

@@ -13,15 +13,21 @@ function getCards(list)
       {
          const data = JSON.parse(this.responseText);
 
-         // TODO: Make next line about card
-         //users =  "<option default=\"login\">User Login</option>";
+         cards =  "";
          for (x in data)
          {
-            // TODO: Make next line about card
-            //users += "<option value=\"" + data[x].userName + "\">" + data[x].userName + "</option>";
+            cards +=
+               " <!-- Story Card -->\n" +
+               "<div class=\"card filterDiv State3\" style=\"width: auto;\">\n" +
+               "   <div class=\"card-body\">\n" +
+               "      <h5 class=\"card-title\">State 3 Card title</h5>\n" +
+               "      <h6 class=\"card-subtitle mb-2 text-muted\">Card subtitle</h6>\n" +
+               "      <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\n" +
+               "   </div>\n" +
+               "</div> <!--End Story Card --> \n"
          }
-         // TODO: Make next line about card
-         //document.getElementById("user-list").innerHTML = users;
+         console.log(cards);
+         document.getElementById("left-col").innerHTML = cards;
       }
    };
 

@@ -18,7 +18,7 @@ function getUsers()
            users += "<option value=\"" + data[x].userName + "\">" + data[x].userName + "</option>";
          }
 
-         document.getElementById("user-list").innerHTML = users;
+         document.getElementById("userList").innerHTML = users;
       }
    };
 
