@@ -11,7 +11,6 @@ function getCards(list, tag)
    http.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200)
       {
-         alert(this.responseText);
          const data = JSON.parse(this.responseText);
 
          cards =  "";
