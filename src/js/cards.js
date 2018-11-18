@@ -18,12 +18,11 @@ function getCards(list)
          {
             cards +=
                "<!-- Story Card -->\n" +
-               "<div class=\"card filterDiv State1\" style=\"width: auto;\">\n" +
+               "<div class=\"card\" style=\"width: auto;\">\n" +
                "   <div class=\"card-body\">\n" +
-               "      <h5 class=\"card-title\">State 1 Card title</h5>\n" +
-               "      <h6 class=\"card-subtitle mb-2 text-muted\">Card subtitle</h6>\n" +
-               "      <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's\n" +
-               "         content.</p>\n" +
+               "      <h5 class=\"card-title\">" + data[x].cardName + " <i>(" + data[x].status + ")</i></h5>\n" +
+               "      <h6 class=\"card-subtitle mb-2 text-muted\">Owner</h6>\n" +
+               "      <p class=\"card-text\">" + data[x].description + "</p>\n" +
                "      <div class=\"btn-group\">\n" +
                "         <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\">\n" +
                "            Move\n" +
@@ -41,9 +40,8 @@ function getCards(list)
                "</div> <!--End Story Card -->\n" +
                "<br>";
          }
-         //console.log(cards);
-         document.getElementById("left-col").innerHTML = cards;
-         console.log("left-col content\n" + document.getElementById("left-col").innerHTML);
+
+         document.getElementById("currentIteration").innerHTML = cards;
       }
    };
 

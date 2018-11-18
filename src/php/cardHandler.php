@@ -37,7 +37,7 @@ if ($request == "get")
         // output data of each row
         while($row = $result->fetch_assoc())
         {
-            /*$statusID = $row["status"];
+            $statusID = $row["status"];
             $statusResult = $status->getStatusByID($statusID);
             if ($statusResult->num_rows > 0)
             {
@@ -48,14 +48,14 @@ if ($request == "get")
             }
 
             $cardTypeID = $row["cardType"];
-            $cardTypeResult = $cardType->getCardTypesByID($cardTypeID);
+            $cardTypeResult = $cardType->getCardTypeByID($cardTypeID);
             if ($cardTypeResult->num_rows > 0)
             {
                 $row["cardType"] = $cardTypeResult->fetch_assoc()['typeName'];
             }
             else {
                 $row["status"] = "Card Type is NULL";
-            }*/
+            }
 
             $dbdata[]=$row;
         }
