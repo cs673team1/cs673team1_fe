@@ -44,6 +44,18 @@ class card
         return $result;
     }
 
+    /** Get Card by cardID
+     *
+     * @param $cardID The cardID
+     * @return mixed The result of the mysqli::query() function
+     */
+    public function getCardByID($cardID)
+    {
+        $result = self::$dbInterface -> query("SELECT cardName, cardType, description, status, 
+              complexity, list_listID FROM card WHERE cardID='".$cardID."'");
+        return $result;
+    }
+
     /**
      * Get check if card is in database
      *
