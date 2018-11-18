@@ -38,6 +38,17 @@ class status
         return $result;
     }
 
+    /** Get status by statusID
+     *
+     * @param $statusID The statusID
+     * @return mixed The result of the mysqli::query() function
+     */
+    public function getStatusByID($statusID)
+    {
+        $result = self::$dbInterface -> query("SELECT statusName FROM status WHERE statusID='".$statusID."'");
+        return $result;
+    }
+
     /**
      * Check if statusID exists in database
      *
@@ -53,4 +64,6 @@ class status
             return 0;
         }
     }
+
+
 }
