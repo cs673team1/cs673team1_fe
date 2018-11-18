@@ -12,6 +12,7 @@ require_once('project.php');
 require_once('card.php');
 require_once ('status.php');
 require_once ('cardType.php');
+require_once ('lists.php');
 
 
 $db = new dB();
@@ -20,6 +21,7 @@ $project = new project($db);
 $card = new card($db);
 $status = new status($db);
 $cardType = new cardType($db);
+$list = new lists($db);
 
 
 //$request = $_POST['request'];
@@ -27,7 +29,17 @@ $request = "get";
 
 if ($request == "get")
 {
-    $result = $card->getAllCards();
+    if (isset($_POST["list"]))
+    {
+        $listName = $_POST["list"];
+        $result = $list->getListIdByName($listName);
+        $row = $result->fetch_assoc();
+        $listID = $row["listID"];
+        $result = $card->getCardsForList($listID);
+    }
+    else {
+        $result = $card->getAllCards();
+    }
 
     // The array that holds the JSON data (Note: not in JSON format until encoded)
     $dbdata = array();

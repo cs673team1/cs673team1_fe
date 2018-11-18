@@ -1,4 +1,4 @@
-function getCards(list)
+function getCards(list, tag)
 {
    if (window.XMLHttpRequest)
    {
@@ -11,6 +11,7 @@ function getCards(list)
    http.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200)
       {
+         alert(this.responseText);
          const data = JSON.parse(this.responseText);
 
          cards =  "";
@@ -41,7 +42,7 @@ function getCards(list)
                "<br>";
          }
 
-         document.getElementById("currentIteration").innerHTML = cards;
+         document.getElementById(tag).innerHTML = cards;
       }
    };
 

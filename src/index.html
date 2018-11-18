@@ -112,37 +112,15 @@
 
       </div>
 
-
-
-
    </div>
    <!-- Backlog-->
    <div class="col-sm-3" id="middleRight">
     <div class="sticky"> 
       <h2 class="Fixedtop panel panel-white post text-center">Backlog</h2>
        </div>
-      <div class="card" style="width: auto;">
-         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-               content.</p>
-            <div class="btn-group">
-               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                  Move
-                  <span class="caret"></span>
-               </button>
-               <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-               </ul>
-            </div>
-         </div>
+      <div class="" id="backlog">
+
       </div>
-      <br>
 
       <br>
       <br>
@@ -202,40 +180,21 @@
    </div>
    <!-- Bug COLUMN ---------->
    <div class="col-sm-3" id="right">
-    <div class="sticky"> 
-      <h2 class="Fixedtop panel panel-white post text-center">Bugs</h2>
-       </div>
-      <div class="card" style="width: auto;">
-         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-               content.</p>
-            <div class="btn-group">
-               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                  Move
-                  <span class="caret"></span>
-               </button>
-               <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-               </ul>
-            </div>
-         </div>
+      <div class="sticky">
+         <h2 class="Fixedtop panel panel-white post text-center">Bugs</h2>
       </div>
-      <br>
- <div class="container-fluid">
+      <div class="" id="bugs">
+
+      </div>
+      <div class="container-fluid">
          <div class="text-ceter">
             <!-- Trigger the modal with a button -->
             <div id="footer">
-             <button type="button" class="footer btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myBugModal">
-               Add Bug
-            </button>
+               <button type="button" class="footer btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myBugModal">
+                  Add Bug
+               </button>
+            </div>
          </div>
-     </div>
          <!-- Modal -->
          <div class="modal fade " id="myBugModal" role="dialog">
             <div class="modal-dialog">
@@ -248,13 +207,13 @@
                      <p class="modaltext">Bug Name:</p>
                      <textarea rows="1" cols="30" name="comment" form="userdescription" id="storyName1"
                                placeholder="Enter story description here...">
-        </textarea>
-                     
+                     </textarea>
                      <br>
                      <p class="modaltext" id="storyDes1">Bug Description:</p>
                      <textarea rows="4" cols="30" name="comment" form="userdescription"
                                placeholder="Enter story description here...">
-        </textarea>
+
+                     </textarea>
                      <br>
                      <br>
                      <form id="ownerName1">
@@ -264,7 +223,7 @@
                      <br>
                   </div>
                   <!-- Add On click JS to this button to add info to DB. Send the request to a php file.  On the PHP side, run an insert command -->
-               </div>
+            </div>
                <div class="modal-footer">
                   <button id="submit1" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
                </div>
@@ -293,7 +252,9 @@
 <script type="text/javascript">
    getUsers();
    getMessages();
-   getCards("currentIteration");
+   getCards("Current Iteration", "currentIteration");
+   getCards("Backlog", "backlog");
+   getCards("Bugs", "bugs");
    document.getElementById("send-message").addEventListener("click", sendMessage);
 </script>
 
