@@ -158,4 +158,44 @@ class card
         $result = self::$dbInterface->query("UPDATE card SET list_listID= '" . $listID . "' WHERE cardID= '" . $cardID . "'");
         return $result;
     }
+
+    /**
+     * Update card name
+     *
+     * @param $cardID,
+     * @param $cardName
+     * @return mixed The result of the mysqli::query() function
+     */
+    public function updateCardName($cardID, $cardName)
+    {
+        $result = self::$dbInterface->query("UPDATE card SET cardName= '" . $cardName . "' WHERE cardID= '" . $cardID . "'");
+        return $result;
+    }
+
+    /**
+     * Update card description
+     *
+     * @param $cardID,
+     * @param $description
+     * @return mixed The result of the mysqli::query() function
+     */
+    public function updateCardDescription($cardID, $description)
+    {
+        $result = self::$dbInterface->query("UPDATE card SET description= '" . $description . "' WHERE cardID= '" . $cardID . "'");
+        return $result;
+    }
+
+    /**
+     * Update card complexity
+     *
+     * @param $cardID,
+     * @param $complexity
+     * @return mixed The result of the mysqli::query() function
+     */
+    public function updateCardComplexity($cardID, $complexity)
+    {
+        $result = self::$dbInterface->query("UPDATE card SET complexity= '" . $complexity . "' WHERE cardID= '" . $cardID . "'");
+        return $result;
+    }
+
 }
