@@ -19,6 +19,7 @@ function getUsers()
          }
 
          document.getElementById("user-list").innerHTML = users;
+         //
       }
    };
 
