@@ -146,4 +146,16 @@ class card
         return $result;
     }
 
+    /**
+     * Update card list
+     *
+     * @param $cardID,
+     * @param $listID
+     * @return mixed The result of the mysqli::query() function
+     */
+    public function updateCardList($cardID, $listID)
+    {
+        $result = self::$dbInterface->query("UPDATE card SET list_listID= '" . $listID . "' WHERE cardID= '" . $cardID . "'");
+        return $result;
+    }
 }
