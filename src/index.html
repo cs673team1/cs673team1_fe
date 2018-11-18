@@ -100,7 +100,7 @@
          <div class="dropdown myBtnContainer">
             <button class="default btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Filter <span class="caret"></span></button>
             <ul class="dropdown-menu">
-               <li><a onclick="filterSelection('all')"> Show All</a></li>\
+               <li><a onclick="filterSelection('all')"> Show All</a></li>
                <li><a onclick="filterSelection('State1')"> State 1</a></li>
                <li><a onclick="filterSelection('State2')"> State 2</a></li>
                <li><a onclick="filterSelection('State3')"> State 3</a></li>
@@ -108,8 +108,8 @@
             </ul>
          </div>
       </div>
-      <div id="left-col">
-         <!-- To be populated by cards.js -->
+      <div class="" id="left-col">
+
       </div>
 
 
@@ -291,8 +291,8 @@
 <script src="js/cards.js"></script>
 <script src="js/filter.js"></script>
 <script type="text/javascript">
-   getMessages();
    getUsers();
+   getMessages();
    getCards("currentIteration");
    document.getElementById("send-message").addEventListener("click", sendMessage);
 </script>

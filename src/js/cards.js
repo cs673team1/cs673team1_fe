@@ -17,17 +17,33 @@ function getCards(list)
          for (x in data)
          {
             cards +=
-               " <!-- Story Card -->\n" +
-               "<div class=\"card filterDiv State3\" style=\"width: auto;\">\n" +
+               "<!-- Story Card -->\n" +
+               "<div class=\"card filterDiv State1\" style=\"width: auto;\">\n" +
                "   <div class=\"card-body\">\n" +
-               "      <h5 class=\"card-title\">State 3 Card title</h5>\n" +
+               "      <h5 class=\"card-title\">State 1 Card title</h5>\n" +
                "      <h6 class=\"card-subtitle mb-2 text-muted\">Card subtitle</h6>\n" +
-               "      <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\n" +
+               "      <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's\n" +
+               "         content.</p>\n" +
+               "      <div class=\"btn-group\">\n" +
+               "         <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\">\n" +
+               "            Move\n" +
+               "            <span class=\"caret\"></span>\n" +
+               "         </button>\n" +
+               "         <ul class=\"dropdown-menu\" role=\"menu\">\n" +
+               "            <li><a href=\"#\">Action</a></li>\n" +
+               "            <li><a href=\"#\">Another action</a></li>\n" +
+               "            <li><a href=\"#\">Something else here</a></li>\n" +
+               "            <li class=\"divider\"></li>\n" +
+               "            <li><a href=\"#\">Separated link</a></li>\n" +
+               "         </ul>\n" +
+               "      </div>\n" +
                "   </div>\n" +
-               "</div> <!--End Story Card --> \n"
+               "</div> <!--End Story Card -->\n" +
+               "<br>";
          }
-         console.log(cards);
+         //console.log(cards);
          document.getElementById("left-col").innerHTML = cards;
+         console.log("left-col content\n" + document.getElementById("left-col").innerHTML);
       }
    };
 
