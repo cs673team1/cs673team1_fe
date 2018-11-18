@@ -56,7 +56,7 @@ class lists
      * @param $listName The listName
      * @return mixed The result of the mysqli::query() function
      */
-    public function getListIdByName($listtName)
+    public function getListIdByName($listName)
     {
         $result = self::$dbInterface -> query("SELECT listID FROM list WHERE listName='".$listName."'");
         return $result;
