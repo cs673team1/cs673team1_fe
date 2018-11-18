@@ -38,6 +38,18 @@ class cardType
         return $result;
     }
 
+    /** Get cardType by cardTypeID
+     *
+     * @param $typeID The typeID
+     * @return mixed The result of the mysqli::query() function
+     */
+    public function getCardTypeByID($typeID)
+    {
+        $result = self::$dbInterface -> query("SELECT typeName FROM cardType WHERE typeID='".$typeID."'");
+        return $result;
+    }
+
+
     /**
      * Check if cardTypeID exists in database
      *
