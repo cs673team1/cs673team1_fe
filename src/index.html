@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>C3PO </title>
-   <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
-   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>C3PO </title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script src="js/jquery-3.3.1.js"></script>
 
-   <!-- Latest compiled and minified CSS -->
-   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-   <!-- Optional theme -->
-   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-         integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-   <!-- Latest compiled and minified JavaScript -->
-   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-           integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-           crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
 
-   <!-- Story Pop up -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Story Pop up -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-   <!-- Google Sign In-->
-   <meta name="google-signin-scope" content="profile email">
-   <meta name="google-signin-client_id"
-         content="659197638484-0r394k07fsa5ar9duq3u3q0f4pkk46tj.apps.googleusercontent.com">
-   <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- Google Sign In-->
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id"
+          content="659197638484-0r394k07fsa5ar9duq3u3q0f4pkk46tj.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 
-   <!-- <link rel="stylesheet" href="css/scroll.css"> -->
+    <!-- <link rel="stylesheet" href="css/scroll.css"> -->
 
     <link rel="stylesheet" href="css/scroll.css"/>
     <script src="js/cards.js"></script>
@@ -42,22 +42,22 @@
 <!-- NavBar -->
 <!-- <nav class="Header navbar navbar-inverse"> -->
 <div class="page-header">
-   <div class="container-fluid">
-      <div class="navbar-header">
-         <a class="navbar-brand" href="index.html">Core Communication Collaboration Portal</a>
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-         <ul class="nav navbar-nav navbar-right">
-            <li>
-               <div class="btn-group">
-                   <select class="button1 btn btn-primary dropdown-toggle" id="user-list">
-                       <!-- Populated by users.js -->
-                   </select>
-               </div>
-            </li>
-         </ul>
-      </div>
-   </div>
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">Core Communication Collaboration Portal</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <div class="btn-group">
+                        <select class="button1 btn btn-primary dropdown-toggle" id="user-list">
+                            <!-- Populated by users.js -->
+                        </select>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 <!-- </nav> -->
 
@@ -66,170 +66,176 @@
 
 <div class="row" id="container">
 
-   <!-- Chat COLUMN---------->
+    <!-- Chat COLUMN---------->
 
-   <div class="col-sm-3" id="left">
-    <div class="sticky">
-      <h2 class="Fixedtop panel panel-white post text-center">Chat</h2>
+    <div class="col-sm-3" id="left">
+        <div class="sticky">
+            <h2 class="Fixedtop panel panel-white post text-center">Chat</h2>
+        </div>
+        <div class="" id="chatPane">
+            <!-- Filled in by script -->
+        </div>
+
+        <!-- Chat Form and Submit-->
+
+        <div class="footer1">
+            <div class="widget-area no-padding blank">
+                <div class="status-upload">
+                    <form>
+                        <textarea class="" placeholder="Let's get chatty... " id="chat-content"></textarea>
+                        <button type="button" id="send-message" class="btn btn-primary btn-lg"><i
+                                class="fa fa-share"></i> Share
+                        </button>
+                    </form>
+                </div>
+                <!-- Status Upload  -->
+            </div>
+            <!-- Widget Area -->
+        </div>
     </div>
-       <div class="" id="chatPane">
-         <!-- Filled in by script -->
-       </div>
 
-     <!-- Chat Form and Submit-->
+    <!-- Current Iteration COLUMN ---------->
 
-      <div class="footer1">
-         <div class="widget-area no-padding blank">
-            <div class="status-upload">
-               <form>
-                  <textarea class="" placeholder="Let's get chatty... " id="chat-content"></textarea>
-                  <button type="button" id="send-message" class="btn btn-primary btn-lg"><i class="fa fa-share"></i> Share</button>
-               </form>
+    <div class="col-sm-3"> <!-- id="left-col"> -->
+        <div class="sticky HoverOver">
+            <h2 class="Fixedtop panel panel-white post panel-shadow text-center">Current Iteration</h2>
+            <!--Filter Button-->
+            <br>
+            <div class="dropdown myBtnContainer">
+                <button class="default btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Filter
+                    <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a onclick="filterSelection('all')"> Show All</a></li>
+                    <li><a onclick="filterSelection('State1')"> State 1</a></li>
+                    <li><a onclick="filterSelection('State2')"> State 2</a></li>
+                    <li><a onclick="filterSelection('State3')"> State 3</a></li>
+                    <li><a onclick="filterSelection('State4')"> State 4</a></li>
+                </ul>
             </div>
-            <!-- Status Upload  -->
-         </div>
-         <!-- Widget Area -->
-      </div>
-   </div>
+        </div>
+        <div class="" id="currentIteration">
 
-   <!-- Current Iteration COLUMN ---------->
+        </div>
 
-   <div class="col-sm-3"> <!-- id="left-col"> -->
-       <div class="sticky HoverOver">
-         <h2 class="Fixedtop panel panel-white post panel-shadow text-center">Current Iteration</h2>
-         <!--Filter Button-->
-         <br>
-         <div class="dropdown myBtnContainer">
-            <button class="default btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Filter <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-               <li><a onclick="filterSelection('all')"> Show All</a></li>
-               <li><a onclick="filterSelection('State1')"> State 1</a></li>
-               <li><a onclick="filterSelection('State2')"> State 2</a></li>
-               <li><a onclick="filterSelection('State3')"> State 3</a></li>
-               <li><a onclick="filterSelection('State4')"> State 4</a></li>
-            </ul>
-         </div>
-      </div>
-      <div class="" id="currentIteration">
+    </div>
+    <!-- Backlog-->
+    <div class="col-sm-3" id="middleRight">
+        <div class="sticky">
+            <h2 class="Fixedtop panel panel-white post text-center">Backlog</h2>
+        </div>
+        <div class="" id="backlog">
+        </div>
 
-      </div>
-
-   </div>
-   <!-- Backlog-->
-   <div class="col-sm-3" id="middleRight">
-       <div class="sticky">
-           <h2 class="Fixedtop panel panel-white post text-center">Backlog</h2>
-       </div>
-       <div class="" id="backlog">
-       </div>
-
-      <br>
-      <br>
-      <div class="container-fluid">
-         <div class="text-center">
-            <!-- Trigger the modal with a button -->
-            <button type="button" class="footer btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
-               Add Story
-            </button>
-         </div>
-         <!-- Modal -->
-         <div class="modal fade " id="myModal" role="dialog">
-            <div class="modal-dialog">
-               <!-- Modal content-->
-               <div class="modal-content">
-                  <div class="modal-header" method="post">
-                     <h2 class="modal-title">Enter new story</h2>
-                     <button type="button" class="close" data-dismiss="modal">X</button>
-                  </div>
-                  <div class="modal-body">
-                      <p>Title:</p>
-                      <textarea row="1" cols="30" name="comment" id="newStoryTitle" placeholder="Enter summary title here..."></textarea>
-                      <!-- TODO: owner should be populated from users.js -->
-                      <p>Owner:</p>
-                      <textarea rows="1" cols="30" name="comment" id="newStoryOwner" placeholder="Enter owner here (if known)..."></textarea>
-                      <p>Description:</p>
-                      <textarea rows="4" cols="30" name="comment" id="newStoryDesc" placeholder="Describe desired feature here..."></textarea>
-                      <p>Status:</p>
-                      <label class="modaltext" id="radiobuttons">
-                          Open <input type="radio" checked="checked" name="radio" id="newStoryStatusOpen"><span class="checkmark"></span>
-                          In-Work <input type="radio" id="newStoryStatusInWork" name="radio"><span class="checkmark"></span>
-                          Work-Done <input type="radio" id="newStoryStatusWorkDone" name="radio"><span class="checkmark"></span>
-                          Test-Pass <input type="radio" id="newStoryStatusTestPass" name="radio"><span class="checkmark"></span>
-                          Test-Fail <input type="radio" id="newStoryStatusTestFail" name="radio"><span class="checkmark"></span>
-                      </label>
-                  </div>
-                  <!-- Add On click JS to this button to add info to DB. Send the request to a php file.  On the PHP side, run an insert command -->
-               </div>
-
-               <div class="modal-footer">
-                  <button id="newStorySubmit" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
-               </div>
+        <br>
+        <br>
+        <div class="container-fluid">
+            <div class="text-center">
+                <!-- Trigger the modal with a button -->
+                <button type="button" class="footer btn btn-primary btn-lg float-right" data-toggle="modal"
+                        data-target="#myModal">
+                    Add Story
+                </button>
             </div>
-         </div>
-      </div>
-   </div>
-   <!-- Bug COLUMN ---------->
-   <div class="col-sm-3" id="right">
-      <div class="sticky">
-         <h2 class="Fixedtop panel panel-white post text-center">Bugs</h2>
-      </div>
-      <div class="" id="bugs">
+            <!-- Modal -->
+            <div class="modal fade " id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header" method="post">
+                            <h2 class="modal-title">Enter new story</h2>
+                            <button type="button" class="close" data-dismiss="modal">X</button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Title:</p>
+                            <textarea row="1" cols="30" name="comment" id="newStoryTitle" placeholder="Enter summary title here..."></textarea>
+                            <!-- TODO: owner should be populated from users.js -->
+                            <p>Owner:</p>
+                            <textarea rows="1" cols="30" name="comment" id="newStoryOwner" placeholder="Enter owner here (if known)..."></textarea>
+                            <p>Description:</p>
+                            <textarea rows="4" cols="30" name="comment" id="newStoryDesc" placeholder="Describe desired feature here..."></textarea>
+                            <p>Status:</p>
+                            <label class="modaltext" id="radiobuttons">
+                                Open <input type="radio" checked="checked" name="radio" id="newStoryStatusOpen"><span class="checkmark"></span>
+                                In-Work <input type="radio" id="newStoryStatusInWork" name="radio"><span class="checkmark"></span>
+                                Work-Done <input type="radio" id="newStoryStatusWorkDone" name="radio"><span class="checkmark"></span>
+                                Test-Pass <input type="radio" id="newStoryStatusTestPass" name="radio"><span class="checkmark"></span>
+                                Test-Fail <input type="radio" id="newStoryStatusTestFail" name="radio"><span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <!-- Add On click JS to this button to add info to DB. Send the request to a php file.  On the PHP side, run an insert command -->
+                    </div>
 
-      </div>
-      <div class="container-fluid">
-         <div class="text-ceter">
-            <!-- Trigger the modal with a button -->
-            <div id="footer">
-               <button type="button" class="footer btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myBugModal">
-                  Add Bug
-               </button>
-            </div>
-         </div>
-         <!-- Modal -->
-         <div class="modal fade " id="myBugModal" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content--><div class="modal-content">
-                <div class="modal-header" method="post">
-                    <h2 class="modal-title">Enter new bug</h2>
-                    <button type="button" class="close" data-dismiss="modal">X</button>
-                </div>
-                <div class="modal-body">
-                    <p>Title:</p>
-                    <textarea rows="1" cols="30" name="comment" id="newBugTitle" placeholder="Enter summary title here..."></textarea>
-                    <!-- TODO: owner should be populated from users.js -->
-                    <p>Owner:</p>
-                    <textarea rows="1" cols="30" name="comment" id="newBugOwner" placeholder="Enter owner here (if known)..."></textarea>
-                    <p>Description:</p>
-                    <textarea rows="4" cols="30" name="comment" id="newBugDesc" placeholder="Describe bug here..."></textarea>
-                    <p>Status:</p>
-                    <label class="modaltext" id="newBugStatusButtons">
-                        Open <input type="radio" checked="checked" name="radio" id="newBugStatusOpen"><span class="checkmark"></span>
-                        In-Work <input type="radio" id="newBugStatusInWork" name="radio"><span class="checkmark"></span>
-                        Work-Done <input type="radio" id="newBugStatusWorkDone" name="radio"><span class="checkmark"></span>
-                        Test-Pass <input type="radio" id="newBugStatusTestPass" name="radio"><span class="checkmark"></span>
-                        Test-Fail <input type="radio" id="newBugStatusTestFail" name="radio"><span class="checkmark"></span>
-                    </label>
-                </div>
-                <!-- Add On click JS to this button to add info to DB. Send the request to a php file.  On the PHP side, run an insert command -->
-            </div>
-                <div class="modal-footer">
-                    <button id="submit1" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+                    <div class="modal-footer">
+                        <button id="newStorySubmit" type="button" class="btn btn-default" data-dismiss="modal">Submit
+                        </button>
+                    </div>
                 </div>
             </div>
-         </div>
-      </div>
-   </div>
+        </div>
+    </div>
+    <!-- Bug COLUMN ---------->
+    <div class="col-sm-3" id="right">
+        <div class="sticky">
+            <h2 class="Fixedtop panel panel-white post text-center">Bugs</h2>
+        </div>
+        <div class="" id="bugs">
+
+        </div>
+        <div class="container-fluid">
+            <div class="text-ceter">
+                <!-- Trigger the modal with a button -->
+                <div id="footer">
+                    <button type="button" class="footer btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myBugModal">
+                        Add Bug
+                    </button>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade " id="myBugModal" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header" method="post">
+                            <h2 class="modal-title">Enter new bug</h2>
+                            <button type="button" class="close" data-dismiss="modal">X</button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Title:</p>
+                            <textarea rows="1" cols="30" name="comment" id="newBugTitle" placeholder="Enter summary title here..."></textarea>
+                            <!-- TODO: owner should be populated from users.js -->
+                            <p>Owner:</p>
+                            <textarea rows="1" cols="30" name="comment" id="newBugOwner" placeholder="Enter owner here (if known)..."></textarea>
+                            <p>Description:</p>
+                            <textarea rows="4" cols="30" name="comment" id="newBugDesc" placeholder="Describe bug here..."></textarea>
+                            <p>Status:</p>
+                            <label class="modaltext" id="newBugStatusButtons">
+                                Open <input type="radio" checked="checked" name="radio" id="newBugStatusOpen"><span class="checkmark"></span>
+                                In-Work <input type="radio" id="newBugStatusInWork" name="radio"><span class="checkmark"></span>
+                                Work-Done <input type="radio" id="newBugStatusWorkDone" name="radio"><span class="checkmark"></span>
+                                Test-Pass <input type="radio" id="newBugStatusTestPass" name="radio"><span class="checkmark"></span>
+                                Test-Fail <input type="radio" id="newBugStatusTestFail" name="radio"><span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <!-- Add On click JS to this button to add info to DB. Send the request to a php file.  On the PHP side, run an insert command -->
+                    </div>
+                    <div class="modal-footer">
+                        <button id="submit1" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </div> <!--End of Main Body-->
 
 <!--Footer-->
 <div class="BottomFooter navbar-inverse">
-   <div class=" container-fluid">
-      <div class="navbar-header">
+    <div class=" container-fluid">
+        <div class="navbar-header">
 
-         <a class="navbar-brand" href="#"></a>
-      </div>
-   </div>
+            <a class="navbar-brand" href="#"></a>
+        </div>
+    </div>
 </div>
 
 <!-- Import JavaScript functionality and perform initial setup -->
@@ -238,12 +244,12 @@
 <script src="js/cards.js"></script>
 <script src="js/filter.js"></script>
 <script type="text/javascript">
-   getUsers();
-   getMessages();
-   getCards("Current Iteration", "currentIteration");
-   getCards("Backlog", "backlog");
-   getCards("Bugs", "bugs");
-   document.getElementById("send-message").addEventListener("click", sendMessage);
+    getUsers();
+    getMessages();
+    getCards("Current Iteration", "currentIteration");
+    getCards("Backlog", "backlog");
+    getCards("Bugs", "bugs");
+    document.getElementById("send-message").addEventListener("click", sendMessage);
 </script>
 
 </body>
