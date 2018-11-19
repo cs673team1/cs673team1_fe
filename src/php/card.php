@@ -121,6 +121,27 @@ class card
     }
 
     /**
+     * Update card
+     *
+     * @param $cardID
+     * @param $cardName
+     * @param $typeID
+     * @param $description
+     * @param $statusID
+     * @param $complexity
+     * @param $listID
+     * @return mixed The result of the mysqli::query() function
+     */
+    public function updateCard($cardID, $cardName, $typeID, $description, $statusID, $complexity, $listID)
+    {
+        $result = self::$dbInterface -> query("UPDATE card SET cardName='$cardName', cardType='$typeID', 
+                                                description='$description', status='$statusID', 
+                                                complexity='$complexity', list_listID='$listID'
+                                                WHERE cardID='$cardID'");
+        return $result;
+    }
+
+    /**
      * Update card status
      *
      * @param $cardID,
@@ -195,6 +216,28 @@ class card
     public function updateCardComplexity($cardID, $complexity)
     {
         $result = self::$dbInterface->query("UPDATE card SET complexity= '" . $complexity . "' WHERE cardID= '" . $cardID . "'");
+        return $result;
+    }
+
+    /**
+     * Delete card
+     *
+     * @param $cardID
+     * @return mixed The result of the mysqli::query() function
+     */
+    public function deleteCardByID($cardID) {
+        $result = self::$dbInterface->query("DELETE card WHERE cardID= '" . $cardID . "'");
+        return $result;
+    }
+
+    /** Get CardID by cardName (note: picks the first one only)
+     *
+     * @param $cardName The cardName
+     * @return mixed The result of the mysqli::query() function
+     */
+    public function getCardIDByName($cardName)
+    {
+        $result = self::$dbInterface -> query("SELECT cardID FROM card WHERE cardName='".$cardName."'");
         return $result;
     }
 
