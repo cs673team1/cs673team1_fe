@@ -98,5 +98,8 @@ div.sticky {
   display: block;
 }
 .HoverOver{
-    z-index: 1000000;
+    z-index: 1000;
+}
+.ModalOver{
+    z-index: 10000;
 }
