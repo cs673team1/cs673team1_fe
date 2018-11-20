@@ -25,15 +25,14 @@ function getCards(list, tag)
                "      <p class=\"card-text\">" + data[x].description + "</p>\n" +
                "      <div class=\"btn-group\">\n" +
                "         <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\">\n" +
-               "            Move\n" +
+               "            Actions\n" +
                "            <span class=\"caret\"></span>\n" +
                "         </button>\n" +
                "         <ul class=\"dropdown-menu\" role=\"menu\">\n" +
-               "            <li><a href=\"#\">Action</a></li>\n" +
-               "            <li><a href=\"#\">Another action</a></li>\n" +
-               "            <li><a href=\"#\">Something else here</a></li>\n" +
+               "            <li><a href=\"#\">Move</a></li>\n" +
+               "            <li><a href=\"#\">Edit</a></li>\n" +
                "            <li class=\"divider\"></li>\n" +
-               "            <li><a href=\"#\">Separated link</a></li>\n" +
+               "            <li><a href=\"#\">Delete</a></li>\n" +
                "         </ul>\n" +
                "      </div>\n" +
                "   </div>\n" +
