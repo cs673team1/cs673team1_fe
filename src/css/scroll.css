@@ -47,16 +47,17 @@
 }
 .footer1 {
     position: fixed;
-    left: -10;
-    bottom: 55px;
+    left: auto;
+    bottom: 15px;
+    width: 25%;
     color: black;
     background-color: #ffffff;
     text-align: center;
 }
 .footer {
     position: fixed;
-    left: -10;
-    bottom: 55px;
+    left: auto;
+    bottom: 15px;
     color: black;
     text-align: center;
 }
