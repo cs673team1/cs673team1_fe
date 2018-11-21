@@ -24,8 +24,8 @@ $cardType = new cardType($db);
 $list = new lists($db);
 
 
-//$request = $_POST['request'];
-$request = "get";
+$request = $_POST['request'];
+//$request = "get";
 
 if ($request == "get")
 {
