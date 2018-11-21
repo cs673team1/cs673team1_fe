@@ -20,7 +20,8 @@ function getCards(list, tag)
                 "<!-- Story Card -->\n" +
                 "<div class=\"card\" style=\"width: auto;\">\n" +
                 "   <div class=\"card-body\">\n" +
-                "      <h7 class=\"card-id\">" + data[x].cardID +"</h7>\n" +
+                "      <h8 class=\"card-id-subtitle mb-2 text-muted\">ID:</h8> " +
+                "      <h7 class=\"card-id\">" + data[x].cardID + "</h7>\n" +
                 "      <h5 class=\"card-title\">" + data[x].cardName + " <i>(" + data[x].status + ")</i></h5>\n" +
                 "      <h6 class=\"card-subtitle mb-2 text-muted\">Owner</h6>\n" +
                 "      <p class=\"card-text\">" + data[x].description + "</p>\n" +
