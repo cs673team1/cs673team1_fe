@@ -45,6 +45,9 @@
     width: 20%;
     z-index: 1000000;
 }
+.FixedFilter{
+    position: fixed;
+}
 .footer1 {
     position: fixed;
     left: auto;
