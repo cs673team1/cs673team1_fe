@@ -42,12 +42,11 @@ if ($listResult->num_rows > 0)
 }
 
 /* Get posted values */
-$cardName = $_POST["cardName"];
-$description = $_POST["description"];
-$status = $_POST["status"];
+$cardName = $_POST["Title"];
+$description = $_POST["Description"];
+$status = $_POST["Status"];
+$ownerID = $_POST["Owner"];
 echo "<br>" . "Testing cardName: " . $cardName . "<br>";
-
-/* $ownerID = $_POST["owner"]; */
 
 /* Get StatusID */
 $statusResult = $list->getListIdByName($statusName);
