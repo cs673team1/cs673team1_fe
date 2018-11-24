@@ -1,5 +1,6 @@
 <?php
-
+/* New bug script */
+/* to do: combine common code for newStory, newBug and editCard */
 /* include required classes */
 require_once('dB.php');
 require_once('user.php');
@@ -44,6 +45,9 @@ if ($listResult->num_rows > 0)
 $cardName = $_POST["cardName"];
 $description = $_POST["description"];
 $status = $_POST["status"];
+echo "<br>" . "Testing cardName: " . $cardName . "<br>";
+
+/* $ownerID = $_POST["owner"]; */
 
 /* Get StatusID */
 $statusResult = $list->getListIdByName($statusName);
