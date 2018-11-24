@@ -2,10 +2,10 @@
 
 class newBug
 {
-    public $newBugTitle = "";
-    public $newBugOwner = "";
-    public $newBugDesc = "";
-    public $newBugStatus = "";
+    public $cardTitle = "";
+    public $cardOwner = "";
+    public $cardDesc = "";
+    public $cardStatus = "";
 
     function __addBug ()
     {
