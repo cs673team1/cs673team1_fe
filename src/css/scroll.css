@@ -89,7 +89,7 @@ div.sticky {
     font-size: 20px;
 }
 .button1{
-    padding: 50px;
+    padding: auto;
     font-size: 20px;
     position: fixed;
     top: 10px;
