@@ -57,10 +57,13 @@ if ($statusResult->num_rows > 0)
     $statusID = NULL;
 }
 
-if ($statusID !== NULL AND $listID !== NULL AND $typeID !== NULL)
-{
-    $result = $card->addCardToList($cardName, $typeID, $description, $statusID, $complexity, $listID);
-}
+/*if ($statusID !== NULL AND $listID !== NULL AND $typeID !== NULL)
+{*/
+$cardName = "DELETE";
+$description = "DELETE";
+$statusID = 1;
+$result = $card->addCardToList($cardName, $typeID, $description, $statusID, $complexity, $listID);
+/*} *
 
 
 
