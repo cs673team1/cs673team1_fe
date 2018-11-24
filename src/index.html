@@ -109,12 +109,14 @@
         <div class="" id="currentIteration">
             
         </div>
-
     </div>
-    <!-- Backlog-->
+
+    <!-- ################################################################################################################ -->
+    <!-- Backlog column && newStory dialog -->
+    <!-- ################################################################################################################ -->
     <div class="col-sm-3" id="middleRight">
         <div class="sticky">
-            <h2 class="Fixedtop panel panel-white post text-center">Backlog</h2>
+            <h2 class="Fixedtop panel panel-white post text-center">Feature Backlog</h2>
         </div>
         <div class="" id="backlog">
         </div>
@@ -124,13 +126,10 @@
         <div class="container-fluid">
             <div class="text-center">
                 <!-- Trigger the modal with a button -->
-                <button type="button" class="footer btn btn-primary btn-lg float-right" data-toggle="modal"
-                        data-target="#myModal">
-                    Add Story
-                </button>
+                <button type="button" class="footer btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#newStoryModal">Add Story</button>
             </div>
             <!--Story Modal -->
-            <div class="modal fade ModalOver" id="myModal" role="dialog">
+            <div class="modal fade ModalOver" id="newStoryModal" role="dialog">
                 <div class="modal-dialog">
                     <!-- Modal content-->
                     <div class="modal-content">
@@ -159,17 +158,20 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button id="newStorySubmit" type="button" class="btn btn-default" data-dismiss="modal">Submit
+                        <button id="newStgorySubmit" type="button" class="btn btn-default" data-dismiss="modal">Submit
                         </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Bug COLUMN ---------->
+
+    <!-- ################################################################################################################ -->
+    <!-- Bug column && newBug dialog -->
+    <!-- ################################################################################################################ -->
     <div class="col-sm-3" id="right">
         <div class="sticky">
-            <h2 class="Fixedtop panel panel-white post text-center">Bugs</h2>
+            <h2 class="Fixedtop panel panel-white post text-center">Bug Backlog</h2>
         </div>
         <div class="" id="bugs">
 
@@ -178,13 +180,11 @@
             <div class="text-ceter">
                 <!-- Trigger the modal with a button -->
                 <div id="footer">
-                    <button type="button" class="footer btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myBugModal">
-                        Add Bug
-                    </button>
+                    <button type="button" class="footer btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#newBugModal">Add Bug</button>
                 </div>
             </div>
             <!--Bug Modal -->
-            <div class="modal fade ModalOver" id="myBugModal" role="dialog">
+            <div class="modal fade ModalOver" id="newBugModal" role="dialog">
                 <div class="modal-dialog">
                     <!-- Modal content-->
                     <div class="modal-content">
@@ -212,41 +212,7 @@
                         <!-- Add On click JS to this button to add info to DB. Send the request to a php file.  On the PHP side, run an insert command -->
                     </div>
                     <div class="modal-footer">
-                        <button id="submit1" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
-                    </div>
-                </div>
-            </div>
-                        <!-- Edit Modal -->
-            <div class="modal fade ModalOver" id="EditModal" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <!--This content needs to be pulled from DB -->
-                    <div class="modal-content">
-                        <div class="modal-header" method="post">
-                            <h2 class="modal-title">Editor</h2>
-                            <button type="button" class="close" data-dismiss="modal">X</button>
-                        </div>
-                        <div class="modal-body">
-                            <p>Title:</p>
-                            <textarea rows="1" cols="30" name="comment" id="newBugTitle" placeholder="Enter summary title here..."></textarea>
-                            <!-- TODO: owner should be populated from users.js -->
-                            <p>Owner:</p>
-                            <textarea rows="1" cols="30" name="comment" id="newBugOwner" placeholder="Enter owner here (if known)..."></textarea>
-                            <p>Description:</p>
-                            <textarea rows="4" cols="30" name="comment" id="newBugDesc" placeholder="Describe bug here..."></textarea>
-                            <p>Status:</p>
-                            <label class="modaltext" id="newBugStatusButtons">
-                                Open <input type="radio" name="btngroup2" id="newBugStatusOpen" value="Open" checked="checked"><span class="checkmark"></span>
-                                In-Work <input type="radio" name="btngroup2" id="newBugStatusInWork" value="In-Work"><span class="checkmark"></span>
-                                Work-Done <input type="radio" name="btngroup2" id="newBugStatusWorkDone" value="Work-Done"><span class="checkmark"></span>
-                                Test-Pass <input type="radio" name="btngroup2" id="newBugStatusTestPass" value="Test-Pass"><span class="checkmark"></span>
-                                Test-Fail <input type="radio" name="btngroup2" id="newBugStatusTestFail" value="Test-Fail"><span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <!-- Add On click JS to this button to add info to DB. Send the request to a php file.  On the PHP side, run an insert command -->
-                    </div>
-                    <div class="modal-footer">
-                        <button id="submit1" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+                        <button id="newBugSubmit" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
                     </div>
                 </div>
             </div>
