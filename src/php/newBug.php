@@ -47,9 +47,10 @@ if ($listResult->num_rows > 0)
     $listID = NULL;
 }
 
-$result = $card->addCardToList("DELETE", $typeID, "FAKE BUG", "Open", null, $listID);
+// test point:
+// $result = $card->addCardToList("DELETE", $typeID, "FAKE BUG", "Open", null, $listID);
+// note: can easily comment out using /* ... */ if all comments are line comments using //
 
-/*
 // Get posted values
 $cardName = $_POST["Title"];
 $description = $_POST["Description"];
@@ -70,4 +71,3 @@ if ($statusID !== NULL AND $listID !== NULL AND $typeID !== NULL)
 {
     $result = $card->addCardToList($cardName, $typeID, $description, $statusID, $complexity, $listID);
 }
-*/
