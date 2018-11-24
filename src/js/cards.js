@@ -23,6 +23,7 @@ function getCards(list, tag)
                 "      <h7 class=\"card-id mb-2 text-muted\">ID: " + data[x].cardID + "</h7>\n" +
                 "      <h5 class=\"card-title\">" + data[x].cardName + " <i>(" + data[x].status + ")</i></h5>\n" +
                 "      <h6 class=\"card-subtitle mb-2 text-muted\">Owner</h6>\n" +
+                "      <h6 class=\"HiddenField\">Hidden Field</h6>\n" +
                 "      <p class=\"card-text\">" + data[x].description + "</p>\n" +
                 "      <div class=\"btn-group\">\n" +
                 "         <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\">\n" +
