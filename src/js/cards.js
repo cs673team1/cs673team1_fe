@@ -32,9 +32,9 @@ function getCards(list, tag)
                 "         </button>\n" +
                 "         <ul class=\"dropdown-menu\" role=\"menu\">\n" +
                 "            <li><a href=\"#\">Move</a></li>\n" +
-                "            <li><a type=\"button\" data-toggle=\"modal\" data-target=\"#EditModal">Edit</a></li>\n" +
+                "            <li><a type=\"button\" data-toggle=\"modal\" data-target=\"#editCard\">Edit</a></li>\n" +
                 "            <li class=\"divider\"></li>\n" +
-                "            <li><a href=\"#">Delete</a></li>\n" +
+                "            <li><a href=\"#\">Delete</a></li>\n" +
                 "         </ul>\n" +
                 "      </div>\n" +
                 "   </div>\n" +
