@@ -24,12 +24,12 @@ $status = new status($db);
 $cardType = new cardType($db);
 $list = new lists($db);
 
-/* Default  Values */
+// Default  Values
 $typeName = "Bug";
 $listName = "Bugs";
 $complexity = "4";
 
-/* Get typeID */
+// Get typeID
 $typeResult = $cardType->getTypeIDByName($typeName);
 if ($typeResult->num_rows > 0)
 {
@@ -38,7 +38,7 @@ if ($typeResult->num_rows > 0)
     $typeID = NULL;
 }
 
-/* Get ListID */
+// Get ListID
 $listResult = $list->getListIdByName($listName);
 if ($listResult->num_rows > 0)
 {
@@ -47,14 +47,17 @@ if ($listResult->num_rows > 0)
     $listID = NULL;
 }
 
-/* Get posted values */
+$result = $card->addCardToList("DELETE", $typeID, "FAKE BUG", "Open", null, $listID);
+
+/*
+// Get posted values
 $cardName = $_POST["Title"];
 $description = $_POST["Description"];
 $status = $_POST["Status"];
 $ownerID = $_POST["Owner"];
 echo "<br>" . "Testing cardName: " . $cardName . "<br>";
 
-/* Get StatusID */
+// Get StatusID
 $statusResult = $list->getListIdByName($statusName);
 if ($statusResult->num_rows > 0)
 {
@@ -67,3 +70,4 @@ if ($statusID !== NULL AND $listID !== NULL AND $typeID !== NULL)
 {
     $result = $card->addCardToList($cardName, $typeID, $description, $statusID, $complexity, $listID);
 }
+*/
