@@ -123,6 +123,12 @@
 
         <br>
         <br>
+
+        <?php
+            $(".modal").on("hidden.bs.modal", function(){
+            $(".modal-body1").html("");
+            }); >
+
         <div class="container-fluid">
             <div class="text-center">
                 <!-- Trigger the modal with a button -->
@@ -133,34 +139,36 @@
                 <div class="modal-dialog">
                     <!-- Modal content-->
                     <div class="modal-content">
-                        <div class="modal-header" method="post">
-                            <h2 class="modal-title">Enter new story</h2>
-                            <button type="button" class="close" data-dismiss="modal">X</button>
-                        </div>
-                        <div class="modal-body">
-                            <p>Title:</p>
-                            <textarea row="1" cols="30" name="comment" id="newStoryTitle" placeholder="Enter summary title here..."></textarea>
-                            <!-- TODO: owner should be populated from users.js -->
-                            <p>Owner:</p>
-                            <textarea rows="1" cols="30" name="comment" id="newStoryOwner" placeholder="Enter owner here (if known)..."></textarea>
-                            <p>Description:</p>
-                            <textarea rows="4" cols="30" name="comment" id="newStoryDesc" placeholder="Describe desired feature here..."></textarea>
-                            <p>Status:</p>
-                            <label class="modaltext" id="radiobuttons">
-                                Open <input type="radio" name="btngroup1" id="newStoryStatusOpen" value="Open" checked="checked"><span class="checkmark"></span>
-                                In-Work <input type="radio" name="btngroup1" id="newStoryStatusInWork" value="In-Work"><span class="checkmark"></span>
-                                Work-Done <input type="radio" name="btngroup1" id="newStoryStatusWorkDone" value="Work-Done"><span class="checkmark"></span>
-                                Test-Pass <input type="radio" name="btngroup1" id="newStoryStatusTestPass" value="Test-Pass"><span class="checkmark"></span>
-                                Test-Fail <input type="radio" name="btngroup1" id="newStoryStatusTestFail" value="Test-Fail"><span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <!-- Add On click JS to this button to add info to DB. Send the request to a php file.  On the PHP side, run an insert command -->
+                        <form id="newStoryForm" action="newStory.php" method="post">
+                            <div class="modal-header" method="post">
+                                <h2 class="modal-title">Enter new story</h2>
+                                <button type="button" class="close" data-dismiss="modal">X</button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Title:</p>
+                                <textarea row="1" cols="30" name="comment" id="newStoryTitle" placeholder="Enter summary title here..."></textarea>
+                                <!-- TODO: owner should be populated from users.js -->
+                                <p>Owner:</p>
+                                <textarea rows="1" cols="30" name="comment" id="newStoryOwner" placeholder="Enter owner here (if known)..."></textarea>
+                                <p>Description:</p>
+                                <textarea rows="4" cols="30" name="comment" id="newStoryDesc" placeholder="Describe desired feature here..."></textarea>
+                                <p>Status:</p>
+                                <label class="modaltext" id="radiobuttons">
+                                    Open <input type="radio" name="btngroup1" id="newStoryStatusOpen" value="Open" checked="checked"><span class="checkmark"></span>
+                                    In-Work <input type="radio" name="btngroup1" id="newStoryStatusInWork" value="In-Work"><span class="checkmark"></span>
+                                    Work-Done <input type="radio" name="btngroup1" id="newStoryStatusWorkDone" value="Work-Done"><span class="checkmark"></span>
+                                    Test-Pass <input type="radio" name="btngroup1" id="newStoryStatusTestPass" value="Test-Pass"><span class="checkmark"></span>
+                                    Test-Fail <input type="radio" name="btngroup1" id="newStoryStatusTestFail" value="Test-Fail"><span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <!-- Add On click JS to this button to add info to DB. Send the request to a php file.  On the PHP side, run an insert command -->
                     </div>
 
                     <div class="modal-footer">
-                        <button id="newStgorySubmit" type="button" class="btn btn-default" data-dismiss="modal">Submit
-                        </button>
+                        <button id="newStgorySubmit" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -187,33 +195,35 @@
             <div class="modal fade ModalOver" id="newBugModal" role="dialog">
                 <div class="modal-dialog">
                     <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header" method="post">
-                            <h2 class="modal-title">Enter new bug</h2>
-                            <button type="button" class="close" data-dismiss="modal">X</button>
+                    <form id="newBugForm" action="newBug.php" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header" method="post">
+                                <h2 class="modal-title">Enter new bug</h2>
+                                <button type="button" class="close" data-dismiss="modal">X</button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Title:</p>
+                                <textarea rows="1" cols="30" name="comment" id="newBugTitle" placeholder="Enter summary title here..."></textarea>
+                                <!-- TODO: owner should be populated from users.js -->
+                                <p>Owner:</p>
+                                <textarea rows="1" cols="30" name="comment" id="newBugOwner" placeholder="Enter owner here (if known)..."></textarea>
+                                <p>Description:</p>
+                                <textarea rows="4" cols="30" name="comment" id="newBugDesc" placeholder="Describe bug here..."></textarea>
+                                <p>Status:</p>
+                                <label class="modaltext" id="newBugStatusButtons">
+                                    Open <input type="radio" name="btngroup2" id="newBugStatusOpen" value="Open" checked="checked"><span class="checkmark"></span>
+                                    In-Work <input type="radio" name="btngroup2" id="newBugStatusInWork" value="In-Work"><span class="checkmark"></span>
+                                    Work-Done <input type="radio" name="btngroup2" id="newBugStatusWorkDone" value="Work-Done"><span class="checkmark"></span>
+                                    Test-Pass <input type="radio" name="btngroup2" id="newBugStatusTestPass" value="Test-Pass"><span class="checkmark"></span>
+                                    Test-Fail <input type="radio" name="btngroup2" id="newBugStatusTestFail" value="Test-Fail"><span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <!-- Add On click JS to this button to add info to DB. Send the request to a php file.  On the PHP side, run an insert command -->
                         </div>
-                        <div class="modal-body">
-                            <p>Title:</p>
-                            <textarea rows="1" cols="30" name="comment" id="newBugTitle" placeholder="Enter summary title here..."></textarea>
-                            <!-- TODO: owner should be populated from users.js -->
-                            <p>Owner:</p>
-                            <textarea rows="1" cols="30" name="comment" id="newBugOwner" placeholder="Enter owner here (if known)..."></textarea>
-                            <p>Description:</p>
-                            <textarea rows="4" cols="30" name="comment" id="newBugDesc" placeholder="Describe bug here..."></textarea>
-                            <p>Status:</p>
-                            <label class="modaltext" id="newBugStatusButtons">
-                                Open <input type="radio" name="btngroup2" id="newBugStatusOpen" value="Open" checked="checked"><span class="checkmark"></span>
-                                In-Work <input type="radio" name="btngroup2" id="newBugStatusInWork" value="In-Work"><span class="checkmark"></span>
-                                Work-Done <input type="radio" name="btngroup2" id="newBugStatusWorkDone" value="Work-Done"><span class="checkmark"></span>
-                                Test-Pass <input type="radio" name="btngroup2" id="newBugStatusTestPass" value="Test-Pass"><span class="checkmark"></span>
-                                Test-Fail <input type="radio" name="btngroup2" id="newBugStatusTestFail" value="Test-Fail"><span class="checkmark"></span>
-                            </label>
+                        <div class="modal-footer">
+                            <button id="newBugSubmit" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
                         </div>
-                        <!-- Add On click JS to this button to add info to DB. Send the request to a php file.  On the PHP side, run an insert command -->
-                    </div>
-                    <div class="modal-footer">
-                        <button id="newBugSubmit" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
