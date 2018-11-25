@@ -47,8 +47,11 @@ if ($listResult->num_rows > 0)
     $listID = NULL;
 }
 
+// Get statusID
+// TODO: map this from the input strings
+
 // test point:
-$result = $card->addCardToList("DELETE", $typeID, "FAKE BUG", "Open", null, $listID);
+$result = $card->addCardToList("DELETE", $typeID, "FAKE BUG", 1, null, $listID);
 // note: can easily comment out using /* ... */ if all comments are line comments using //
 
 /*
