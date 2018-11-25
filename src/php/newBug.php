@@ -75,6 +75,6 @@ if ($statusResult->num_rows > 0) {
     $statusID = NULL;
 }
 
-if ($statusID !== NULL AND $listID !== NULL AND $typeID !== NULL) {
+if ($statusID && $listID && $typeID) {
     $result = $card->addCardToList($cardName, $typeID, $description, $statusID, $complexity, $listID);
 }
