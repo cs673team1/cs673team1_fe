@@ -68,9 +68,6 @@ if ($statusResult->num_rows > 0) {
     $statusID = 1;
 }
 
-$result = $card->addCardToList("DELETE", $typeID, "FAKE BUG 2", 1, 4, $listID);
-
-/*
 // Get StatusID
 $statusResult = $list->getListIdByName($statusName);
 if ($statusResult->num_rows > 0) {
@@ -78,6 +75,9 @@ if ($statusResult->num_rows > 0) {
 } else {
     $statusID = NULL;
 }
+$result = $card->addCardToList("DELETE", $typeID, "FAKE BUG 2", 1, 4, $listID);
+
+/*
 
 if ($statusID && $listID && $typeID) {
     $result = $card->addCardToList($cardName, $typeID, $description, $statusID, $complexity, $listID);
