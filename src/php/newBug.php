@@ -50,7 +50,6 @@ if ($listResult->num_rows > 0) {
 //$result = $card->addCardToList("DELETE", $typeID, "FAKE BUG 2", 1, 4, $listID);
 // note: can easily comment out using /* ... */ if all comments are line comments using //
 
-
 // Get posted values
 $cardName = $_POST["Title"];
 $description = $_POST["Description"];
@@ -68,18 +67,6 @@ if ($statusResult->num_rows > 0) {
     $statusID = 1;
 }
 
-// Get StatusID
-$statusResult = $list->getListIdByName($statusName);
-if ($statusResult->num_rows > 0) {
-    $statusID = $statusResult->fetch_assoc()['statusID'];
-} else {
-    $statusID = NULL;
-}
-$result = $card->addCardToList("DELETE", $typeID, "FAKE BUG 2", 1, 4, $listID);
-
-/*
-
 if ($statusID && $listID && $typeID) {
     $result = $card->addCardToList($cardName, $typeID, $description, $statusID, $complexity, $listID);
 }
-*/
