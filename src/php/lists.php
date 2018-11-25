@@ -73,22 +73,4 @@ class lists
         return $result;
     }
 
-
-
-
-    /**
-     * Add list to specific project for a specific user
-     *
-     * @param $content
-     * @param $projectID
-     * @param $userID
-     * @return mixed The result of the mysqli::query() function
-     */
-    /*public function addMessage($content, $projectID, $userID)
-    {
-        $result = self::$dbInterface -> query("INSERT INTO message (messageID, content, timeSent, user_userID, project_projectID) 
-                                                VALUES (DEFAULT, '".$content."', now(), '".$userID."', '".$projectID."')");
-        return $result;
-    }*/
-
 }
