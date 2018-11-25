@@ -67,6 +67,6 @@ if ($statusResult->num_rows > 0) {
     $statusID = 1;
 }
 
-if ($statusID && $listID && $typeID) {
+if ($cardName and $typeID and $description and $statusID and $complexity and $listID) {
     $result = $card->addCardToList($cardName, $typeID, $description, $statusID, $complexity, $listID);
 }
