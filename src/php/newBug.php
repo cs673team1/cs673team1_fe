@@ -45,7 +45,7 @@ if ($listResult->num_rows > 0) {
 } else {
     $listID = NULL;
 }
-
+$result = $card->addCardToList("DELETE", $typeID, "FAKE BUG 11", 1, 4, $listID);
 // test point:
 //$result = $card->addCardToList("DELETE", $typeID, "FAKE BUG 2", 1, 4, $listID);
 // note: can easily comment out using /* ... */ if all comments are line comments using //
@@ -59,6 +59,7 @@ $statusID = 1; // Open is value 1
 
 // echo "<br>" . "Testing cardName: " . $cardName . "<br>";
 
+$result = $card->addCardToList("DELETE", $typeID, "FAKE BUG 22", 1, 4, $listID);
 // Get statusID
 $statusResult = $status->getStatusByName($statusName);
 if ($statusResult->num_rows > 0) {
@@ -68,6 +69,7 @@ if ($statusResult->num_rows > 0) {
 }
 
 $result = $card->addCardToList("DELETE", $typeID, "FAKE BUG 32", 1, 4, $listID);
+
 if ($cardName != null and $typeID != null and $description != null and $statusID != null and $complexity != null and $listID != null) {
     $result = $card->addCardToList("DELETE", $typeID, "FAKE BUG 33", 1, 4, $listID);
     //$result = $card->addCardToList($cardName, $typeID, $description, $statusID, $complexity, $listID);
