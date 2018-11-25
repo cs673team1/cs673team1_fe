@@ -22,7 +22,7 @@ $list = new lists($db);
 
 // Default  Values
 $typeName = "Feature";
-$listName = "Features";
+$listName = "Backlog";
 $statusName = "Status";
 $complexity = 4;
 
