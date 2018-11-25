@@ -38,6 +38,17 @@ class message
     }
 
     /**
+     * Get all messages from database in reverse chronological order
+     *
+     * @return mixed The result of the mysqli::query() function
+     */
+    public function getAllMessagesReverse()
+    {
+        $result = self::$dbInterface -> query("SELECT messageID, content, timeSent, user_userID, project_projectID FROM message ORDER BY messageID DESC");
+        return $result;
+    }
+
+    /**
      * Get all messages from database for projectID
      *
      * @param $projectID The projectID
