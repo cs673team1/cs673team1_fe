@@ -244,7 +244,7 @@ class card
      * @return mixed The result of the mysqli::query() function
      */
     public function deleteCardByID($cardID) {
-        $result = self::$dbInterface->query("DELETE card WHERE cardID= '" . $cardID . "'");
+        $result = self::$dbInterface->query("DELETE FROM card WHERE cardID= '$cardID'");
         return $result;
     }
 

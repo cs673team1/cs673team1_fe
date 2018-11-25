@@ -45,7 +45,7 @@ if ($listResult->num_rows > 0)
 /* Get posted values */
 $cardName = $_POST["Title"];
 $description = $_POST["Description"];
-$status = $_POST["Status"];
+$statusName = $_POST["Status"];
 $ownerID = $_POST["Owner"];
 
 /* Get StatusID */
