@@ -62,7 +62,7 @@ $statusID = 1; // Open is value 1
 // Get statusID
 $statusResult = $status->getStatusByName($statusName);
 if ($statusResult->num_rows > 0) {
-    $statusID = $statusResult->fetch_assoc()['statusName'];
+    $statusID = $statusResult->fetch_assoc()['statusID'];
 } else {
     $statusID = 1;
 }
