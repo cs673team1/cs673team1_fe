@@ -25,7 +25,6 @@ $list = new lists($db);
 
 
 $request = $_POST['request'];
-//$request = "get";
 
 if ($request == "get")
 {
@@ -77,4 +76,52 @@ if ($request == "get")
     }
 
     echo json_encode($dbdata);
+} elseif ($request == "move")
+{
+    $cardID = $_POST["card"];
+
+    $result = $card->getCardList($cardID);
+    $row = $result->fetch_assoc();
+    $currentListID = $row["list_listID"];
+
+    $result = $list->getListNameByListID($currentListID);
+    $row = $result->fetch_assoc();
+    $currentList = $row["listName"];
+
+    $result = $card->getCardType($cardID);
+    $row = $result->fetch_assoc();
+    $cardTypeID = $row["cardType"];
+
+    $result = $cardType->getCardTypeByID($cardTypeID);
+    $row = $result->fetch_assoc();
+    $cardTypeName = $row["typeName"];
+
+    if ($currentList == "Bugs")
+    {
+        $newList = "Current Iteration";
+    } elseif ($currentList == "Backlog")
+    {
+        $newList = "Current Iteration";
+    } elseif ($currentList == "Current Iteration" && $cardTypeName == "Bug")
+    {
+        $newList = "Bugs";
+    } elseif ($currentList == "Current Iteration" && $cardTypeName == "Feature")
+    {
+        $newList = "Backlog";
+    }
+
+    if (isset($newList))
+    {
+        echo "Moving Card $cardID from $currentList to $newList";
+
+        $result = $list->getListIdByName($newList);
+        $row = $result->fetch_assoc();
+        $newListID = $row["listID"];
+        $card->updateCardList($cardID, $newListID);
+    }
+    else{
+        echo "newList not set\n";
+    }
 }
+
+

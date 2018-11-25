@@ -16,7 +16,7 @@ class lists
     {
         // Try and connect to the database interface
         if (!isset(self::$dbInterface)) {
-            Self::$dbInterface = $db;
+            self::$dbInterface = $db;
         }
 
         // If database interface was not successful, handle the error
@@ -41,7 +41,7 @@ class lists
     /**
      * Get all lists from database for projectID
      *
-     * @param $projectID The projectID
+     * @param $projectID int projectID
      * @return mixed The result of the mysqli::query() function
      */
     public function getListsForProject($projectID)
@@ -53,23 +53,23 @@ class lists
     /**
      * Get a listID by listName from database
      *
-     * @param $listName The listName
+     * @param $listName string listName
      * @return mixed The result of the mysqli::query() function
      */
     public function getListIdByName($listName)
     {
-        $result = self::$dbInterface -> query("SELECT listID FROM list WHERE listName='".$listName."'");
+        $result = self::$dbInterface -> query("SELECT listID FROM list WHERE listName='$listName'");
         return $result;
     }
 
     /** Get listName by listID
      *
-     * @param $listID The listID
+     * @param $listID string listID
      * @return mixed The result of the mysqli::query() function
      */
-    public function getListNameByListID($projectID)
+    public function getListNameByListID($listID)
     {
-        $result = self::$dbInterface -> query("SELECT projectName FROM project WHERE projectID='".$projectID."'");
+        $result = self::$dbInterface -> query("SELECT listName FROM list WHERE listID='$listID'");
         return $result;
     }
 

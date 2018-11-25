@@ -16,7 +16,7 @@ class dB
     /**
      * Connect to the database
      *
-     * @return bool false on failure / mysqli MySQLi object instance on success
+     * @return mixed bool false on failure / mysqli MySQLi object instance on success
      */
     public function connect() {
 
@@ -40,7 +40,7 @@ class dB
     /**
      * Query the database
      *
-     * @param $query The query string
+     * @param $query string query string
      * @return mixed The result of the mysqli::query() function
      */
     public function query($query) {
@@ -56,8 +56,8 @@ class dB
     /**
      * Fetch rows from the database (SELECT query)
      *
-     * @param $query The query string
-     * @return bool False on failure / array Database rows on success
+     * @param $query string query string
+     * @return mixed The result of the mysqli::query() function
      */
     public function select($query) {
         $rows = array();

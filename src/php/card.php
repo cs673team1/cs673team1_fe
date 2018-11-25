@@ -21,7 +21,7 @@ class card
     {
         // Try and connect to the database interface
         if (!isset(self::$dbInterface)) {
-            Self::$dbInterface = $db;
+            self::$dbInterface = $db;
         }
 
         // If database interface was not successful, handle the error
@@ -72,6 +72,25 @@ class card
         }
     }
 
+    public function getCardList($cardID)
+    {
+        $result = self::$dbInterface->query("SELECT list_listID FROM card WHERE cardID='$cardID'");
+
+        return $result;
+    }
+
+    public function getCardStatus($cardID)
+    {
+        $result = self::$dbInterface->query("SELECT status FROM card WHERE cardID='$cardID'");
+        return $result;
+    }
+
+    public function getCardType($cardID)
+    {
+        $result = self::$dbInterface->query("SELECT cardType FROM card WHERE cardID='$cardID'");
+        return $result;
+    }
+
     /**
      * Get all cards from database for listID
      *
@@ -98,7 +117,6 @@ class card
              complexity, list_listID FROM card WHERE card.status='".$statusID."' and card.list_listID='".$listID."'");
         return $result;
     }
-
 
     /**
      * Add card to specific list
@@ -176,7 +194,7 @@ class card
      */
     public function updateCardList($cardID, $listID)
     {
-        $result = self::$dbInterface->query("UPDATE card SET list_listID= '" . $listID . "' WHERE cardID= '" . $cardID . "'");
+        $result = self::$dbInterface->query("UPDATE card SET list_listID= '$listID' WHERE cardID= '$cardID'");
         return $result;
     }
 
