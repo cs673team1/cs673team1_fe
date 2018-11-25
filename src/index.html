@@ -24,23 +24,16 @@
 
     <script src="js/cards.js"></script>
 
-    <!-- should be moved to .js file, maybe include in header? -->
-    <!-- this script makes a post ... data is wrong but data goes out!  -->
+    <!-- TODO: should be moved to .js file, maybe include in header? -->
     <script>
-        /* must apply only after HTML has loaded */
         $(document).ready(function () {
             $("#newBugForm").on("submit", function(e) {
                 var postData = $(this).serializeArray();
                 var title = $("#newBugTitle").val();
                 var owner = $("#newBugOwner").val();
                 var desc = $("#newBugDesc").val();
-                var status = $("#newBugStatusOpen").val(); // in case loop below fails ...
-                var sButtons = document.getElementsByName('newBugStatusButtons');
-                for (var i = 0; i < sButtons.length; i++) {
-                    if (sbuttons[i].checked) {
-                        status = sButtons[i].valueOf();
-                    }
-                }
+                var status = document.querySelector('input[name=newBugStatusBtnGrp]:checked').value;
+
                 // TODO: when this alert exits we revert to the php file as a web page ... ick ...
                 if (!(title && desc)) {
                     alert("Please fill in title and description");
@@ -254,11 +247,11 @@
                                 <textarea rows="4" cols="30" name="comment" id="newBugDesc" placeholder="Describe bug here..."></textarea>
                                 <p>Status:</p>
                                 <label class="modaltext" id="newBugStatusButtons">
-                                    Open <input type="radio" name="btngroup2" id="newBugStatusOpen" value="Open" checked="checked"><span class="checkmark"></span>
-                                    In-Work <input type="radio" name="btngroup2" id="newBugStatusInWork" value="In-Work"><span class="checkmark"></span>
-                                    Work-Done <input type="radio" name="btngroup2" id="newBugStatusWorkDone" value="Work-Done"><span class="checkmark"></span>
-                                    Test-Pass <input type="radio" name="btngroup2" id="newBugStatusTestPass" value="Test-Pass"><span class="checkmark"></span>
-                                    Test-Fail <input type="radio" name="btngroup2" id="newBugStatusTestFail" value="Test-Fail"><span class="checkmark"></span>
+                                    Open <input type="radio" name="newBugStatusBtnGrp" id="newBugStatusOpen" value="Open" checked="checked"><span class="checkmark"></span>
+                                    In-Work <input type="radio" name="newBugStatusBtnGrp" id="newBugStatusInWork" value="In-Work"><span class="checkmark"></span>
+                                    Work-Done <input type="radio" name="newBugStatusBtnGrp" id="newBugStatusWorkDone" value="Work-Done"><span class="checkmark"></span>
+                                    Test-Pass <input type="radio" name="newBugStatusBtnGrp" id="newBugStatusTestPass" value="Test-Pass"><span class="checkmark"></span>
+                                    Test-Fail <input type="radio" name="newBugStatusBtnGrp" id="newBugStatusTestFail" value="Test-Fail"><span class="checkmark"></span>
                                 </label>
                             </form>
                         </div>
