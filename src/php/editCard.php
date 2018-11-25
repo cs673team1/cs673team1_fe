@@ -23,7 +23,7 @@ $list = new lists($db);
 /* Get posted values */
 $cardName = $_POST["Title"];
 $description = $_POST["Description"];
-$status = $_POST["Status"];
+$statusName = $_POST["Status"];
 $ownerID = $_POST["Owner"];
 $cardID = $_POST["cardID"];
 echo "<br>" . "Testing cardName: " . $cardName . "<br>";

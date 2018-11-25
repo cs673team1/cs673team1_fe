@@ -41,6 +41,18 @@ class activity
     }
 
     /**
+     * Get all messages from database in reverse chronological order
+     *
+     * @return mixed The result of the mysqli::query() function
+     */
+    public function getAllActivityReverse()
+    {
+        $result = self::$dbInterface -> query("SELECT activityID, content, time, user_userID, card_cardID 
+          FROM activity ORDER BY activityID DESC");
+        return $result;
+    }
+
+    /**
      * Get activity by activityID from database
      *
      * @param activityID The activityID
@@ -48,7 +60,7 @@ class activity
      */
     public function getActivityByID($activityID)
     {
-        $result = self::$dbInterface -> query("SELECT content, time, user_userID, card_cardID 
+        $result = self::$dbInterface -> query("SELECT activityID, content, time, user_userID, card_cardID 
               FROM activity WHERE activityID='$activityID'");
         return $result;
     }
@@ -83,6 +95,19 @@ class activity
     }
 
     /**
+     * Get all messages from database in reverse chronological order
+     *
+     * @param userID The userID
+     * @return mixed The result of the mysqli::query() function
+     */
+    public function getActivityForUserReverse($userID)
+    {
+        $result = self::$dbInterface -> query("SELECT activityID, content, time, user_userID, card_cardID 
+          FROM activity WHERE user_userID='$userID' ORDER BY activityID DESC");
+        return $result;
+    }
+
+    /**
      * Get activity for a specific cardID
      *
      * @param cardID The cardID
@@ -96,7 +121,20 @@ class activity
     }
 
     /**
-     * Add activity to specific list
+     * Get all messages from database in reverse chronological order
+     *
+     * @param cardID The cardID
+     * @return mixed The result of the mysqli::query() function
+     */
+    public function getActivityForCardReverse($cardID)
+    {
+        $result = self::$dbInterface -> query("SELECT activityID, content, time, user_userID, card_cardID 
+          FROM activity WHERE card_cardID='$cardID' ORDER BY activityID DESC");
+        return $result;
+    }
+
+    /**
+     * Add activity
      *
      * @param $content
      * @param $userID
