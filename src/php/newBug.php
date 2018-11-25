@@ -58,11 +58,8 @@ $statusName = $_POST["Status"];
 $ownerID = $_POST["Owner"];
 $statusID = 1; // Open is value 1
 
-$result = $card->addCardToList("DELETE", $typeID, "FAKE BUG 2", 1, 4, $listID);
-
 // echo "<br>" . "Testing cardName: " . $cardName . "<br>";
 
-/*
 // Get statusID
 $statusResult = $status->getStatusByName($statusName);
 if ($statusResult->num_rows > 0) {
@@ -71,6 +68,9 @@ if ($statusResult->num_rows > 0) {
     $statusID = 1;
 }
 
+$result = $card->addCardToList("DELETE", $typeID, "FAKE BUG 2", 1, 4, $listID);
+
+/*
 // Get StatusID
 $statusResult = $list->getListIdByName($statusName);
 if ($statusResult->num_rows > 0) {
