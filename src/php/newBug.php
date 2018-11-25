@@ -47,10 +47,10 @@ if ($listResult->num_rows > 0) {
 }
 
 // test point:
-$result = $card->addCardToList("DELETE", $typeID, "FAKE BUG 2", 1, 4, $listID);
+//$result = $card->addCardToList("DELETE", $typeID, "FAKE BUG 2", 1, 4, $listID);
 // note: can easily comment out using /* ... */ if all comments are line comments using //
 
-/*
+
 // Get posted values
 $cardName = $_POST["Title"];
 $description = $_POST["Description"];
@@ -58,8 +58,11 @@ $statusName = $_POST["Status"];
 $ownerID = $_POST["Owner"];
 $statusID = 1; // Open is value 1
 
+$result = $card->addCardToList("DELETE", $typeID, "FAKE BUG 2", 1, 4, $listID);
+
 // echo "<br>" . "Testing cardName: " . $cardName . "<br>";
 
+/*
 // Get statusID
 $statusResult = $status->getStatusByName($statusName);
 if ($statusResult->num_rows > 0) {
