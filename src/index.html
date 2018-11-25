@@ -218,15 +218,15 @@
             <div class="modal fade ModalOver" id="newBugModal" role="dialog">
                 <div class="modal-dialog">
                     <!-- Modal content-->
-                    <!-- <form id="newBugForm" action="http://c3po.fedos.info/cs673team1_fe/src/php/newBug.php" method="post"> -->
-                    <!-- have now tried all variations of http://c3po.fedos.info/xxx/newBug.php with no luck ... hmm -->
                     <div class="modal-content">
                         <div class="modal-header" method="post">
                             <h2 class="modal-title">Enter new bug</h2>
                             <button type="button" class="close" data-dismiss="modal">X</button>
                         </div>
                         <div class="modal-body">
-                            <form id="newBugForm" action="php/newBug.php" method="post">
+                            <form id="newBugForm" action="http://c3po.fedos.info/cs673team1_fe/src/php/newBug.php" method="post">
+                            <!-- have now tried all variations of http://c3po.fedos.info/xxx/newBug.php with no luck ... hmm -->
+                            <!-- <form id="newBugForm" action="php/newBug.php" method="post"> -->
                                 <p>Title:</p>
                                 <textarea rows="1" cols="30" name="comment" id="newBugTitle" placeholder="Enter summary title here..."></textarea>
                                 <!-- TODO: owner should be populated from users.js -->
@@ -249,18 +249,28 @@
                             <button id="newBugSubmit" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
                         </div>
                         <script>
-                            // attach a submit handler to the form
-                            $("#newBugForm").submit(function(event) {
-                                // stop form from submitting normally
-                                event.preventDefault();
-
-                                // get some values from elements on the page:
-                                var $form = $(this), term = $form.find('input[name="s"]').val(), url = $form.attr('action');
-
-                                // Send the data using post
-                                var posting = $.post(url, {s: term});
+                            $(document).ready(function() {
+                                $("#newBugSubmit").click(function (e) {
+                                    var postData = $(this).serializeArray();
+                                    var formURL = $(this).attr("action");
+                                    $.ajax({
+                                        url: formURL,
+                                        type: "POST",
+                                        data: postData,
+                                        cache: false,
+                                        success: function (data, textStatus, jqXHR) {
+                                            $('#contact_dialog .modal-header .modal-title').html("Result");
+                                            $('#contact_dialog .modal-body').html(data);
+                                            $("#newBugSubmit").remove();
+                                        },
+                                        error: function (jqXHR, status, error) {
+                                            console.log(status + ": " + error);
+                                        }
+                                    });
+                                    e.preventDefault();
+                                });
                             });
-                        </script>
+                         </script>
                     </div>
                 </div>
             </div>
