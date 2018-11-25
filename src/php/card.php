@@ -39,7 +39,7 @@ class card
      */
     public function getAllCards()
     {
-        $result = self::$dbInterface -> query("SELECT cardID, cardName, cardType, description, status, 
+        $result = self::$dbInterface -> query("SELECT cardID, cardName, cardType, description, owner,status, 
               complexity, list_listID FROM card");
         return $result;
     }
@@ -51,7 +51,7 @@ class card
      */
     public function getCardByID($cardID)
     {
-        $result = self::$dbInterface -> query("SELECT cardName, cardType, description, status, 
+        $result = self::$dbInterface -> query("SELECT cardName, cardType, description, owner,status, 
               complexity, list_listID FROM card WHERE cardID='".$cardID."'");
         return $result;
     }
@@ -99,7 +99,7 @@ class card
      */
     public function getCardsForList($listID)
     {
-        $result = self::$dbInterface -> query("SELECT cardID, cardName, cardType, description, status, 
+        $result = self::$dbInterface -> query("SELECT cardID, cardName, cardType, description, owner,status, 
              complexity, list_listID FROM card WHERE list_listID='$listID'");
         return $result;
     }
@@ -113,7 +113,7 @@ class card
      */
     public function getCardsForListWithStatus($listID, $statusID)
     {
-        $result = self::$dbInterface -> query("SELECT cardID, cardName, cardType, description, status, 
+        $result = self::$dbInterface -> query("SELECT cardID, cardName, cardType, description, owner, status, 
              complexity, list_listID FROM card WHERE card.status='".$statusID."' and card.list_listID='".$listID."'");
         return $result;
     }

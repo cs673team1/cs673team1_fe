@@ -15,7 +15,7 @@ function getUsers()
 
          // users is for the User Login; formUsers is to populate owner fields in forms.
          users =  "<option default=\"login\">User Login</option>";
-         formUsers = "<option default=\"none\">None Selected</option>";
+         formUsers = "<option default=\"None\">None</option>";
          for (x in data)
          {
            users += "<option value=\"" + data[x].userName + "\">" + data[x].userName + "</option>";

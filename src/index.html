@@ -321,7 +321,8 @@
                         <div class="modal-body">
                             <p>Title:</p>
                             <textarea rows="1" cols="30" name="comment" id="editCardTitle" placeholder="Enter summary title here..."></textarea>
-                            <!-- TODO: owner should be populated from users.js -->
+                            <p>Card ID:</p>
+                            <input name="comment" id="editCardID" disabled>
                             <p>Owner:</p>
                             <select rows="1" cols="30" name="comment" id="editCardOwner" placeholder="Enter owner here (if known)..."></select>
                             <p>Description:</p>
@@ -356,7 +357,7 @@
 <script src="js/users.js"></script>
 <script src="js/cards.js"></script>
 <script src="js/filter.js"></script>
-<script type="text/javascript">
+<script>
     getUsers();
     getMessages();
     getCards("Current Iteration", "currentIteration");
@@ -366,8 +367,8 @@
     document.getElementById("user-list").addEventListener("change", function(){
        document.forms["newStoryForm"].elements["newStoryOwner"].value = document.getElementById("user-list").value;
        document.forms["newBugForm"].elements["newBugOwner"].value = document.getElementById("user-list").value;
-       document.forms["editCardForm"].elements["editCardOwner"].value = document.getElementById("user-list").value;
     });
+
 </script>
 
 </body>

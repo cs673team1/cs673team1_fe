@@ -18,7 +18,7 @@ function getCards(list, tag)
          {
             cards +=
                 "<!-- Story Card -->\n" +
-                "<div class=\"card\" style=\"width: auto;\">\n" +
+                "<div onclick='populateEditCard(" + data[x].cardID + ")'  class=\"card\" style=\"width: auto;\">\n" +
                 "   <div class=\"card-body\">\n" +
                 "      <h7 class=\"card-id mb-2 text-muted\">ID: " + data[x].cardID + "</h7>\n" +
                 "      <h5 class=\"card-title\">" + data[x].cardName + " <i>(" + data[x].status + ")</i></h5>\n" +
@@ -48,7 +48,7 @@ function getCards(list, tag)
 
    http.open('POST', 'php/cardHandler.php', true);
    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-   http.send('request=get&list=' + list);
+   http.send('request=get&listname=' + list);
 }
 
 function moveCard(cardID) {
@@ -71,7 +71,7 @@ function moveCard(cardID) {
 
    http.open('POST', 'php/cardHandler.php', true);
    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-   http.send('request=move&card=' + cardID);
+   http.send('request=move&cardid=' + cardID);
 }
 
 function deleteCard(cardID) {
@@ -95,5 +95,62 @@ function deleteCard(cardID) {
 
    http.open('POST', 'php/cardHandler.php', true);
    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-   http.send('request=delete&card=' + cardID);
+   http.send('request=delete&cardid=' + cardID);
 }
+
+function populateEditCard(cardID)
+{
+   if (window.XMLHttpRequest)
+   {
+      http = new XMLHttpRequest();
+   }
+   else {
+      http = new ActiveXObject("Microsoft.XMLHTTP");
+   }
+
+   http.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200)
+      {
+         const data = JSON.parse(this.responseText);
+         document.forms["editCardForm"].elements["editCardTitle"].value = data[0].cardName;
+         document.forms["editCardForm"].elements["editCardID"].value = cardID;
+         document.forms["editCardForm"].elements["editCardOwner"].value = data[0].owner;
+         document.forms["editCardForm"].elements["editCardDesc"].value = data[0].description;
+
+         statusElem = "editCardStatus" + data[0].status;
+         statusElem = statusElem.replace("-", "");
+         document.forms["editCardForm"].elements[statusElem].checked = true;
+      }
+   };
+
+   http.open('POST', 'php/cardHandler.php', true);
+   http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+   http.send('request=get&cardid=' + cardID);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

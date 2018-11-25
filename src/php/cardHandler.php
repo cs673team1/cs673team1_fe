@@ -24,17 +24,20 @@ $cardType = new cardType($db);
 $list = new lists($db);
 
 
-$request = $_POST['request'];
+$request = $_POST["request"];
 
 if ($request == "get")
 {
-    if (isset($_POST["list"]))
+    if (isset($_POST["listname"]))
     {
-        $listName = $_POST["list"];
+        $listName = $_POST["listname"];
         $result = $list->getListIdByName($listName);
         $row = $result->fetch_assoc();
         $listID = $row["listID"];
         $result = $card->getCardsForList($listID);
+    } elseif (isset($_POST["cardid"]))
+    {
+        $result = $card->getCardByID($_POST["cardid"]);
     }
     else {
         $result = $card->getAllCards();
@@ -68,6 +71,16 @@ if ($request == "get")
                 $row["status"] = "Card Type is NULL";
             }
 
+            $userID = $row["owner"];
+            $userResult = $user->getUserNameByUserID($userID);
+            if ($userResult->num_rows > 0)
+            {
+                $row["owner"] = $userResult->fetch_assoc()['userName'];
+            }
+            else {
+                $row["owner"] = "None";
+            }
+
             $dbdata[]=$row;
         }
     }
@@ -78,7 +91,7 @@ if ($request == "get")
     echo json_encode($dbdata);
 } elseif ($request == "move")
 {
-    $cardID = $_POST["card"];
+    $cardID = $_POST["cardid"];
 
     $result = $card->getCardList($cardID);
     $row = $result->fetch_assoc();
@@ -124,7 +137,7 @@ if ($request == "get")
     }
 }elseif ($request == "delete")
 {
-    $cardID = $_POST["card"];
+    $cardID = $_POST["cardid"];
 
     $card->deleteCardByID($cardID);
 }
