@@ -46,8 +46,8 @@
                         type: "POST",
                         data: postData,
                         success: function (data, textStatus, jqXHR) {
-                            $('#contact_dialog .modal-header .modal-title').html("Result");
-                            $('#contact_dialog .modal-body').html(data);
+                            $('#newBugForm .modal-header .modal-title').html("Result");
+                            $('#newBugForm .modal-body').html(data);
                             $("#newBugSubmit").remove();
                         },
                         error: function (jqXHR, status, error) {
@@ -60,6 +60,45 @@
 
             $("#newBugSubmit").on('click', function() {
                 $("#newBugForm").submit();
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#newStoryForm").on("submit", function(e) {
+                var postData = $(this).serializeArray();
+                var title = $("#newStoryTitle").val();
+                var owner = $("#newStoryOwner").val();
+                var desc = $("#newStoryDesc").val();
+                var status = document.querySelector('input[name=newStoryStatusBtnGrp]:checked').value;
+
+                // TODO: when this alert exits we revert to the php file as a web page ... ick ...
+                if (!(title && desc)) {
+                    alert("Please fill in title and description");
+                }
+                else {
+                    var postData = 'Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status;
+                    var formURL = $(this).attr("action");
+                    $.ajax({
+                        url: formURL,
+                        type: "POST",
+                        data: postData,
+                        success: function (data, textStatus, jqXHR) {
+                            $('#newStoryForm .modal-header .modal-title').html("Result");
+                            $('#newStoryForm .modal-body').html(data);
+                            $("#newStorySubmit").remove();
+                        },
+                        error: function (jqXHR, status, error) {
+                            console.log(status + ": " + error);
+                        }
+                    });
+                    e.preventDefault();
+                }
+            });
+
+            $("#newStorySubmit").on('click', function() {
+                $("#newStoryForm").submit();
             });
         });
     </script>
@@ -173,12 +212,12 @@
                 <div class="modal-dialog">
                     <!-- Modal content-->
                     <div class="modal-content">
-                        <form id="newStoryForm" action="newStory.php" method="post">
-                            <div class="modal-header" method="post">
-                                <h2 class="modal-title">Enter new story</h2>
-                                <button type="button" class="close" data-dismiss="modal">X</button>
-                            </div>
-                            <div class="modal-body">
+                        <div class="modal-header" method="post">
+                            <h2 class="modal-title">Enter new story</h2>
+                            <button type="button" class="close" data-dismiss="modal">X</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="newStoryForm" action="http://c3po.fedos.info/cs673team1_fe/src/php/newStory.php" method="post">
                                 <p>Title:</p>
                                 <textarea row="1" cols="30" name="comment" id="newStoryTitle" placeholder="Enter summary title here..."></textarea>
                                 <p>Owner:</p>
@@ -187,20 +226,18 @@
                                 <textarea rows="4" cols="30" name="comment" id="newStoryDesc" placeholder="Describe desired feature here..."></textarea>
                                 <p>Status:</p>
                                 <label class="modaltext" id="radiobuttons">
-                                    Open <input type="radio" name="btngroup1" id="newStoryStatusOpen" value="Open" checked="checked"><span class="checkmark"></span>
-                                    In-Work <input type="radio" name="btngroup1" id="newStoryStatusInWork" value="In-Work"><span class="checkmark"></span>
-                                    Work-Done <input type="radio" name="btngroup1" id="newStoryStatusWorkDone" value="Work-Done"><span class="checkmark"></span>
-                                    Test-Pass <input type="radio" name="btngroup1" id="newStoryStatusTestPass" value="Test-Pass"><span class="checkmark"></span>
-                                    Test-Fail <input type="radio" name="btngroup1" id="newStoryStatusTestFail" value="Test-Fail"><span class="checkmark"></span>
+                                    Open <input type="radio" name="newStoryStatusBtns" id="newStoryStatusOpen" value="Open" checked="checked"><span class="checkmark"></span>
+                                    In-Work <input type="radio" name="newStoryStatusBtns" id="newStoryStatusInWork" value="In-Work"><span class="checkmark"></span>
+                                    Work-Done <input type="radio" name="newStoryStatusBtns" id="newStoryStatusWorkDone" value="Work-Done"><span class="checkmark"></span>
+                                    Test-Pass <input type="radio" name="newStoryStatusBtns" id="newStoryStatusTestPass" value="Test-Pass"><span class="checkmark"></span>
+                                    Test-Fail <input type="radio" name="newStoryStatusBtns" id="newStoryStatusTestFail" value="Test-Fail"><span class="checkmark"></span>
                                 </label>
-                            </div>
-                            <!-- Add On click JS to this button to add info to DB. Send the request to a php file.  On the PHP side, run an insert command -->
-
-
-                            <div class="modal-footer">
-                                <button id="newStorySubmit" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <button id="newStorySubmit" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+                        </div>
                     </div>
                 </div>
             </div>
