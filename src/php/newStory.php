@@ -1,8 +1,9 @@
 <?php
+/* New story script
+   to do: combine common code for newStory, newBug and editCard
+   include required classes
+*/
 
-/* New story script */
-/* to do: combine common code for newStory, newBug and editCard */
-/* include required classes */
 require_once('dB.php');
 require_once('user.php');
 require_once('project.php');
@@ -19,46 +20,47 @@ $status = new status($db);
 $cardType = new cardType($db);
 $list = new lists($db);
 
-/* Default  Values */
+// Default  Values
 $typeName = "Feature";
 $listName = "Features";
-$complexity = "4";
+$statusName = "Status";
+$complexity = 4;
 
-/* Get typeID */
+// Get typeID
 $typeResult = $cardType->getTypeIDByName($typeName);
-if ($typeResult->num_rows > 0)
-{
+if ($typeResult->num_rows > 0) {
     $typeID = $typeResult->fetch_assoc()['typeID'];
 } else {
     $typeID = NULL;
 }
 
-/* Get ListID */
+// Get ListID
 $listResult = $list->getListIdByName($listName);
-if ($listResult->num_rows > 0)
-{
+if ($listResult->num_rows > 0) {
     $listID = $listResult->fetch_assoc()['listID'];
 } else {
     $listID = NULL;
 }
 
-/* Get posted values */
+// test point:
+//$result = $card->addCardToList("DELETE", $typeID, "FAKE FEATURE", 1, 4, $listID);
+// note: can easily comment out using /* ... */ if all comments are line comments using //
+
+// Get posted values
 $cardName = $_POST["Title"];
 $description = $_POST["Description"];
 $statusName = $_POST["Status"];
 $ownerID = $_POST["Owner"];
+$statusID = 1; // Open is value 1
 
-/* Get StatusID */
-$statusResult = $list->getListIdByName($statusName);
-if ($statusResult->num_rows > 0)
-{
+// Get statusID
+$statusResult = $status->getStatusByName($statusName);
+if ($statusResult->num_rows > 0) {
     $statusID = $statusResult->fetch_assoc()['statusID'];
 } else {
-    $statusID = NULL;
+    $statusID = 1;
 }
 
-if ($statusID !== NULL AND $listID !== NULL AND $typeID !== NULL)
-{
+if ($cardName && $typeID && $description && $statusID && $complexity && $listID) {
     $result = $card->addCardToList($cardName, $typeID, $description, $statusID, $complexity, $listID);
 }
-
