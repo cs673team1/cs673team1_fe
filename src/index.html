@@ -305,42 +305,40 @@
     <!-- Edit dialog -->
     <!-- ################################################################################################################ -->
     <div class="container-fluid">
-        <div class="text-center">
-            <!-- Modal trigger button is defined elsewhere - name of modal is editCard -->
-            <!-- EditCard Modal -->
-            <div class="modal fade ModalOver" id="editCard" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <form id="editCardForm" action="editCard.php" method="post">
-                        <div class="modal-content">
-                            <div class="modal-header" method="post">
-                                <h2 class="modal-title">Edit existing bug</h2>
-                                <button type="button" class="close" data-dismiss="modal">X</button>
-                            </div>
-                            <div class="modal-body">
-                                <p>Title:</p>
-                                <textarea rows="1" cols="30" name="comment" id="editCardTitle" placeholder="Enter summary title here..."></textarea>
-                                <!-- TODO: owner should be populated from users.js -->
-                                <p>Owner:</p>
-                                <select rows="1" cols="30" name="comment" id="editCardOwner" placeholder="Enter owner here (if known)..."></select>
-                                <textarea rows="4" cols="30" name="comment" id="editCardDesc" placeholder="Describe bug here..."></textarea>
-                                <p>Description:</p>
-                                <p>Status:</p>
-                                <label class="modaltext" id="editCardStatusButtons">
-                                    Open <input type="radio" name="btngroup2" id="editCardStatusOpen" value="Open" checked="checked"><span class="checkmark"></span>
-                                    In-Work <input type="radio" name="btngroup2" id="editCardStatusInWork" value="In-Work"><span class="checkmark"></span>
-                                    Work-Done <input type="radio" name="btngroup2" id="editCardStatusWorkDone" value="Work-Done"><span class="checkmark"></span>
-                                    Test-Pass <input type="radio" name="btngroup2" id="editCardStatusTestPass" value="Test-Pass"><span class="checkmark"></span>
-                                    Test-Fail <input type="radio" name="btngroup2" id="editCardStatusTestFail" value="Test-Fail"><span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <!-- Add On click JS to this button to add info to DB. Send the request to a php file.  On the PHP side, run an insert command -->
+        <!-- Modal trigger button is defined elsewhere - name of modal is editCard -->
+        <!-- EditCard Modal -->
+        <div class="modal fade ModalOver" id="editCard" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <form id="editCardForm" action="editCard.php" method="post">
+                    <div class="modal-content">
+                        <div class="modal-header" method="post">
+                            <h2 class="modal-title">Edit existing bug</h2>
+                            <button type="button" class="close" data-dismiss="modal">X</button>
                         </div>
-                        <div class="modal-footer">
-                            <button id="editCardSubmit" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+                        <div class="modal-body">
+                            <p>Title:</p>
+                            <textarea rows="1" cols="30" name="comment" id="editCardTitle" placeholder="Enter summary title here..."></textarea>
+                            <!-- TODO: owner should be populated from users.js -->
+                            <p>Owner:</p>
+                            <select rows="1" cols="30" name="comment" id="editCardOwner" placeholder="Enter owner here (if known)..."></select>
+                            <p>Description:</p>
+                            <textarea rows="4" cols="30" name="comment" id="editCardDesc" placeholder="Describe bug here..."></textarea>
+                            <p>Status:</p>
+                            <label class="modaltext" id="editCardStatusButtons">
+                                Open <input type="radio" name="btngroup2" id="editCardStatusOpen" value="Open" checked="checked"><span class="checkmark"></span>
+                                In-Work <input type="radio" name="btngroup2" id="editCardStatusInWork" value="In-Work"><span class="checkmark"></span>
+                                Work-Done <input type="radio" name="btngroup2" id="editCardStatusWorkDone" value="Work-Done"><span class="checkmark"></span>
+                                Test-Pass <input type="radio" name="btngroup2" id="editCardStatusTestPass" value="Test-Pass"><span class="checkmark"></span>
+                                Test-Fail <input type="radio" name="btngroup2" id="editCardStatusTestFail" value="Test-Fail"><span class="checkmark"></span>
+                            </label>
                         </div>
-                    </form>
-                </div>
+                        <!-- Add On click JS to this button to add info to DB. Send the request to a php file.  On the PHP side, run an insert command -->
+                    </div>
+                    <div class="modal-footer">
+                        <button id="editCardSubmit" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
