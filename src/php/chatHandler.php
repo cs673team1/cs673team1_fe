@@ -20,7 +20,7 @@ $request = $_POST['request'];
 
 if ($request == "get")
 {
-    $result = $message->getAllMessages();
+    $result = $message->getAllMessagesReverse();
 
     // The array that holds the JSON data (Note: not in JSON format until encoded)
     $dbdata = array();
