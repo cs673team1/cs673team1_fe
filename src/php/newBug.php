@@ -27,12 +27,12 @@ $list = new lists($db);
 // Default  Values
 $typeName = "Bug";
 $listName = "Bugs";
-$complexity = "4";
+$statusName = "Status";
+$complexity = 4;
 
 // Get typeID
 $typeResult = $cardType->getTypeIDByName($typeName);
-if ($typeResult->num_rows > 0)
-{
+if ($typeResult->num_rows > 0) {
     $typeID = $typeResult->fetch_assoc()['typeID'];
 } else {
     $typeID = NULL;
@@ -40,39 +40,41 @@ if ($typeResult->num_rows > 0)
 
 // Get ListID
 $listResult = $list->getListIdByName($listName);
-if ($listResult->num_rows > 0)
-{
+if ($listResult->num_rows > 0) {
     $listID = $listResult->fetch_assoc()['listID'];
 } else {
     $listID = NULL;
 }
 
-// Get statusID
-// TODO: map this from the input strings
-
 // test point:
-$result = $card->addCardToList("DELETE", $typeID, "FAKE BUG", 1, null, $listID);
+//$result = $card->addCardToList("DELETE", $typeID, "FAKE BUG", 1, null, $listID);
 // note: can easily comment out using /* ... */ if all comments are line comments using //
 
-/*
 // Get posted values
 $cardName = $_POST["Title"];
 $description = $_POST["Description"];
-$status = $_POST["Status"];
+$statusName = $_POST["Status"];
 $ownerID = $_POST["Owner"];
-echo "<br>" . "Testing cardName: " . $cardName . "<br>";
+$statusID = 1; // Open is value 1
+
+// echo "<br>" . "Testing cardName: " . $cardName . "<br>";
+
+// Get statusID
+$statusResult = $status->getStatusByName($statusName);
+if ($statusResult->num_rows > 0) {
+    $statusID = $statusResult->fetch_assoc()['statusName'];
+} else {
+    $statusID = 1;
+}
 
 // Get StatusID
 $statusResult = $list->getListIdByName($statusName);
-if ($statusResult->num_rows > 0)
-{
+if ($statusResult->num_rows > 0) {
     $statusID = $statusResult->fetch_assoc()['statusID'];
 } else {
     $statusID = NULL;
 }
 
-if ($statusID !== NULL AND $listID !== NULL AND $typeID !== NULL)
-{
+if ($statusID && $listID && $typeID) {
     $result = $card->addCardToList($cardName, $typeID, $description, $statusID, $complexity, $listID);
 }
-*/
