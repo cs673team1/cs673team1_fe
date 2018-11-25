@@ -31,7 +31,7 @@ function getCards(list, tag)
                 "            <span class=\"caret\"></span>\n" +
                 "         </button>\n" +
                 "         <ul class=\"dropdown-menu\" role=\"menu\">\n" +
-                "            <li><a href=\"#\">Move</a></li>\n" +
+                "            <li onclick=\"moveCard(" + data[x].cardID + ")\"><a href=\"#\">Move</a></li>\n" +
                 "            <li><a type=\"button\" data-toggle=\"modal\" data-target=\"#editCard\">Edit</a></li>\n" +
                 "            <li class=\"divider\"></li>\n" +
                 "            <li><a href=\"#\">Delete</a></li>\n" +
@@ -49,4 +49,27 @@ function getCards(list, tag)
    http.open('POST', 'php/cardHandler.php', true);
    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
    http.send('request=get&list=' + list);
+}
+
+function moveCard(cardID) {
+   if (window.XMLHttpRequest)
+   {
+      http = new XMLHttpRequest();
+   }
+   else {
+      http = new ActiveXObject("Microsoft.XMLHTTP");
+   }
+
+   http.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200)
+      {
+         getCards("Current Iteration", "currentIteration");
+         getCards("Backlog", "backlog");
+         getCards("Bugs", "bugs");
+      }
+   };
+
+   http.open('POST', 'php/cardHandler.php', true);
+   http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+   http.send('request=move&card=' + cardID);
 }
