@@ -122,6 +122,10 @@ if ($request == "get")
     else{
         echo "newList not set\n";
     }
-}
+}elseif ($request == "delete")
+{
+    $cardID = $_POST["card"];
 
+    $card->deleteCardByID($cardID);
+}
 
