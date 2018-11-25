@@ -25,6 +25,7 @@
     <script src="js/cards.js"></script>
 
     <!-- should be moved to .js file, maybe include in header? -->
+    <!-- this script makes a post ... data is wrong but data goes out!  -->
     <script>
         /* must apply only after HTML has loaded */
         $(document).ready(function () {
@@ -248,29 +249,6 @@
                         <div class="modal-footer">
                             <button id="newBugSubmit" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
                         </div>
-                        <script>
-                            $(document).ready(function() {
-                                $("#newBugSubmit").click(function (e) {
-                                    var postData = $(this).serializeArray();
-                                    var formURL = $(this).attr("action");
-                                    $.ajax({
-                                        url: formURL,
-                                        type: "POST",
-                                        data: postData,
-                                        cache: false,
-                                        success: function (data, textStatus, jqXHR) {
-                                            $('#contact_dialog .modal-header .modal-title').html("Result");
-                                            $('#contact_dialog .modal-body').html(data);
-                                            $("#newBugSubmit").remove();
-                                        },
-                                        error: function (jqXHR, status, error) {
-                                            console.log(status + ": " + error);
-                                        }
-                                    });
-                                    e.preventDefault();
-                                });
-                            });
-                         </script>
                     </div>
                 </div>
             </div>
