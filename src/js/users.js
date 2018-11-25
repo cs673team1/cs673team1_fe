@@ -23,6 +23,7 @@ function getUsers()
       }
    };
 
+
    http.open('POST', 'php/userHandler.php', true);
    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
    http.send('request=get');

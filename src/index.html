@@ -328,6 +328,14 @@
     getCards("Backlog", "backlog");
     getCards("Bugs", "bugs");
     document.getElementById("send-message").addEventListener("click", sendMessage);
+    document.getElementById("user-list").addEventListener("change", function(){
+       let formObject1 = document.forms["newStoryForm"];
+       formObject1.elements["newStoryOwner"].value = document.getElementById("user-list").value;
+
+       let formObject2 = document.forms["newBugForm"];
+       formObject2.elements["newBugOwner"].value = document.getElementById("user-list").value;
+
+    });
 </script>
 
 </body>
