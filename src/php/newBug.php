@@ -28,7 +28,7 @@ $list = new lists($db);
 $typeName = "Bug";
 $listName = "Bugs";
 $statusName = "Status";
-$complexity = "4";
+$complexity = 4;
 
 // Get typeID
 $typeResult = $cardType->getTypeIDByName($typeName);
