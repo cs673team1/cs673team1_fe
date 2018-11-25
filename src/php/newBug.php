@@ -53,14 +53,14 @@ if ($listResult->num_rows > 0) {
 // Get posted values
 $cardName = $_POST["Title"];
 $description = $_POST["Description"];
-$status = $_POST["Status"];
+$statusName = $_POST["Status"];
 $ownerID = $_POST["Owner"];
 $statusID = 1; // Open is value 1
 
 // echo "<br>" . "Testing cardName: " . $cardName . "<br>";
 
 // Get statusID
-$statusResult = $status->getStatusByName($status);
+$statusResult = $status->getStatusByName($statusName);
 if ($statusResult->num_rows > 0) {
     $statusID = $statusResult->fetch_assoc()['statusName'];
 } else {
