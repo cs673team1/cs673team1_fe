@@ -259,4 +259,13 @@ class card
         return $result;
     }
 
+    /* Get card with the maximum cardID
+    *
+    */
+    public function getMaxCardID()
+    {
+        $result = self::$dbInterface -> query("SELECT MAX(cardID) FROM card");
+        return $result;
+    }
+
 }
