@@ -97,5 +97,20 @@ class user
         return $result;
     }
 
+    /**
+     * Get check if userID is in database
+     *
+     * @param $userID the userID
+     * @return mixed The result of the mysqli::query() function
+     */
+    public function exists($userID)
+    {
+        $result = self::$dbInterface->query("SELECT userID FROM user WHERE userID = '" . $userID . "'");
+        if ($result->num_rows > 0) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 
 }
