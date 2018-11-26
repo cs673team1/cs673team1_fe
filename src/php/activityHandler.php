@@ -14,7 +14,7 @@ require_once('activity.php');
 $db = new dB();
 $user = new user($db);
 $card = new card($db);
-$activity = new activty($db);
+$activity = new activity($db);
 
 $request = $_POST['request'];
 
