@@ -9,7 +9,7 @@
 require_once('dB.php');
 require_once('user.php');
 require_once('card.php');
-require_once('activty.php');
+require_once('activity.php');
 
 $db = new dB();
 $user = new user($db);
