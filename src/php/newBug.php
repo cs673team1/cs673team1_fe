@@ -15,6 +15,7 @@ require_once('card.php');
 require_once ('status.php');
 require_once ('cardType.php');
 require_once ('lists.php');
+require_once ('activity.php');
 
 $db = new dB();
 $user = new user($db);
@@ -23,6 +24,7 @@ $card = new card($db);
 $status = new status($db);
 $cardType = new cardType($db);
 $list = new lists($db);
+$activity = new activity($db);
 
 // Default  Values
 $typeName = "Bug";
@@ -69,4 +71,24 @@ if ($statusResult->num_rows > 0) {
 
 if ($cardName && $typeID && $description && $statusID && $complexity && $listID) {
     $result = $card->addCardToList($cardName, $typeID, $description, $statusID, $complexity, $listID);
+    // Add new activity
+    // Need a way to create a meaningful content instead of just cardName
+    // Is getting the maximum cardID sufficient?
+    $cardResult = $card->getMaxCardID();
+    if ($cardResult->num_rows > 0) {
+        $cardID = $cardResult->fetch_assoc()['MAX(cardID)'];
+    } else {
+        $cardID = NULL;
+    }
+    $userResult = $user->getUserNameByUserID($ownerID);
+    if ($userResult->num_rows > 0) {
+        $userName = $userResult->fetch_assoc()['userName'];
+    } else {
+        $userName = "Unknown";
+    }
+    $action = "added";
+    if ($cardID) {
+        $content = $userName . " " . $action . " " . $cardName ." to " . $listName;
+        $activityResult = $activity->addActivity($content, $ownerID, $cardID);
+    }
 }
