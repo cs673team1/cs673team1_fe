@@ -107,6 +107,7 @@
         $(document).ready(function () {
             $("#editCardForm").on("submit", function(e) {
                 var postData = $(this).serializeArray();
+                var cardID = $("#editCardID").val();
                 var title = $("#editCardTitle").val();
                 var owner = $("#editCardOwner").val();
                 var desc = $("#editCardDesc").val();
@@ -117,7 +118,7 @@
                     alert("Please fill in title and description");
                 }
                 else {
-                    var postData = 'Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status;
+                    var postData = 'CardID=' + cardID + '&Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status;
                     var formURL = $(this).attr("action");
                     $.ajax({
                         url: formURL,

@@ -22,7 +22,7 @@ $cardName = $_POST["Title"];
 $description = $_POST["Description"];
 $statusName = $_POST["Status"];
 $ownerID = $_POST["Owner"];
-$cardID = $_POST["cardID"];
+$cardID = $_POST["CardID"];
 
 // echo "<br>" . "Testing cardName: " . $cardName . "<br>";
 
