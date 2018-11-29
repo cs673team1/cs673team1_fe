@@ -127,14 +127,15 @@ class card
      * @param $statusID
      * @param $complexity
      * @param $listID
+     * @param $owner
      * @return mixed The result of the mysqli::query() function
      */
-    public function addCardToList($cardName, $typeID, $description, $statusID, $complexity, $listID)
+    public function addCardToList($cardName, $typeID, $description, $statusID, $complexity, $listID, $owner)
     {
         $result = self::$dbInterface -> query("INSERT INTO card (cardID, cardName, cardType, description, status, 
-                                                complexity, list_listID) 
+                                                complexity, list_listID, owner) 
                                                 VALUES (DEFAULT, '".$cardName."', '".$typeID."', '".$description."',
-                                                '".$statusID."', '".$complexity."', '".$listID."')");
+                                                '".$statusID."', '".$complexity."', '".$listID."', '".$owner."')");
         return $result;
     }
 
@@ -150,11 +151,11 @@ class card
      * @param $listID
      * @return mixed The result of the mysqli::query() function
      */
-    public function updateCard($cardID, $cardName, $typeID, $description, $statusID, $complexity, $listID)
+    public function updateCard($cardID, $cardName, $typeID, $description, $statusID, $complexity, $listID, $owner)
     {
         $result = self::$dbInterface -> query("UPDATE card SET cardName='$cardName', cardType='$typeID', 
                                                 description='$description', status='$statusID', 
-                                                complexity='$complexity', list_listID='$listID'
+                                                complexity='$complexity', list_listID='$listID', owner='$owner'
                                                 WHERE cardID='$cardID'");
         return $result;
     }
@@ -234,6 +235,19 @@ class card
     public function updateCardComplexity($cardID, $complexity)
     {
         $result = self::$dbInterface->query("UPDATE card SET complexity= '" . $complexity . "' WHERE cardID= '" . $cardID . "'");
+        return $result;
+    }
+
+    /**
+     * Update card owner
+     *
+     * @param $cardID,
+     * @param $owner
+     * @return mixed The result of the mysqli::query() function
+     */
+    public function updateCardOwner($cardID, $owner)
+    {
+        $result = self::$dbInterface->query("UPDATE card SET owner= '" . $owner . "' WHERE cardID= '" . $cardID . "'");
         return $result;
     }
 
