@@ -62,7 +62,7 @@ if ($cardID && $cardName && $description && $statusID) {
 
     $action = "modified";
     if ($cardID) {
-        $content = $owner . " " . $action . " " . $cardName ." to " . $listName;
+        $content = $owner . " " . $action . " " . $cardName ." in " . $listName;
         $activityResult = $activity->addActivity($content, $ownerID, $cardID);
     }
 }
