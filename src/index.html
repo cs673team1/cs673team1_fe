@@ -141,7 +141,7 @@
             });
         });
     </script>
-    
+
 </head>
 
 <body>
@@ -352,7 +352,7 @@
         <div class="modal fade ModalOver" id="editCard" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
-                <form id="editCardForm" action="editCard.php" method="post">
+                <form id="editCardForm"  action="http://c3po.fedos.info/cs673team1_fe/src/php/editCard.php" method="post">
                     <div class="modal-content">
                         <div class="modal-header" method="post">
                             <h2 class="modal-title">Edit existing bug</h2>
@@ -369,14 +369,13 @@
                             <textarea rows="4" cols="30" name="comment" id="editCardDesc" placeholder="Describe bug here..."></textarea>
                             <p>Status:</p>
                             <label class="modaltext" id="editCardStatusButtons">
-                                Open <input type="radio" name="btngroup2" id="editCardStatusOpen" value="Open" checked="checked"><span class="checkmark"></span>
-                                In-Work <input type="radio" name="btngroup2" id="editCardStatusInWork" value="In-Work"><span class="checkmark"></span>
-                                Work-Done <input type="radio" name="btngroup2" id="editCardStatusWorkDone" value="Work-Done"><span class="checkmark"></span>
-                                Test-Pass <input type="radio" name="btngroup2" id="editCardStatusTestPass" value="Test-Pass"><span class="checkmark"></span>
-                                Test-Fail <input type="radio" name="btngroup2" id="editCardStatusTestFail" value="Test-Fail"><span class="checkmark"></span>
+                                Open <input type="radio" name="editCardStatusBtnGrp" id="editCardStatusOpen" value="Open" checked="checked"><span class="checkmark"></span>
+                                In-Work <input type="radio" name="editCardStatusBtnGrp" id="editCardStatusInWork" value="In-Work"><span class="checkmark"></span>
+                                Work-Done <input type="radio" name="editCardStatusBtnGrp" id="editCardStatusWorkDone" value="Work-Done"><span class="checkmark"></span>
+                                Test-Pass <input type="radio" name="editCardStatusBtnGrp" id="editCardStatusTestPass" value="Test-Pass"><span class="checkmark"></span>
+                                Test-Fail <input type="radio" name="editCardStatusBtnGrp" id="editCardStatusTestFail" value="Test-Fail"><span class="checkmark"></span>
                             </label>
                         </div>
-                        <!-- Add On click JS to this button to add info to DB. Send the request to a php file.  On the PHP side, run an insert command -->
                     </div>
                     <div class="modal-footer">
                         <button id="editCardSubmit" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
