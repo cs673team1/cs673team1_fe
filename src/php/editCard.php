@@ -1,8 +1,6 @@
 <?php
-
-/* New story script */
-/* to do: combine common code for newStory, newBug and editCard */
-/* include required classes */
+// edit card script
+// include required classes:
 require_once('dB.php');
 require_once('user.php');
 require_once('project.php');
@@ -19,28 +17,27 @@ $status = new status($db);
 $cardType = new cardType($db);
 $list = new lists($db);
 
-
-/* Get posted values */
+// Get posted values
 $cardName = $_POST["Title"];
 $description = $_POST["Description"];
 $statusName = $_POST["Status"];
 $ownerID = $_POST["Owner"];
 $cardID = $_POST["cardID"];
-echo "<br>" . "Testing cardName: " . $cardName . "<br>";
 
-/* Get StatusID */
-$statusResult = $list->getListIdByName($statusName);
-if ($statusResult->num_rows > 0)
-{
+// echo "<br>" . "Testing cardName: " . $cardName . "<br>";
+
+// Get StatusID
+$statusResult = $status->getStatusByName($statusName);
+if ($statusResult->num_rows > 0) {
     $statusID = $statusResult->fetch_assoc()['statusID'];
 } else {
     $statusID = NULL;
 }
 
-$result = $card->updateCardName($cardID, $cardName);
-$result = $card->updateCardDescription($cardID, $description);
-if ($statusID !== NULL)
-{
+// note: to update any field we require all have valid values ...
+if ($cardID && $cardName && $description && $statusID) {
+    $result = $card->updateCardName($cardID, $cardName);
+    $result = $card->updateCardDescription($cardID, $description);
     $result = $card->updateCardStatus($cardID, $statusID);
 }
 
