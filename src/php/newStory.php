@@ -11,6 +11,7 @@ require_once('card.php');
 require_once ('status.php');
 require_once ('cardType.php');
 require_once ('lists.php');
+require_once ('activity.php');
 
 $db = new dB();
 $user = new user($db);
@@ -19,6 +20,7 @@ $card = new card($db);
 $status = new status($db);
 $cardType = new cardType($db);
 $list = new lists($db);
+$activity = new activity($db);
 
 // Default  Values
 $typeName = "Feature";
