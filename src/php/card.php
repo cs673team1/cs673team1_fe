@@ -40,7 +40,7 @@ class card
     public function getAllCards()
     {
         $result = self::$dbInterface -> query("SELECT cardID, cardName, cardType, description, owner,status, 
-              complexity, list_listID owner FROM card");
+              complexity, list_listID, owner FROM card");
         return $result;
     }
 
@@ -52,7 +52,7 @@ class card
     public function getCardByID($cardID)
     {
         $result = self::$dbInterface -> query("SELECT cardName, cardType, description, owner,status, 
-              complexity, list_listID owner FROM card WHERE cardID='".$cardID."'");
+              complexity, list_listID, owner FROM card WHERE cardID='".$cardID."'");
         return $result;
     }
 
