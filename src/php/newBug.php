@@ -56,7 +56,7 @@ if ($listResult->num_rows > 0) {
 $cardName = $_POST["Title"];
 $description = $_POST["Description"];
 $statusName = $_POST["Status"];
-$ownerID = $_POST["Owner"];
+$owner = $_POST["Owner"];
 $statusID = 1; // Open is value 1
 
 // echo "<br>" . "Testing cardName: " . $cardName . "<br>";
@@ -69,8 +69,17 @@ if ($statusResult->num_rows > 0) {
     $statusID = 1;
 }
 
-if ($cardName && $typeID && $description && $statusID && $complexity && $listID) {
-    $result = $card->addCardToList($cardName, $typeID, $description, $statusID, $complexity, $listID);
+//get statusID
+$userResult = $user->getuserIDByUserName($owner);
+if ($userResult->num_rows > 0) {
+    $ownerID = $userResult->fetch_assoc()['userID'];
+} else {
+    $ownerID = NULL;
+}
+
+if ($cardName && $typeID && $description && $statusID && $complexity && $listID && $ownerID) {
+    //$activityResult = $activity->addActivity('Test', 1, 23);
+    $result = $card->addCardToList($cardName, $typeID, $description, $statusID, $complexity, $listID, $ownerID );
     // Add new activity
     // Need a way to create a meaningful content instead of just cardName
     // Is getting the maximum cardID sufficient?
@@ -80,15 +89,10 @@ if ($cardName && $typeID && $description && $statusID && $complexity && $listID)
     } else {
         $cardID = NULL;
     }
-    $userResult = $user->getUserNameByUserID($ownerID);
-    if ($userResult->num_rows > 0) {
-        $userName = $userResult->fetch_assoc()['userName'];
-    } else {
-        $userName = "Unknown";
-    }
+
     $action = "added";
     if ($cardID) {
-        $content = $userName . " " . $action . " " . $cardName ." to " . $listName;
+        $content = $owner . " " . $action . " " . $cardName ." to " . $listName;
         $activityResult = $activity->addActivity($content, $ownerID, $cardID);
     }
 }
