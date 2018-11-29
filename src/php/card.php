@@ -100,7 +100,7 @@ class card
     public function getCardsForList($listID)
     {
         $result = self::$dbInterface -> query("SELECT cardID, cardName, cardType, description, owner,status, 
-             complexity, list_listID FROM card WHERE list_listID='$listID'");
+             complexity, list_listID, owner FROM card WHERE list_listID='$listID'");
         return $result;
     }
 
@@ -114,7 +114,7 @@ class card
     public function getCardsForListWithStatus($listID, $statusID)
     {
         $result = self::$dbInterface -> query("SELECT cardID, cardName, cardType, description, owner, status, 
-             complexity, list_listID FROM card WHERE card.status='".$statusID."' and card.list_listID='".$listID."'");
+             complexity, list_listID, owner FROM card WHERE card.status='".$statusID."' and card.list_listID='".$listID."'");
         return $result;
     }
 
