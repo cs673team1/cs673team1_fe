@@ -50,7 +50,7 @@ if ($listResult->num_rows > 0) {
 $cardName = $_POST["Title"];
 $description = $_POST["Description"];
 $statusName = $_POST["Status"];
-$ownerID = $_POST["Owner"];
+$owner = $_POST["Owner"];
 $statusID = 1; // Open is value 1
 
 // Get statusID
@@ -61,6 +61,29 @@ if ($statusResult->num_rows > 0) {
     $statusID = 1;
 }
 
-if ($cardName && $typeID && $description && $statusID && $complexity && $listID) {
-    $result = $card->addCardToList($cardName, $typeID, $description, $statusID, $complexity, $listID);
+//get ownerID
+$userResult = $user->getuserIDByUserName($owner);
+if ($userResult->num_rows > 0) {
+    $ownerID = $userResult->fetch_assoc()['userID'];
+} else {
+    $ownerID = NULL;
+}
+
+if ($cardName && $typeID && $description && $statusID && $complexity && $listID && $ownerID) {
+    $result = $card->addCardToList($cardName, $typeID, $description, $statusID, $complexity, $listID, $ownerID);
+
+    // Add new activity
+    // Is getting the maximum cardID sufficient?
+    $cardResult = $card->getMaxCardID();
+    if ($cardResult->num_rows > 0) {
+        $cardID = $cardResult->fetch_assoc()['MAX(cardID)'];
+    } else {
+        $cardID = NULL;
+    }
+
+    $action = "added";
+    if ($cardID) {
+        $content = $owner . " " . $action . " " . $cardName ." to " . $listName;
+        $activityResult = $activity->addActivity($content, $ownerID, $cardID);
+    }
 }

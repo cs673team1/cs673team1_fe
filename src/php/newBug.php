@@ -69,7 +69,7 @@ if ($statusResult->num_rows > 0) {
     $statusID = 1;
 }
 
-//get statusID
+//get ownerID
 $userResult = $user->getuserIDByUserName($owner);
 if ($userResult->num_rows > 0) {
     $ownerID = $userResult->fetch_assoc()['userID'];
@@ -78,10 +78,9 @@ if ($userResult->num_rows > 0) {
 }
 
 if ($cardName && $typeID && $description && $statusID && $complexity && $listID && $ownerID) {
-    //$activityResult = $activity->addActivity('Test', 1, 23);
     $result = $card->addCardToList($cardName, $typeID, $description, $statusID, $complexity, $listID, $ownerID );
+
     // Add new activity
-    // Need a way to create a meaningful content instead of just cardName
     // Is getting the maximum cardID sufficient?
     $cardResult = $card->getMaxCardID();
     if ($cardResult->num_rows > 0) {
