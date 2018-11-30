@@ -52,14 +52,6 @@ if ($cardID && $cardName && $description && $statusID) {
     $result = $card->updateCardOwner($cardID, $ownerID);
 
     // Add new activity
-    // Is getting the maximum cardID sufficient?
-    $cardResult = $card->getMaxCardID();
-    if ($cardResult->num_rows > 0) {
-        $cardID = $cardResult->fetch_assoc()['MAX(cardID)'];
-    } else {
-        $cardID = NULL;
-    }
-
     $action = "modified";
     if ($cardID) {
         $content = $owner . " " . $action . " " . $cardName ."(" . $cardID . ")";
