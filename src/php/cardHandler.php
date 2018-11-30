@@ -140,5 +140,30 @@ if ($request == "get")
     $cardID = $_POST["cardid"];
 
     $card->deleteCardByID($cardID);
+
+    // get userID and cardName
+    //$userName = $_POST["user"];
+    $userName = "Lynn Cistulli";
+    //get userID
+    $userResult = $user->getuserIDByUserName($userName);
+    if ($userResult->num_rows > 0) {
+        $userID = $userResult->fetch_assoc()['userID'];
+    } else {
+        $userID = NULL;
+    }
+
+    //get cardName
+    $nameResult = $card->getCardByID($cardID);
+    if ($cardResult->num_rows > 0) {
+        $cardName = $cardResult->fetch_assoc()['cardName'];
+    } else {
+        $cardName = "unnamed";
+    }
+    // Add new activity
+    $action = "deleted";
+    if ($cardID) {
+        $content = $userName . " " . $action . " " . $cardName ."(" . $cardID . ")";
+        $activityResult = $activity->addActivity($content, $userID, $cardID);
+    }
 }
 
