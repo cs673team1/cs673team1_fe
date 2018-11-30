@@ -140,6 +140,5 @@ if ($request == "get")
     $cardID = $_POST["cardid"];
 
     $card->deleteCardByID($cardID);
-
 }
 
