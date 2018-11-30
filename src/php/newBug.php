@@ -91,7 +91,7 @@ if ($cardName && $typeID && $description && $statusID && $complexity && $listID 
 
     $action = "added";
     if ($cardID) {
-        $content = $owner . " " . $action . " " . $cardName ." to " . $listName;
+        $content = $owner . " " . $action . " " . $cardName ."(" . $cardID . ") to " . $listName;
         $activityResult = $activity->addActivity($content, $ownerID, $cardID);
     }
 }
