@@ -140,14 +140,14 @@ if ($request == "get")
     // Add activity for archiving the card
     //get userID
     $userName = "Lynn Cistulli";
-    //$userName = $_POST["UserName"];
-    //$userResult = $user->getuserIDByUserName($userName);
-    //if ($userResult->num_rows > 0) {
-    // $userID = $userResult->fetch_assoc()['userID'];
-    // } else {
-    //$userID = NULL;
-    //}
-    $userID = 3;
+    $userName = $_POST["UserName"];
+    $userResult = $user->getuserIDByUserName($userName);
+    if ($userResult->num_rows > 0) {
+        $userID = $userResult->fetch_assoc()['userID'];
+    } else {
+        $userID = NULL;
+    }
+    //$userID = 3;
     // get cardName
     $cardResult = $card->getCardByID($cardID);
     if ($cardResult->num_rows > 0) {
@@ -175,14 +175,13 @@ if ($request == "get")
     // Add activity for archiving the card
     //get userID
     $userName = "Lynn Cistulli";
-    //$userName = $_POST["UserName"];
-    //$userResult = $user->getuserIDByUserName($userName);
-    //if ($userResult->num_rows > 0) {
-       // $userID = $userResult->fetch_assoc()['userID'];
-   // } else {
-        //$userID = NULL;
-    //}
-    $userID = 3;
+    $userName = $_POST["UserName"];
+    $userResult = $user->getuserIDByUserName($userName);
+    if ($userResult->num_rows > 0) {
+        $userID = $userResult->fetch_assoc()['userID'];
+    } else {
+        $userID = NULL;
+    }
     // get cardName
     $cardResult = $card->getCardByID($cardID);
     if ($cardResult->num_rows > 0) {
