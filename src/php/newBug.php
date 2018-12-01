@@ -97,6 +97,7 @@ if ($cardName && $typeID && $description && $statusID && $complexity && $listID 
     } else {
         $userID = NULL;
     }
+
     $action = "added";
     if ($cardID && $userID) {
         $content = $userName . " " . $action . " " . $cardName ."(" . $cardID . ") to " . $listName;
