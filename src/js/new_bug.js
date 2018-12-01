@@ -13,7 +13,7 @@ $(document).ready(function () {
             alert("Please fill in title and description");
         }
         else {
-            var postData = 'Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status;
+            var postData = 'Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status + '&UserName=' + user;
             var formURL = $(this).attr("action");
             $.ajax({
                 url: formURL,
