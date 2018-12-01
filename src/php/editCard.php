@@ -61,7 +61,7 @@ if ($cardID && $cardName && $description && $statusID) {
     } else {
         $userID = NULL;
     }
-    if ($cardID) {
+    if ($cardID && $userID) {
         $content = $userName . " " . $action . " " . $cardName ."(" . $cardID . ")";
         $activityResult = $activity->addActivity($content, $userID, $cardID);
     }
