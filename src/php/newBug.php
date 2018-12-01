@@ -58,6 +58,7 @@ $description = $_POST["Description"];
 $statusName = $_POST["Status"];
 $owner = $_POST["Owner"];
 $statusID = 1; // Open is value 1
+$userName = $_POST["UserName"];
 
 // echo "<br>" . "Testing cardName: " . $cardName . "<br>";
 

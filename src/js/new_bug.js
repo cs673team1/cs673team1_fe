@@ -6,6 +6,7 @@ $(document).ready(function () {
         var owner = $("#newBugOwner").val();
         var desc = $("#newBugDesc").val();
         var status = document.querySelector('input[name=newBugStatusBtnGrp]:checked').value;
+        var user = document.getElementById("user-list").value;
 
         // TODO: when this alert exits we revert to the php file as a web page ... ick ...
         if (!(title && desc)) {

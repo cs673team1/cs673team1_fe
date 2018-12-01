@@ -7,13 +7,14 @@ $(document).ready(function () {
         var owner = $("#editCardOwner").val();
         var desc = $("#editCardDesc").val();
         var status = document.querySelector('input[name=editCardStatusBtnGrp]:checked').value;
+        var user = document.getElementById("user-list").value;
 
         // TODO: when this alert exits we revert to the php file as a web page ... ick ...
         if (!(title && desc)) {
             alert("Please fill in title and description");
         }
         else {
-            var postData = 'CardID=' + cardID + '&Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status;
+            var postData = 'CardID=' + cardID + '&Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status + '&UserName=' + user;
             var formURL = $(this).attr("action");
             $.ajax({
                 url: formURL,

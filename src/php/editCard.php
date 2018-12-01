@@ -25,6 +25,7 @@ $description = $_POST["Description"];
 $statusName = $_POST["Status"];
 $owner = $_POST["Owner"];
 $cardID = $_POST["CardID"];
+$userName = $_POST["UserName"];
 
 // echo "<br>" . "Testing cardName: " . $cardName . "<br>";
 
