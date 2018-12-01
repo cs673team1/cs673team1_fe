@@ -278,8 +278,13 @@
 <script src="js/users.js"></script>
 <script src="js/cards.js"></script>
 <script src="js/filter.js"></script>
+<script src="js/cookies.js"></script>
 <script>
     getUsers();
+    var user = getCookie("username");
+    if (user != "") {
+        document.getElementById("user-list").value = user;
+    }
     getMessages();
     getCards("Current Iteration", "currentIteration");
     getCards("Backlog", "backlog");
@@ -288,8 +293,8 @@
     document.getElementById("user-list").addEventListener("change", function(){
        document.forms["newStoryForm"].elements["newStoryOwner"].value = document.getElementById("user-list").value;
        document.forms["newBugForm"].elements["newBugOwner"].value = document.getElementById("user-list").value;
+       setCookie("username", document.getElementById("user-list").value);
     });
-
 </script>
 
 </body>
