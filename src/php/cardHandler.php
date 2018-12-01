@@ -146,16 +146,16 @@ if ($request == "get")
     $card->updateCardList($cardID, $newListID);
     // $card->deleteCardByID($cardID);
 
-    // Add new activity
+    // Add activity for archiving the bug
     //get userID
-    $userName = "Lynn Cistulli";
-    $userResult = $user->getuserIDByUserName($userName);
-    if ($userResult->num_rows > 0) {
-        $userID = $userResult->fetch_assoc()['userID'];
-    } else {
-        $userID = NULL;
-    }
-
+    //$userName = $_POST["UserName"];
+    //$userResult = $user->getuserIDByUserName($userName);
+    //if ($userResult->num_rows > 0) {
+       // $userID = $userResult->fetch_assoc()['userID'];
+   // } else {
+        //$userID = NULL;
+    //}
+    $userID = 3;
     // get cardName
     $cardResult = $card->getCardByID($cardID);
     if ($cardResult->num_rows > 0) {
