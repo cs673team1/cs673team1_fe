@@ -19,7 +19,7 @@ $(document).ready(function () {
         }
         else {
             var postData = 'Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status + '&UserName=' + user;
-            var formURL = document.getElementById("homeURL").value + "/" + $(this).attr("action");
+            var formURL = document.getElementById("homeURL") + "/" + $(this).attr("action");
             alert(formURL);
             /* TEMPORARY for testing ... js ...
             $.ajax({
