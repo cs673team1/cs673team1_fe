@@ -1,6 +1,6 @@
 // newBug java script, invoked from newBug modal ...
-$("#newBugSubmit").on('click', function() {
-//    $("#newBugForm").on("submit", function(e) {
+$(document).ready(function () {
+    $("#newBugForm").on("submit", function(e) {
         var postData = $(this).serializeArray();
         var title = $("#newBugTitle").val();
         var owner = $("#newBugOwner").val();
@@ -38,9 +38,9 @@ $("#newBugSubmit").on('click', function() {
             });
             e.preventDefault();
         }
-   // });
+    });
 
-    //$("#newBugSubmit").on('click', function() {
-    //    $("#newBugForm").submit();
-    //});
+    $("#newBugSubmit").on('click', function() {
+        $("#newBugForm").submit();
+    });
 });
