@@ -19,7 +19,7 @@ $(document).ready(function () {
         }
         else {
             var postData = 'CardID=' + cardID + '&Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status + '&UserName=' + user;
-            var formURL = $(this).attr("action");
+            var formURL = document.getElementById("homeURL") + "/" + $(this).attr("action");
             $.ajax({
                 url: formURL,
                 type: "POST",
