@@ -54,9 +54,16 @@ if ($cardID && $cardName && $description && $statusID) {
 
     // Add new activity
     $action = "modified";
+    //get userID
+    $userResult = $user->getuserIDByUserName($userName);
+    if ($userResult->num_rows > 0) {
+        $userID = $userResult->fetch_assoc()['userID'];
+    } else {
+        $userID = NULL;
+    }
     if ($cardID) {
-        $content = $owner . " " . $action . " " . $cardName ."(" . $cardID . ")";
-        $activityResult = $activity->addActivity($content, $ownerID, $cardID);
+        $content = $userName . " " . $action . " " . $cardName ."(" . $cardID . ")";
+        $activityResult = $activity->addActivity($content, $userID, $cardID);
     }
 }
 
