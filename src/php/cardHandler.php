@@ -144,6 +144,30 @@ if ($request == "get")
     $row = $result->fetch_assoc();
     $newListID = $row["listID"];
     $card->updateCardList($cardID, $newListID);
-   // $card->deleteCardByID($cardID);
+    // $card->deleteCardByID($cardID);
+
+    // Add new activity
+    //get userID
+    $userName = "Lynn Cistulli";
+    $userResult = $user->getuserIDByUserName($userName);
+    if ($userResult->num_rows > 0) {
+        $userID = $userResult->fetch_assoc()['userID'];
+    } else {
+        $userID = NULL;
+    }
+
+    // get cardName
+    $cardResult = $card->getCardByID($cardID);
+    if ($cardResult->num_rows > 0) {
+        $cardName = $cardResult->fetch_assoc()['cardName'];
+    } else {
+        $cardName = NULL;
+    }
+
+    $action = "archived";
+    if ($cardID && $userID) {
+        $content = $userName . " " . $action . " " . $cardName ."(" . $cardID . ") ";
+        $activityResult = $activity->addActivity($content, $userID, $cardID);
+    }
 }
 
