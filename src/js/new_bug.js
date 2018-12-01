@@ -10,10 +10,12 @@ $(document).ready(function () {
 
         if (!user || user.toString().match(/login/i)) {
             alert("Please log in");
+            location.assign(document.getElementById("homeURL"));
             location.reload(true);
         }
         else if (!(title && desc)) {
             alert("Please fill in title and description");
+            location.assign(document.getElementById("homeURL"));
             location.reload(true);
         }
         else {
