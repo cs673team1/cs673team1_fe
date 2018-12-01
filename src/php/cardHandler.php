@@ -139,6 +139,11 @@ if ($request == "get")
 {
     $cardID = $_POST["cardid"];
 
-    $card->deleteCardByID($cardID);
+    $newList = "Archive";
+    $result = $list->getListIdByName($newList);
+    $row = $result->fetch_assoc();
+    $newListID = $row["listID"];
+    $card->updateCardList($cardID, $newListID);
+   // $card->deleteCardByID($cardID);
 }
 
