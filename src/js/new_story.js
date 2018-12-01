@@ -8,7 +8,8 @@ $(document).ready(function () {
         var status = document.querySelector('input[name=newStoryStatusBtnGrp]:checked').value;
         var user = document.getElementById("user-list").value;
 
-        if (!user || user.toString().match("") || user.toString().match(/login/i)) {
+        //if (!user || user.toString().match("") || user.toString().match(/login/i)) {
+        if (!user || user.toString().match(/login/i)) {
             alert("Please log in");
             location.reload(true);
         }
