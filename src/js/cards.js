@@ -52,8 +52,6 @@ function moveCard(cardID) {
     var user = document.getElementById("user-list").value;
     if (!user || user.toString().match(/login/i)) {
         alert("Please log in");
-        //location.assign(document.getElementById("homeURL"));
-        //location.reload(true);
     }
     else {
         moveCardInner(cardID, user);
@@ -85,8 +83,6 @@ function archiveCard(cardID) {
     var user = document.getElementById("user-list").value;
     if (!user || user.toString().match(/login/i)) {
         alert("Please log in");
-        //location.assign(document.getElementById("homeURL"));
-        //location.reload(true);
     }
     else {
         archiveCardInner(cardID, user);
@@ -112,7 +108,7 @@ function archiveCardInner(cardID, user) {
 
     http.open('POST', 'php/cardHandler.php', true);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    http.send('request=delete&cardid=' + cardID);
+    http.send('request=delete&cardid=' + cardID + '&UserName=' + user);
 }
 
 function populateEditCard(cardID) {
