@@ -12,6 +12,9 @@ $(document).ready(function () {
         if (!(title && desc)) {
             alert("Please fill in title and description");
         }
+        if (!user) {
+            alert("Please log in");
+        }
         else {
             var postData = 'Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status + '&UserName=' + user;
             var formURL = $(this).attr("action");
