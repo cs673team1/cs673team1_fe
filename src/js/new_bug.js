@@ -11,9 +11,11 @@ $(document).ready(function () {
         // TODO: when this alert exits we revert to the php file as a web page ... ick ...
         if (!(title && desc)) {
             alert("Please fill in title and description");
+            location.reload(true);
         }
         if (!user || user.toString().match(/login/i)) {
             alert("Please log in");
+            location.reload(true);
         }
         else {
             var postData = 'Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status + '&UserName=' + user;
@@ -23,9 +25,12 @@ $(document).ready(function () {
                 type: "POST",
                 data: postData,
                 success: function (data, textStatus, jqXHR) {
-                    $('#newBugForm .modal-header .modal-title').html("Result");
+                    $('#newBugForm .modal-header .modal-title').html("New bug added");
                     $('#newBugForm .modal-body').html(data);
                     $("#newBugSubmit").remove();
+                    $("#newBugSubmit").reset(); // clear old data
+
+                    location.reload(true);
                 },
                 error: function (jqXHR, status, error) {
                     console.log(status + ": " + error);
