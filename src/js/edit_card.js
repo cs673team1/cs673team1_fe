@@ -11,9 +11,11 @@ $(document).ready(function () {
 
         if (!user || user.toString().match(/login/i)) {
             alert("Please log in");
+            location.reload(true);
         }
         else if (!(title && desc)) {
             alert("Please fill in title and description");
+            location.reload(true);
         }
         else {
             var postData = 'CardID=' + cardID + '&Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status + '&UserName=' + user;

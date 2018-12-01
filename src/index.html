@@ -281,6 +281,7 @@
 <script src="js/cookies.js"></script>
 <script>
     getUsers();
+    var homeURL = "http://c3po.fedos.info/cs673team1_fe/src";
     var user = getCookie("username");
     if (user != "") {
         document.getElementById("user-list").value = user;
@@ -291,9 +292,9 @@
     getCards("Bugs", "bugs");
     document.getElementById("send-message").addEventListener("click", sendMessage);
     document.getElementById("user-list").addEventListener("change", function(){
-       document.forms["newStoryForm"].elements["newStoryOwner"].value = document.getElementById("user-list").value;
-       document.forms["newBugForm"].elements["newBugOwner"].value = document.getElementById("user-list").value;
-       setCookie("username", document.getElementById("user-list").value);
+        document.forms["newStoryForm"].elements["newStoryOwner"].value = document.getElementById("user-list").value;
+        document.forms["newBugForm"].elements["newBugOwner"].value = document.getElementById("user-list").value;
+        setCookie("username", document.getElementById("user-list").value);
     });
 </script>
 
