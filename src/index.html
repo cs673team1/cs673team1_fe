@@ -196,8 +196,7 @@
                             <button type="button" class="close" data-dismiss="modal">X</button>
                         </div>
                         <div class="modal-body">
-                            <!-- <form id="newBugForm" action="http://c3po.fedos.info/cs673team1_fe/src/php/newBug.php" method="post"> -->
-                            <form id="newBugForm">
+                            <form id="newBugForm" action="http://c3po.fedos.info/cs673team1_fe/src/php/newBug.php" method="post">
                             <!-- have now tried all variations of http://c3po.fedos.info/xxx/newBug.php with no luck ... hmm -->
                             <!-- <form id="newBugForm" action="php/newBug.php" method="post"> -->
                                 <p>Title:</p>
@@ -235,7 +234,7 @@
         <div class="modal fade ModalOver" id="editCard" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
-                <form id="editCardForm"  action="http://c3po.fedos.info/cs673team1_fe/src/php/editCard.php" method="post">
+                <form id="editCardForm" action="http://c3po.fedos.info/cs673team1_fe/src/php/editCard.php" method="post">
                     <div class="modal-content">
                         <div class="modal-header" method="post">
                             <h2 class="modal-title">Edit existing bug</h2>
@@ -289,8 +288,9 @@
     getCards("Bugs", "bugs");
     document.getElementById("send-message").addEventListener("click", sendMessage);
     document.getElementById("user-list").addEventListener("change", function(){
-        document.forms["newStoryForm"].elements["newStoryOwner"].value = document.getElementById("user-list").value;
-        document.forms["newBugForm"].elements["newBugOwner"].value = document.getElementById("user-list").value;
+        // not sure we want to assume that the owner of a new bug or story is the logged in user ... comment out for now (also does not appear to work)
+        //document.forms["newStoryForm"].elements["newStoryOwner"].value = document.getElementById("user-list").value;
+        //document.forms["newBugForm"].elements["newBugOwner"].value = document.getElementById("user-list").value;
         setCookie("username", document.getElementById("user-list").value);
     });
 </script>

@@ -20,7 +20,7 @@ $(document).ready(function () {
         }
         else {
             var postData = 'Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status + '&UserName=' + user;
-            var formURL = document.getElementById("homeURL") + "/php/newBug.php";
+            var formURL = $(this).attr("action");
             $.ajax({
                 url: formURL,
                 type: "POST",
