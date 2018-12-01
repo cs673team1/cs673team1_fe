@@ -12,7 +12,7 @@ $(document).ready(function () {
         if (!(title && desc)) {
             alert("Please fill in title and description");
         }
-        if (!user) {
+        if (!user || user.toString().match(/login/i)) {
             alert("Please log in");
         }
         else {
