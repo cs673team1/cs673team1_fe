@@ -13,6 +13,7 @@ require_once('card.php');
 require_once ('status.php');
 require_once ('cardType.php');
 require_once ('lists.php');
+require_once ('activity.php');
 
 
 $db = new dB();
@@ -144,6 +145,30 @@ if ($request == "get")
     $row = $result->fetch_assoc();
     $newListID = $row["listID"];
     $card->updateCardList($cardID, $newListID);
-   // $card->deleteCardByID($cardID);
+    // $card->deleteCardByID($cardID);
+
+    // Add activity for archiving the bug
+    //get userID
+    //$userName = $_POST["UserName"];
+    //$userResult = $user->getuserIDByUserName($userName);
+    //if ($userResult->num_rows > 0) {
+       // $userID = $userResult->fetch_assoc()['userID'];
+   // } else {
+        //$userID = NULL;
+    //}
+    $userID = 3;
+    // get cardName
+    $cardResult = $card->getCardByID($cardID);
+    if ($cardResult->num_rows > 0) {
+        $cardName = $cardResult->fetch_assoc()['cardName'];
+    } else {
+        $cardName = NULL;
+    }
+
+    $action = "archived";
+    if ($cardID && $userID) {
+        $content = $userName . " " . $action . " " . $cardName ."(" . $cardID . ") ";
+        $activityResult = $activity->addActivity($content, $userID, $cardID);
+    }
 }
 
