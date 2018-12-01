@@ -26,6 +26,10 @@ function getUsers()
          document.forms["newStoryForm"].elements["newStoryOwner"].innerHTML = formUsers;
          document.forms["newBugForm"].elements["newBugOwner"].innerHTML = formUsers;
          document.forms["editCardForm"].elements["editCardOwner"].innerHTML = formUsers;
+         var user = getCookie("username");
+         if (user != "") {
+            document.getElementById("user-list").value = user;
+         }
       }
    };
 

@@ -282,10 +282,6 @@
 <script>
     getUsers();
     var homeURL = "http://c3po.fedos.info/cs673team1_fe/src";
-    var user = getCookie("username");
-    if (user != "") {
-        document.getElementById("user-list").value = user;
-    }
     getMessages();
     getCards("Current Iteration", "currentIteration");
     getCards("Backlog", "backlog");
