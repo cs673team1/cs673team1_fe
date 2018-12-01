@@ -1,6 +1,6 @@
 // newBug java script, invoked from newBug modal ...
-$(document).ready(function () {
-    $("#newBugForm").on("submit", function(e) {
+$("#newBugSubmit").on('click', function() {
+//    $("#newBugForm").on("submit", function(e) {
         var postData = $(this).serializeArray();
         var title = $("#newBugTitle").val();
         var owner = $("#newBugOwner").val();
@@ -8,7 +8,7 @@ $(document).ready(function () {
         var status = document.querySelector('input[name=newBugStatusBtnGrp]:checked').value;
         var user = document.getElementById("user-list").value;
 
-        if (!user || user.toString().match(/login/i)) {
+        if (!user || user.toString().match("") || user.toString().match(/login/i)) {
             alert("Please log in");
             location.assign(document.getElementById("homeURL"));
             location.reload(true);
@@ -20,7 +20,7 @@ $(document).ready(function () {
         }
         else {
             var postData = 'Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status + '&UserName=' + user;
-            var formURL = $(this).attr("action");
+            var formURL = document.getElementById("homeURL") + "/php/newBug.php";
             $.ajax({
                 url: formURL,
                 type: "POST",
@@ -38,9 +38,9 @@ $(document).ready(function () {
             });
             e.preventDefault();
         }
-    });
+   // });
 
-    $("#newBugSubmit").on('click', function() {
-        $("#newBugForm").submit();
-    });
+    //$("#newBugSubmit").on('click', function() {
+    //    $("#newBugForm").submit();
+    //});
 });
