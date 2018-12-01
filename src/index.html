@@ -37,6 +37,24 @@
             <a class="navbar-brand" href="index.html">Core Communication Collaboration Portal</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#activityModal">Activity Log</a></li>
+                <!-- Activity Modal -->
+                <div class="modal fade ModalOver" id="activityModal" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="modal-title">Activity Log</h2>
+                                <button type="button" class="close" data-dismiss="modal">X</button>
+                            </div>
+                            <div class="modal-body" id="activityBody">
+                                <!-- Populate -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <div class="btn-group">
@@ -279,6 +297,7 @@
 <script src="js/cards.js"></script>
 <script src="js/filter.js"></script>
 <script src="js/cookies.js"></script>
+<script src="js/activity.js"></script>
 <script>
     getUsers();
     var homeURL = "http://c3po.fedos.info/cs673team1_fe/src";
@@ -293,6 +312,14 @@
         //document.forms["newBugForm"].elements["newBugOwner"].value = document.getElementById("user-list").value;
         setCookie("username", document.getElementById("user-list").value);
     });
+
+    $("#activityModal").on("show.bs.modal", getActivities);
+
+    $("#activityModal").on("hidden.bs.modal", function()
+    {
+       $("#activityBody").innerHTML = "";
+    }
+    );
 </script>
 
 </body>
