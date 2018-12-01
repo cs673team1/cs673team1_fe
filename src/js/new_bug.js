@@ -8,7 +8,7 @@ $(document).ready(function () {
         var status = document.querySelector('input[name=newBugStatusBtnGrp]:checked').value;
         var user = document.getElementById("user-list").value;
 
-        if (!user || user.toString().match("") || user.toString().match(/login/i)) {
+        if (!user || user.toString().match(/login/i)) {
             alert("Please log in");
             location.assign(document.getElementById("homeURL"));
             location.reload(true);
