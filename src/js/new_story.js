@@ -18,7 +18,9 @@ $(document).ready(function () {
         }
         else {
             var postData = 'Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status + '&UserName=' + user;
-            var formURL = $(this).attr("action");
+            var formURL = document.getElementById("homeURL").value + "/" + $(this).attr("action");
+            alert(formURL);
+            /* TEMPORARY for testing ... js ...
             $.ajax({
                 url: formURL,
                 type: "POST",
@@ -35,6 +37,7 @@ $(document).ready(function () {
                 }
             });
             e.preventDefault();
+            */
         }
     });
 

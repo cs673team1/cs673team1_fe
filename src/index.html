@@ -3,8 +3,11 @@
 <head>
     <title>C3PO </title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+    <address id=homeURL hidden>"http://c3po.fedos.info/cs673team1_fe/src"</address>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -141,7 +144,7 @@
                             <button type="button" class="close" data-dismiss="modal">X</button>
                         </div>
                         <div class="modal-body">
-                            <form id="newStoryForm" action="http://c3po.fedos.info/cs673team1_fe/src/php/newStory.php" method="post">
+                            <form id="newStoryForm" action="php/newStory.php" method="post">
                                 <p>Title:</p>
                                 <textarea row="1" cols="30" name="comment" id="newStoryTitle" placeholder="Enter summary title here..."></textarea>
                                 <p>Owner:</p>
@@ -281,7 +284,6 @@
 <script src="js/cookies.js"></script>
 <script>
     getUsers();
-    var homeURL = "http://c3po.fedos.info/cs673team1_fe/src";
     getMessages();
     getCards("Current Iteration", "currentIteration");
     getCards("Backlog", "backlog");
