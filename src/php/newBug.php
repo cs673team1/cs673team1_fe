@@ -98,7 +98,7 @@ if ($cardName && $typeID && $description && $statusID && $complexity && $listID 
         $userID = NULL;
     }
     $action = "added";
-    if ($cardID) {
+    if ($cardID && $userID) {
         $content = $userName . " " . $action . " " . $cardName ."(" . $cardID . ") to " . $listName;
         $activityResult = $activity->addActivity($content, $userID, $cardID);
     }
