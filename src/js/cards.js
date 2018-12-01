@@ -49,6 +49,18 @@ function getCards(list, tag)
 }
 
 function moveCard(cardID) {
+    var user = document.getElementById("user-list").value;
+    if (!user || user.toString().match(/login/i)) {
+        alert("Please log in");
+        //location.assign(document.getElementById("homeURL"));
+        //location.reload(true);
+    }
+    else {
+        moveCardInner(cardID, user);
+    }
+}
+
+function moveCardInner(cardID, user) {
     if (window.XMLHttpRequest) {
         http = new XMLHttpRequest();
     }
@@ -66,10 +78,22 @@ function moveCard(cardID) {
 
     http.open('POST', 'php/cardHandler.php', true);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    http.send('request=move&cardid=' + cardID);
+    http.send('request=move&cardid=' + cardID + "&UserName=" + user);
 }
 
 function archiveCard(cardID) {
+    var user = document.getElementById("user-list").value;
+    if (!user || user.toString().match(/login/i)) {
+        alert("Please log in");
+        //location.assign(document.getElementById("homeURL"));
+        //location.reload(true);
+    }
+    else {
+        archiveCardInner(cardID, user);
+    }
+}
+
+function archiveCardInner(cardID, user) {
 
     if (window.XMLHttpRequest) {
         http = new XMLHttpRequest();
