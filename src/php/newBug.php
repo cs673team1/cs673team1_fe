@@ -90,9 +90,16 @@ if ($cardName && $typeID && $description && $statusID && $complexity && $listID 
         $cardID = NULL;
     }
 
+    //get userID
+    $userResult = $user->getuserIDByUserName($userName);
+    if ($userResult->num_rows > 0) {
+        $userID = $userResult->fetch_assoc()['userID'];
+    } else {
+        $userID = NULL;
+    }
     $action = "added";
-    if ($cardID) {
-        $content = $owner . " " . $action . " " . $cardName ."(" . $cardID . ") to " . $listName;
-        $activityResult = $activity->addActivity($content, $ownerID, $cardID);
+    if ($cardID && $userID) {
+        $content = $userName . " " . $action . " " . $cardName ."(" . $cardID . ") to " . $listName;
+        $activityResult = $activity->addActivity($content, $userID, $cardID);
     }
 }
