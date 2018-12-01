@@ -8,12 +8,11 @@ $(document).ready(function () {
         var status = document.querySelector('input[name=newStoryStatusBtnGrp]:checked').value;
         var user = document.getElementById("user-list").value;
 
-        // TODO: when this alert exits we revert to the php file as a web page ... ick ...
-        if (!(title && desc)) {
-            alert("Please fill in title and description");
-        }
         if (!user || user.toString().match(/login/i)) {
             alert("Please log in");
+        }
+        else if (!(title && desc)) {
+            alert("Please fill in title and description");
         }
         else {
             var postData = 'Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status + '&UserName=' + user;
@@ -23,9 +22,11 @@ $(document).ready(function () {
                 type: "POST",
                 data: postData,
                 success: function (data, textStatus, jqXHR) {
-                    $('#newStoryForm .modal-header .modal-title').html("Result");
+                    $('#newStoryForm .modal-header .modal-title').html("Added new Story");
                     $('#newStoryForm .modal-body').html(data);
                     $("#newStorySubmit").remove();
+                    $("#newStorySubmit").reset(); // clear old data
+                    location.reload(true);
                 },
                 error: function (jqXHR, status, error) {
                     console.log(status + ": " + error);

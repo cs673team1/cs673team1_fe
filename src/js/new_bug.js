@@ -8,14 +8,11 @@ $(document).ready(function () {
         var status = document.querySelector('input[name=newBugStatusBtnGrp]:checked').value;
         var user = document.getElementById("user-list").value;
 
-        // TODO: when this alert exits we revert to the php file as a web page ... ick ...
-        if (!(title && desc)) {
-            alert("Please fill in title and description");
-            location.reload(true);
-        }
         if (!user || user.toString().match(/login/i)) {
             alert("Please log in");
-            location.reload(true);
+        }
+        else if (!(title && desc)) {
+            alert("Please fill in title and description");
         }
         else {
             var postData = 'Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status + '&UserName=' + user;
@@ -29,7 +26,6 @@ $(document).ready(function () {
                     $('#newBugForm .modal-body').html(data);
                     $("#newBugSubmit").remove();
                     $("#newBugSubmit").reset(); // clear old data
-
                     location.reload(true);
                 },
                 error: function (jqXHR, status, error) {

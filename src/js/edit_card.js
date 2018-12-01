@@ -9,12 +9,11 @@ $(document).ready(function () {
         var status = document.querySelector('input[name=editCardStatusBtnGrp]:checked').value;
         var user = document.getElementById("user-list").value;
 
-        // TODO: when this alert exits we revert to the php file as a web page ... ick ...
-        if (!(title && desc)) {
-            alert("Please fill in title and description");
-        }
         if (!user || user.toString().match(/login/i)) {
             alert("Please log in");
+        }
+        else if (!(title && desc)) {
+            alert("Please fill in title and description");
         }
         else {
             var postData = 'CardID=' + cardID + '&Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status + '&UserName=' + user;
@@ -24,9 +23,11 @@ $(document).ready(function () {
                 type: "POST",
                 data: postData,
                 success: function (data, textStatus, jqXHR) {
-                    $('#editCardForm .modal-header .modal-title').html("Result");
+                    $('#editCardForm .modal-header .modal-title').html("Edited card");
                     $('#editCardForm .modal-body').html(data);
                     $("#editCardSubmit").remove();
+                    // do not reset data ... maybe user wants to keep on editing
+                    location.reload(true);
                 },
                 error: function (jqXHR, status, error) {
                     console.log(status + ": " + error);
