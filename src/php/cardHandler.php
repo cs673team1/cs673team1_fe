@@ -136,6 +136,31 @@ if ($request == "get")
     else{
         echo "newList not set\n";
     }
+
+    // Add activity for archiving the card
+    //get userID
+    $userName = "Lynn Cistulli";
+    //$userName = $_POST["UserName"];
+    //$userResult = $user->getuserIDByUserName($userName);
+    //if ($userResult->num_rows > 0) {
+    // $userID = $userResult->fetch_assoc()['userID'];
+    // } else {
+    //$userID = NULL;
+    //}
+    $userID = 3;
+    // get cardName
+    $cardResult = $card->getCardByID($cardID);
+    if ($cardResult->num_rows > 0) {
+        $cardName = $cardResult->fetch_assoc()['cardName'];
+    } else {
+        $cardName = NULL;
+    }
+
+    $action = "moved";
+    if ($cardID && $userID) {
+        $content = $userName . " " . $action . " " . $cardName ."(" . $cardID . ") from " . $currentList. " to " . $newList;
+        $activityResult = $activity->addActivity($content, $userID, $cardID);
+    }
 }elseif ($request == "delete")
 {
     $cardID = $_POST["cardid"];
@@ -147,8 +172,9 @@ if ($request == "get")
     $card->updateCardList($cardID, $newListID);
     // $card->deleteCardByID($cardID);
 
-    // Add activity for archiving the bug
+    // Add activity for archiving the card
     //get userID
+    $userName = "Lynn Cistulli";
     //$userName = $_POST["UserName"];
     //$userResult = $user->getuserIDByUserName($userName);
     //if ($userResult->num_rows > 0) {
