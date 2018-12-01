@@ -23,7 +23,7 @@ $card = new card($db);
 $status = new status($db);
 $cardType = new cardType($db);
 $list = new lists($db);
-
+$activity = new activity($db);
 
 $request = $_POST["request"];
 
