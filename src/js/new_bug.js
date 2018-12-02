@@ -58,6 +58,7 @@ $(document).ready(function () {
         if (dataValid()) {
             $("#newBugForm").submit();
             hideModal();
+            $("#newBugModal").reset;
             //location.reload(true); ... TODO: last bug is that new screen does not have updated bug ... but doing this here makes us lose it!
         }
     });
