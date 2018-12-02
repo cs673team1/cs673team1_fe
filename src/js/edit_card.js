@@ -6,14 +6,14 @@ $(document).ready(function () {
         var user = document.getElementById("user-list").value;
 
         if (!user || user.toString().match(/login/i)) {
-            document.getElementById("newBugError").hidden = '';
-            document.getElementById("newBugError").innerHTML = "Please log in";
+            document.getElementById("editCardError").hidden = '';
+            document.getElementById("editCardError").innerHTML = "Please log in";
             $("#editCardModal").reload(true);
             return false;
         }
         else if (!(title && desc)) {
-            document.getElementById("newBugError").hidden = '';
-            document.getElementById("newBugError").innerHTML = "Please fill in title and description";
+            document.getElementById("editCardError").hidden = '';
+            document.getElementById("editCardError").innerHTML = "Please fill in title and description";
             $("#editCardModal").reload(true);
             return false;
         }
