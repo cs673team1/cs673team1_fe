@@ -62,4 +62,8 @@ $(document).ready(function () {
             hideModal();
         }
     });
+
+    $("#editCardClose").on('click', function() {
+        hideModal();
+    });
 });

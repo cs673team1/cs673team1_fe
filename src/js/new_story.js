@@ -60,4 +60,8 @@ $(document).ready(function () {
             hideModal();
         }
     });
+
+    $("#newStoryClose").on('click', function() {
+        hideModal();
+    });
 });
