@@ -49,6 +49,12 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
+    function clearFormFields () {
+        document.getElementById("newBugTitle").value = "";
+        document.getElementById("newBugOwner").value = "";
+        document.getElementById("newBugDesc").value = "";
+    }
+
     function hideModal() {
         $("#newBugModal").hide(); // use this not $("#newBugModal").modal('hide'); else modal does not show later
         $('.modal-backdrop').hide();
@@ -76,6 +82,7 @@ $(document).ready(function () {
         if (dataValid()) {
             $("#newBugForm").submit();
             hideModal();
+            clearFormFields();
             refreshPage(); // this does not appear to work here .. research
             //location.reload(true); ... TODO: last bug is that new screen does not have updated bug ... but doing this here makes us lose it!
         }
@@ -84,9 +91,4 @@ $(document).ready(function () {
     $("#newBugClose").on('click', function() {
         hideModal();
     });
-
-    $('.modal').on('hidden.bs.modal', function () {
-        $('.modal-body').html('');
-    });
-
 });
