@@ -1,26 +1,26 @@
 // newBug java script, invoked from newBug modal ...
-function dataValid() {
-    var title = $("#newBugTitle").val();
-    var desc = $("#newBugDesc").val();
-    var user = document.getElementById("user-list").value;
-
-    if (!user || user.toString().match(/login/i)) {
-        document.getElementById("newBugError").hidden = '';
-        document.getElementById("newBugError").innerHTML = "Please log in";
-        $("#newBugModal").reload(true);
-        return false;
-    }
-    else if (!(title && desc)) {
-        document.getElementById("newBugError").hidden = '';
-        document.getElementById("newBugError").innerHTML = "Please fill in title and description";
-        $("#newBugModal").reload(true);
-        return false;
-    }
-
-    return true;
-}
-
 $(document).ready(function () {
+    function dataValid() {
+        var title = $("#newBugTitle").val();
+        var desc = $("#newBugDesc").val();
+        var user = document.getElementById("user-list").value;
+
+        if (!user || user.toString().match(/login/i)) {
+            document.getElementById("newBugError").hidden = '';
+            document.getElementById("newBugError").innerHTML = "Please log in";
+            $("#newBugModal").reload(true);
+            return false;
+        }
+        else if (!(title && desc)) {
+            document.getElementById("newBugError").hidden = '';
+            document.getElementById("newBugError").innerHTML = "Please fill in title and description";
+            $("#newBugModal").reload(true);
+            return false;
+        }
+
+        return true;
+    }
+
     $("#newBugForm").on("submit", function (e) {
         var postData = $(this).serializeArray();
         var title = $("#newBugTitle").val();
@@ -51,8 +51,8 @@ $(document).ready(function () {
     $("#newBugSubmit").on('click', function() {
         if (dataValid()) {
             $("#newBugForm").submit();
-            $("#newBugModal").hide();
-            location.reload(true);
+            //$("#newBugModal").hide();
+            //location.reload(true);
         }
     });
 });
