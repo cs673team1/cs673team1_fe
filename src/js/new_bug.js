@@ -90,5 +90,6 @@ $(document).ready(function () {
 
     $("#newBugClose").on('click', function() {
         hideModal();
+        clearFormFields();
     });
 });
