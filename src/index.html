@@ -177,6 +177,7 @@
                                     Test-Pass <input type="radio" name="newStoryStatusBtnGrp" id="newStoryStatusTestPass" value="Test-Pass"><span class="checkmark"></span>
                                     Test-Fail <input type="radio" name="newStoryStatusBtnGrp" id="newStoryStatusTestFail" value="Test-Fail"><span class="checkmark"></span>
                                 </label>
+                                <div id="newStoryError" class="alert alert-danger" role="alert" hidden> </div>
                             </form>
                         </div>
                         <div class="modal-footer">
@@ -211,15 +212,15 @@
             <div class="modal fade ModalOver" id="newBugModal" role="dialog">
                 <div class="modal-dialog">
                     <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header" method="post">
-                            <h2 class="modal-title">Enter new bug</h2>
-                            <button type="button" class="close" data-dismiss="modal">X</button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="newBugForm" action="php/newBug.php" method="post">
-                            <!-- have now tried all variations of http://c3po.fedos.info/xxx/newBug.php with no luck ... hmm -->
-                            <!-- <form id="newBugForm" action="php/newBug.php" method="post"> -->
+                    <form id="newBugForm" action="php/newBug.php" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header" method="post">
+                                <h2 class="modal-title">Enter new bug</h2>
+                                <button type="button" class="close" data-dismiss="modal">X</button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- have now tried all variations of http://c3po.fedos.info/xxx/newBug.php with no luck ... hmm -->
+                                <!-- <form id="newBugForm" action="php/newBug.php" method="post"> -->
                                 <p>Title:</p>
                                 <textarea rows="1" cols="30" name="comment" id="newBugTitle" placeholder="Enter summary title here..."></textarea>
                                 <p>Owner:</p>
@@ -235,12 +236,12 @@
                                     Test-Fail <input type="radio" name="newBugStatusBtnGrp" id="newBugStatusTestFail" value="Test-Fail"><span class="checkmark"></span>
                                 </label>
                                 <div id="newBugError" class="alert alert-danger" role="alert" hidden> </div>
-                            </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="newBugSubmit" type="button" class="btn btn-default">Submit</button>
+                            </div>
                         </div>
-                        <div class="modal-footer">
-                            <button id="newBugSubmit" type="button" class="btn btn-default">Submit</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
