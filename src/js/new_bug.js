@@ -48,11 +48,16 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     $("#newBugSubmit").on('click', function() {
         if (dataValid()) {
             $("#newBugForm").submit();
+            await sleep(2000);
             //$("#newBugModal").hide();
-            //location.reload(true);
+            location.reload(true);
         }
     });
 });
