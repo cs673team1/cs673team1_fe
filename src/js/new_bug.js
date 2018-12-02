@@ -5,7 +5,7 @@ function dataValid() {
     var user = document.getElementById("user-list").value;
 
     if (!user || user.toString().match(/login/i)) {
-        document.getElementById("newBugError").style.visibility = 'visible';
+        document.getElementById("newBugError").hidden = '';
         document.getElementById("newBugError").innerHTML = "Please log in";
         $("#newBugModal").reload(true);
         return false;
@@ -13,7 +13,7 @@ function dataValid() {
         //location.reload(true);
     }
     else if (!(title && desc)) {
-        document.getElementById("newBugError").style.visibility = 'visible';
+        document.getElementById("newBugError").hidden = '';
         document.getElementById("newBugError").innerHTML = "Please fill in title and description";
         $("#newBugModal").reload(true);
         return false;
