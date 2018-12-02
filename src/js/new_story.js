@@ -1,7 +1,7 @@
 // newStory java script, invoked from newStory modal ...
 $(document).ready(function () {
     function dataValid() {
-        var title = $("#newBugTitle").val();
+        var title = $("#newStoryTitle").val();
         var desc = $("#newStoryDesc").val();
         var user = document.getElementById("user-list").value;
 
