@@ -53,8 +53,8 @@ $(document).ready(function () {
     $("#editCardSubmit").on('click', function() {
         if (dataValid()) {
             $("#editCardForm").submit();
-            $("#editCardModal").modal('hide');
-            $('.modal-backdrop').hide();
+            setTimeout(function() {$("#editCardModal").modal('hide')}, 100);
+            setTimeout(function() {$('.modal-backdrop').hide()}, 100);
         }
     });
 });
