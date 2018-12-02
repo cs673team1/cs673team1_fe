@@ -39,7 +39,8 @@ $(document).ready(function () {
                 //$('#newBugForm .modal-header .modal-title').html("New bug added");
                 //$('#newBugForm .modal-body').html(data);
                 //$("#newBugSubmit").remove();
-                //document.getElementById("#newBugForm").reset(); // clear old data
+                //document.getElementById("#newBugForm").reset(); // clear old data ... does not work, backdrop remains ...
+                //$(this).find("input, textarea, select").val([]); // clear old data ... no, only makes backdrop remain ...
             },
             error: function (jqXHR, status, error) {
                 console.log(status + ": " + error);
@@ -51,7 +52,6 @@ $(document).ready(function () {
     $("#newBugSubmit").on('click', function() {
         if (dataValid()) {
             $("#newBugForm").submit();
-            $(this).find("input, textarea, select").val([]); // clear old data
             $("#newBugModal").modal('hide');
             $('.modal-backdrop').hide();
             //location.reload(true); ... TODO: last bug is that new screen does not have updated bug ... but doing this here makes us lose it!
