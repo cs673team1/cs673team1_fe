@@ -38,7 +38,7 @@ $(document).ready(function () {
             success: function (data, textStatus, jqXHR) {
                 //$('#newBugForm .modal-header .modal-title').html("New bug added");
                 //$('#newBugForm .modal-body').html(data);
-                //$("#newBugSubmit").remove();
+                //$("#newBugSubmit").remove();  NO ... this makes the button disappear ... no good
                 //document.getElementById("#newBugForm").reset(); // clear old data ... does not work, backdrop remains ...
                 //$(this).find("input, textarea, select").val([]); // clear old data ... no, only makes backdrop remain ...
             },
@@ -50,8 +50,7 @@ $(document).ready(function () {
     });
 
     function hideModal() {
-        //$("#newBugModal").modal('hide');
-        $("#newBugModal").hide();
+        $("#newBugModal").hide(); // use this not $("#newBugModal").modal('hide'); else modal does not show later
         $('.modal-backdrop').hide();
     }
 
@@ -59,7 +58,6 @@ $(document).ready(function () {
         if (dataValid()) {
             $("#newBugForm").submit();
             hideModal();
-            $("#newBugModal").reset;
             //location.reload(true); ... TODO: last bug is that new screen does not have updated bug ... but doing this here makes us lose it!
         }
     });

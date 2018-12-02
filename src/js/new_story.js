@@ -48,11 +48,15 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
+    function hideModal() {
+        $("#newStoryModal").hide();
+        $('.modal-backdrop').hide();
+    }
+
     $("#newStorySubmit").on('click', function() {
         if (dataValid()) {
             $("#newStoryForm").submit();
-            $("#newStoryModal").modal('hide');
-            $('.modal-backdrop').hide();
+            hideModal();
         }
     });
 });

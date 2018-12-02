@@ -39,7 +39,7 @@ $(document).ready(function () {
             success: function (data, textStatus, jqXHR) {
                 //$('#editCardForm .modal-header .modal-title').html("Edited card");
                 //$('#editCardForm .modal-body').html(data);
-                $("#editCardSubmit").remove();
+                //$("#editCardSubmit").remove(); ... NO, hides the button!
                 // do not reset data ... maybe user wants to keep on editing
                 //location.reload(true);
             },
@@ -51,7 +51,7 @@ $(document).ready(function () {
     });
 
     function hideModal() {
-        $("#editCardModal").modal('hide');
+        $("#editCardModal").hide();
         $('.modal-backdrop').hide();
     }
 
