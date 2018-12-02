@@ -56,6 +56,7 @@ $(document).ready(function () {
         if (dataValid()) {
             $("#newBugForm").submit();
             $("#newBugModal").modal('hide');
+            $('.modal-backdrop').hide();
             //await sleep(2000);
             //$("#newBugModal").hide(); ... just doing this causes the screen to go black ish ... modal is gone but not dismissed
             //location.reload(true);
