@@ -36,8 +36,8 @@ $(document).ready(function () {
             type: "POST",
             data: postData,
             success: function (data, textStatus, jqXHR) {
-                $('#newBugForm .modal-header .modal-title').html("New bug added");
-                $('#newBugForm .modal-body').html(data);
+                //$('#newBugForm .modal-header .modal-title').html("New bug added");
+                //$('#newBugForm .modal-body').html(data);
                 $("#newBugSubmit").remove();
                 $("#newBugForm").reset(); // clear old data
             },
@@ -52,7 +52,7 @@ $(document).ready(function () {
         if (dataValid()) {
             $("#newBugForm").submit();
             //$("#newBugModal").hide();
-            //location.reload(true);
+            location.reload(true);
         }
     });
 });
