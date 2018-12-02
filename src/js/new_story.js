@@ -51,6 +51,8 @@ $(document).ready(function () {
     $("#newStorySubmit").on('click', function() {
         if (dataValid()) {
             $("#newStoryForm").submit();
+            $("#newStoryForm").modal('hide');
+            $('.modal-backdrop').hide();
         }
     });
 });

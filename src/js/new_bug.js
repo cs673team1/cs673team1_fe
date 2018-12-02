@@ -48,18 +48,12 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
-    //function sleep(ms) {
-    //    return new Promise(resolve => setTimeout(resolve, ms));
-    //}
-
     $("#newBugSubmit").on('click', function() {
         if (dataValid()) {
             $("#newBugForm").submit();
             $("#newBugModal").modal('hide');
             $('.modal-backdrop').hide();
-            //await sleep(2000);
-            //$("#newBugModal").hide(); ... just doing this causes the screen to go black ish ... modal is gone but not dismissed
-            //location.reload(true);
+            //location.reload(true); ... TODO: last bug is that new screen does not have updated bug ... but doing this here makes us lose it!
         }
     });
 });
