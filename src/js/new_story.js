@@ -49,6 +49,8 @@ $(document).ready(function () {
     });
 
     $("#newStorySubmit").on('click', function() {
-        $("#newStoryForm").submit();
+        if (dataValid()) {
+            $("#newStoryForm").submit();
+        }
     });
 });
