@@ -39,7 +39,7 @@ $(document).ready(function () {
                 //$('#newBugForm .modal-header .modal-title').html("New bug added");
                 //$('#newBugForm .modal-body').html(data);
                 $("#newBugSubmit").remove();
-                $("#newBugForm").reset(); // clear old data
+                document.getElementById("#newBugForm").reset(); // clear old data
             },
             error: function (jqXHR, status, error) {
                 console.log(status + ": " + error);
