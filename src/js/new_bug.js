@@ -39,7 +39,6 @@ $(document).ready(function () {
                 $('#newBugForm .modal-body').html(data);
                 $("#newBugSubmit").remove();
                 $("#newBugSubmit").reset(); // clear old data
-                location.reload(true);
             },
             error: function (jqXHR, status, error) {
                 console.log(status + ": " + error);
@@ -51,6 +50,8 @@ $(document).ready(function () {
     $("#newBugSubmit").on('click', function() {
         if (dataValid()) {
             $("#newBugForm").submit();
+            $("#newBugModal").hide();
+            location.reload(true);
         }
     });
 });
