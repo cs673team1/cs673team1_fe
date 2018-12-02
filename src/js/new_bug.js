@@ -38,8 +38,8 @@ $(document).ready(function () {
             success: function (data, textStatus, jqXHR) {
                 //$('#newBugForm .modal-header .modal-title').html("New bug added");
                 //$('#newBugForm .modal-body').html(data);
-                $("#newBugSubmit").remove();
-                document.getElementById("#newBugForm").reset(); // clear old data
+                //$("#newBugSubmit").remove();
+                //document.getElementById("#newBugForm").reset(); // clear old data
             },
             error: function (jqXHR, status, error) {
                 console.log(status + ": " + error);
