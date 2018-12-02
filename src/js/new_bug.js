@@ -51,8 +51,8 @@ $(document).ready(function () {
     $("#newBugSubmit").on('click', function() {
         if (dataValid()) {
             $("#newBugForm").submit();
-            $("#newBugModal").hide();
-            location.reload(true);
+            //$("#newBugModal").hide();
+            //location.reload(true);
         }
     });
 });
