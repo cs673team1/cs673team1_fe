@@ -212,12 +212,12 @@
             <div class="modal fade ModalOver" id="newBugModal" role="dialog">
                 <div class="modal-dialog">
                     <!-- Modal content-->
-                    <form id="newBugForm" action="php/newBug.php" method="post">
-                        <div class="modal-content">
-                            <div class="modal-header" method="post">
-                                <h2 class="modal-title">Enter new bug</h2>
-                                <button type="button" class="close" data-dismiss="modal">X</button>
-                            </div>
+                    <div class="modal-content">
+                        <div class="modal-header" method="post">
+                            <h2 class="modal-title">Enter new bug</h2>
+                            <button type="button" class="close" data-dismiss="modal">X</button>
+                        </div>
+                        <form id="newBugForm" action="php/newBug.php" method="post">
                             <div class="modal-body">
                                 <!-- have now tried all variations of http://c3po.fedos.info/xxx/newBug.php with no luck ... hmm -->
                                 <!-- <form id="newBugForm" action="php/newBug.php" method="post"> -->
@@ -240,8 +240,8 @@
                             <div class="modal-footer">
                                 <button id="newBugSubmit" type="button" class="btn btn-default">Submit</button>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
