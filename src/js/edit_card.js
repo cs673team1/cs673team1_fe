@@ -50,11 +50,15 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
+    function hideModal() {
+        $("#editCardModal").modal('hide');
+        $('.modal-backdrop').hide();
+    }
+
     $("#editCardSubmit").on('click', function() {
         if (dataValid()) {
             $("#editCardForm").submit();
-            $("#editCardModal").modal('hide');
-            $('.modal-backdrop').hide();
+            hideModal();
         }
     });
 });
