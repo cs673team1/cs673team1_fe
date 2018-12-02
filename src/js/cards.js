@@ -29,7 +29,7 @@ function getCards(list, tag)
                     "         </button>\n" +
                     "         <ul class=\"dropdown-menu\" role=\"menu\">\n" +
                     "            <li onclick=\"moveCard(" + data[x].cardID + ")\"><a href=\"#\">Move</a></li>\n" +
-                    "            <li><a type=\"button\" data-toggle=\"modal\" data-target=\"#editCard\">Edit</a></li>\n" +
+                    "            <li><a type=\"button\" data-toggle=\"modal\" data-target=\"#editCardModal\">Edit</a></li>\n" +
                     "            <li class=\"divider\"></li>\n" +
                     "            <li onclick=\"archiveCard(" + data[x].cardID + ")\"><a href=\"#\">Archive</a></li>\n" +
                     "         </ul>\n" +
