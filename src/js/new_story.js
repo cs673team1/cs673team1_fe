@@ -48,6 +48,12 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
+    function clearFormFields () {
+        document.getElementById("newStoryTitle").value = "";
+        //document.getElementById("newStoryOwner").value = "None"; // TODO: this is not right for drop down, fix (null, "", and "None" all fail)
+        document.getElementById("newStoryDesc").value = "";
+    }
+
     function hideModal() {
         $("#newStoryModal").hide();
         $('.modal-backdrop').hide();
@@ -58,10 +64,12 @@ $(document).ready(function () {
         if (dataValid()) {
             $("#newStoryForm").submit();
             hideModal();
+            clearFormFields();
         }
     });
 
     $("#newStoryClose").on('click', function() {
         hideModal();
+        clearFormFields();
     });
 });

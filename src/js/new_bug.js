@@ -51,7 +51,7 @@ $(document).ready(function () {
 
     function clearFormFields () {
         document.getElementById("newBugTitle").value = "";
-        document.getElementById("newBugOwner").value = null;
+        //document.getElementById("newBugOwner").value = null; // TODO: this is not right for drop down, fix (null, "", and "None" all fail)
         document.getElementById("newBugDesc").value = "";
     }
 
