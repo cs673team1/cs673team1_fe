@@ -39,6 +39,8 @@ $(document).ready(function () {
                 //$('#newBugForm .modal-header .modal-title').html("New bug added");
                 //$('#newBugForm .modal-body').html(data);
                 //$("#newBugSubmit").remove();  NO ... this makes the button disappear ... no good
+                $("#newBugModal").remove();
+
                 //document.getElementById("#newBugForm").reset(); // clear old data ... does not work, backdrop remains ...
                 //$(this).find("input, textarea, select").val([]); // clear old data ... no, only makes backdrop remain ...
             },
