@@ -52,7 +52,7 @@ $(document).ready(function () {
         if (dataValid()) {
             $("#newBugForm").submit();
             //$("#newBugModal").hide();
-            location.reload(true);
+            //location.reload(true);
         }
     });
 });
