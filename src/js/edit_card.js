@@ -11,7 +11,7 @@ $(document).ready(function () {
             $("#editCardModal").reload(true);
             return false;
         }
-        else if (!(title && desc) || (title === "") || (desc === "")) {
+        else if (!title || !desc || (title === "") || (desc === "")) {
             document.getElementById("newBugError").hidden = '';
             document.getElementById("newBugError").innerHTML = "Please fill in title and description";
             $("#editCardModal").reload(true);
