@@ -1,5 +1,26 @@
 // editCard java script, invoked from editCard modal ...
 $(document).ready(function () {
+    function dataValid() {
+        var title = $("#editCardTitle").val();
+        var desc = $("#editCardDesc").val();
+        var user = document.getElementById("user-list").value;
+
+        if (!user || user.toString().match(/login/i)) {
+            document.getElementById("newBugError").hidden = '';
+            document.getElementById("newBugError").innerHTML = "Please log in";
+            $("#editCardModal").reload(true);
+            return false;
+        }
+        else if (!(title && desc)) {
+            document.getElementById("newBugError").hidden = '';
+            document.getElementById("newBugError").innerHTML = "Please fill in title and description";
+            $("#editCardModal").reload(true);
+            return false;
+        }
+
+        return true;
+    }
+
     $("#editCardForm").on("submit", function(e) {
         var postData = $(this).serializeArray();
         var cardID = $("#editCardID").val();
