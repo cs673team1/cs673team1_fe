@@ -85,8 +85,8 @@ $(document).ready(function () {
         hideModal();
     });
 
-    $('body').on('hidden.bs.modal', '.modal', function () {
-        $(this).removeData('bs.modal');
+    $('.modal').on('hidden.bs.modal', function () {
+        $('.modal-body').html('');
     });
 
 });
