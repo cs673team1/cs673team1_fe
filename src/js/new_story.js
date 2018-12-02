@@ -38,8 +38,8 @@ $(document).ready(function () {
             success: function (data, textStatus, jqXHR) {
                 //$('#newStoryForm .modal-header .modal-title').html("Added new Story");
                 //$('#newStoryForm .modal-body').html(data);
-                $("#newStorySubmit").remove();
-                $("#newStorySubmit").reset(); // clear old data
+                //$("#newStorySubmit").remove(); ... NO, hides button
+                //$("#newStorySubmit").reset(); // clear old data ... this does not work ...
             },
             error: function (jqXHR, status, error) {
                 console.log(status + ": " + error);
