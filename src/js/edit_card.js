@@ -53,6 +53,7 @@ $(document).ready(function () {
     function hideModal() {
         $("#editCardModal").hide();
         $('.modal-backdrop').hide();
+        document.getElementById("editCardError").hidden = true; // let user make a new error first
     }
 
     $("#editCardSubmit").on('click', function() {

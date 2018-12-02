@@ -51,6 +51,7 @@ $(document).ready(function () {
     function hideModal() {
         $("#newStoryModal").hide();
         $('.modal-backdrop').hide();
+        document.getElementById("newStoryError").hidden = true; // let user make a new error first
     }
 
     $("#newStorySubmit").on('click', function() {

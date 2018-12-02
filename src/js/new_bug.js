@@ -39,8 +39,6 @@ $(document).ready(function () {
                 //$('#newBugForm .modal-header .modal-title').html("New bug added");
                 //$('#newBugForm .modal-body').html(data);
                 //$("#newBugSubmit").remove();  NO ... this makes the button disappear ... no good
-                $("#newBugModal").remove();
-
                 //document.getElementById("#newBugForm").reset(); // clear old data ... does not work, backdrop remains ...
                 //$(this).find("input, textarea, select").val([]); // clear old data ... no, only makes backdrop remain ...
             },
@@ -54,6 +52,7 @@ $(document).ready(function () {
     function hideModal() {
         $("#newBugModal").hide(); // use this not $("#newBugModal").modal('hide'); else modal does not show later
         $('.modal-backdrop').hide();
+        document.getElementById("newBugError").hidden = true; // let user make a new error first
     }
 
     $("#newBugSubmit").on('click', function() {
