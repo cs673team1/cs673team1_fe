@@ -84,4 +84,9 @@ $(document).ready(function () {
     $("#newBugClose").on('click', function() {
         hideModal();
     });
+
+    $('body').on('hidden.bs.modal', '.modal', function () {
+        $(this).removeData('bs.modal');
+    });
+
 });
