@@ -51,9 +51,9 @@ $(document).ready(function () {
     $("#newBugSubmit").on('click', function() {
         if (dataValid()) {
             $("#newBugForm").submit();
+            $(this).find("input, textarea, select").val([]); // clear old data
             $("#newBugModal").modal('hide');
             $('.modal-backdrop').hide();
-            $(this).find("input, textarea, select").val([]); // clear old data
             //location.reload(true); ... TODO: last bug is that new screen does not have updated bug ... but doing this here makes us lose it!
         }
     });
