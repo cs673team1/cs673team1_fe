@@ -50,7 +50,8 @@ $(document).ready(function () {
     });
 
     function hideModal() {
-        $("#newBugModal").modal('hide');
+        //$("#newBugModal").modal('hide');
+        $("#newBugModal").hide();
         $('.modal-backdrop').hide();
     }
 
