@@ -6,13 +6,13 @@ $(document).ready(function () {
         var user = document.getElementById("user-list").value;
 
         if (!user || user.toString().match(/login/i)) {
-            document.getElementById("editCardError").hidden = '';
+            document.getElementById("editCardError").hidden = false;
             document.getElementById("editCardError").innerHTML = "Please log in";
             $("#editCardModal").reload(true);
             return false;
         }
         else if (!(title && desc)) {
-            document.getElementById("editCardError").hidden = '';
+            document.getElementById("editCardError").hidden = false;
             document.getElementById("editCardError").innerHTML = "Please fill in title and description";
             $("#editCardModal").reload(true);
             return false;

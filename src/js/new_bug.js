@@ -6,13 +6,13 @@ $(document).ready(function () {
         var user = document.getElementById("user-list").value;
 
         if (!user || user.toString().match(/login/i)) {
-            document.getElementById("newBugError").hidden = '';
+            document.getElementById("newBugError").hidden = false;
             document.getElementById("newBugError").innerHTML = "Please log in";
             $("#newBugModal").reload(true);
             return false;
         }
         else if (!(title && desc)) {
-            document.getElementById("newBugError").hidden = '';
+            document.getElementById("newBugError").hidden = false;
             document.getElementById("newBugError").innerHTML = "Please fill in title and description";
             $("#newBugModal").reload(true);
             return false;
@@ -75,7 +75,7 @@ $(document).ready(function () {
         if (dataValid()) {
             $("#newBugForm").submit();
             hideModal();
-            refreshPage();
+            refreshPage(); // this does not appear to work here .. research
             //location.reload(true); ... TODO: last bug is that new screen does not have updated bug ... but doing this here makes us lose it!
         }
     });
