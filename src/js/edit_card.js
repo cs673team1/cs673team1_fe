@@ -31,7 +31,7 @@ $(document).ready(function () {
         var user = document.getElementById("user-list").value;
 
         var postData = 'CardID=' + cardID + '&Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status + '&UserName=' + user;
-        var formURL = document.getElementById("homeURL") + "/" + $(this).attr("action");
+        var formURL = $(this).attr("action");
         $.ajax({
             url: formURL,
             type: "POST",
