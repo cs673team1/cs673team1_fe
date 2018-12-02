@@ -38,7 +38,7 @@ $(document).ready(function () {
             success: function (data, textStatus, jqXHR) {
                 //$('#newBugForm .modal-header .modal-title').html("New bug added");
                 //$('#newBugForm .modal-body').html(data);
-                //$("#newBugSubmit").remove();
+                $("#newBugSubmit").remove();
                 //document.getElementById("#newBugForm").reset(); // clear old data ... does not work, backdrop remains ...
                 //$(this).find("input, textarea, select").val([]); // clear old data ... no, only makes backdrop remain ...
             },
