@@ -56,7 +56,7 @@ $(document).ready(function () {
         if (dataValid()) {
             $("#newBugForm").submit();
             //await sleep(2000);
-            //$("#newBugModal").hide();
+            $("#newBugModal").hide();
             //location.reload(true);
         }
     });
