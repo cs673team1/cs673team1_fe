@@ -55,10 +55,27 @@ $(document).ready(function () {
         document.getElementById("newBugError").hidden = true; // let user make a new error first
     }
 
+    function refreshPage() {
+        if (window.XMLHttpRequest) {
+            http = new XMLHttpRequest();
+        }
+        else {
+            http = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        http.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                //getCards("Current Iteration", "currentIteration");
+                //getCards("Backlog", "backlog");
+                getCards("Bugs", "bugs");
+            }
+        };
+    }
     $("#newBugSubmit").on('click', function() {
         if (dataValid()) {
             $("#newBugForm").submit();
             hideModal();
+            refreshPage();
             //location.reload(true); ... TODO: last bug is that new screen does not have updated bug ... but doing this here makes us lose it!
         }
     });
