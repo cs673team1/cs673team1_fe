@@ -37,8 +37,8 @@ $(document).ready(function () {
             type: "POST",
             data: postData,
             success: function (data, textStatus, jqXHR) {
-                $('#editCardForm .modal-header .modal-title').html("Edited card");
-                $('#editCardForm .modal-body').html(data);
+                //$('#editCardForm .modal-header .modal-title').html("Edited card");
+                //$('#editCardForm .modal-body').html(data);
                 $("#editCardSubmit").remove();
                 // do not reset data ... maybe user wants to keep on editing
                 //location.reload(true);
