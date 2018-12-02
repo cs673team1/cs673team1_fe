@@ -9,17 +9,14 @@ function dataValid() {
         document.getElementById("newBugError").innerHTML = "Please log in";
         $("#newBugModal").reload(true);
         return false;
-        //location.assign(document.getElementById("homeURL"));
-        //location.reload(true);
     }
     else if (!(title && desc)) {
         document.getElementById("newBugError").hidden = '';
         document.getElementById("newBugError").innerHTML = "Please fill in title and description";
         $("#newBugModal").reload(true);
         return false;
-        //location.assign(document.getElementById("homeURL"));
-        //location.reload(true);
     }
+
     return true;
 }
 
@@ -33,7 +30,7 @@ $(document).ready(function () {
         var user = document.getElementById("user-list").value;
 
         var postData = 'Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status + '&UserName=' + user;
-        var formURL = document.getElementById("homeURL") + "/php/newBug.php";
+        var formURL = document.getElementById("homeURL") + "/" + $(this).attr("action");
         $.ajax({
             url: formURL,
             type: "POST",
