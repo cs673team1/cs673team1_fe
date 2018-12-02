@@ -7,6 +7,7 @@ function dataValid() {
     if (!user || user.toString().match(/login/i)) {
         document.getElementById("newBugError").style.visibility = 'visible';
         document.getElementById("newBugError").innerHTML = "Please log in";
+        $("#newBugModal").show();
         return false;
         //location.assign(document.getElementById("homeURL"));
         //location.reload(true);
@@ -14,6 +15,7 @@ function dataValid() {
     else if (!(title && desc)) {
         document.getElementById("newBugError").style.visibility = 'visible';
         document.getElementById("newBugError").innerHTML = "Please fill in title and description";
+        $("#newBugModal").show();
         return false;
         //location.assign(document.getElementById("homeURL"));
         //location.reload(true);
