@@ -44,10 +44,6 @@ $(document).ready(function () {
             },
             error: function (jqXHR, status, error) {
                 console.log(status + ": " + error);
-            },
-            complete: function () {
-                hideModal();
-                refreshPage();
             }
         });
         e.preventDefault();
@@ -79,8 +75,8 @@ $(document).ready(function () {
     $("#newBugSubmit").on('click', function() {
         if (dataValid()) {
             $("#newBugForm").submit();
-            //hideModal();
-            //refreshPage(); // this does not appear to work here .. research
+            hideModal();
+            refreshPage(); // this does not appear to work here .. research
             //location.reload(true); ... TODO: last bug is that new screen does not have updated bug ... but doing this here makes us lose it!
         }
     });
