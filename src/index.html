@@ -314,8 +314,9 @@
     document.getElementById("send-message").addEventListener("click", sendMessage);
     document.getElementById("user-list").addEventListener("change", function(){
         // not sure we want to assume that the owner of a new bug or story is the logged in user ... comment out for now (also does not appear to work)
-        //document.forms["newStoryForm"].elements["newStoryOwner"].value = document.getElementById("user-list").value;
-        //document.forms["newBugForm"].elements["newBugOwner"].value = document.getElementById("user-list").value;
+        // 10p 1-Dec ... put this back for now to make newBug and newStory work!
+        document.forms["newStoryForm"].elements["newStoryOwner"].value = document.getElementById("user-list").value;
+        document.forms["newBugForm"].elements["newBugOwner"].value = document.getElementById("user-list").value;
         setCookie("username", document.getElementById("user-list").value);
     });
 
