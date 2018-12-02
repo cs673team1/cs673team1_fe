@@ -41,7 +41,7 @@ $(document).ready(function () {
                 $('#editCardForm .modal-body').html(data);
                 $("#editCardSubmit").remove();
                 // do not reset data ... maybe user wants to keep on editing
-                location.reload(true);
+                //location.reload(true);
             },
             error: function (jqXHR, status, error) {
                 console.log(status + ": " + error);
