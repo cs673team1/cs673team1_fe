@@ -19,39 +19,42 @@ function dataValid() {
     return true;
 }
 
-$(document).ready(function () {
-    $("#newBugForm").on("submit", function(e) {
-        var postData = $(this).serializeArray();
-        var title = $("#newBugTitle").val();
-        var owner = $("#newBugOwner").val();
-        var desc = $("#newBugDesc").val();
-        var status = document.querySelector('input[name=newBugStatusBtnGrp]:checked').value;
-        var user = document.getElementById("user-list").value;
+//$(document).ready(function () {
+//    $("#newBugForm").on("submit", function(e) {
+function newBugSubmitInner() {
+    var postData = $(this).serializeArray();
+    var title = $("#newBugTitle").val();
+    var owner = $("#newBugOwner").val();
+    var desc = $("#newBugDesc").val();
+    var status = document.querySelector('input[name=newBugStatusBtnGrp]:checked').value;
+    var user = document.getElementById("user-list").value;
 
-        var postData = 'Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status + '&UserName=' + user;
-        var formURL = document.getElementById("homeURL") + "/php/newBug.php";
-        $.ajax({
-            url: formURL,
-            type: "POST",
-            data: postData,
-            success: function (data, textStatus, jqXHR) {
-                $('#newBugForm .modal-header .modal-title').html("New bug added");
-                $('#newBugForm .modal-body').html(data);
-                $("#newBugSubmit").remove();
-                $("#newBugSubmit").reset(); // clear old data
-            },
-            error: function (jqXHR, status, error) {
-                console.log(status + ": " + error);
-            }
-        });
-        e.preventDefault();
+    var postData = 'Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status + '&UserName=' + user;
+    var formURL = document.getElementById("homeURL") + "/php/newBug.php";
+    $.ajax({
+        url: formURL,
+        type: "POST",
+        data: postData,
+        success: function (data, textStatus, jqXHR) {
+            $('#newBugForm .modal-header .modal-title').html("New bug added");
+            $('#newBugForm .modal-body').html(data);
+            $("#newBugSubmit").remove();
+            $("#newBugSubmit").reset(); // clear old data
+        },
+        error: function (jqXHR, status, error) {
+            console.log(status + ": " + error);
+        }
     });
+    //e.preventDefault();
+    //});
+}
 
     $("#newBugSubmit").on('click', function() {
         if (dataValid()) {
-            $("#newBugForm").submit();
+            //$("#newBugForm").submit();
+            newBugSubmitInner();
             $("#newBugModal").hide();
             location.reload(true);
         }
     });
-});
+//});
