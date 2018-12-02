@@ -51,7 +51,7 @@ $(document).ready(function () {
 
     function clearFormFields () {
         document.getElementById("newBugTitle").value = "";
-        document.getElementById("newBugOwner").value = "None";
+        document.getElementById("newBugOwner").value = null;
         document.getElementById("newBugDesc").value = "";
     }
 
