@@ -212,12 +212,12 @@
             <div class="modal fade ModalOver" id="newBugModal" role="dialog">
                 <div class="modal-dialog">
                     <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header" method="post">
-                            <h2 class="modal-title">Enter new bug</h2>
-                            <button type="button" class="close" data-dismiss="modal">X</button>
-                        </div>
-                        <form id="newBugForm" action="php/newBug.php" method="post">
+                    <form id="newBugForm" action="php/newBug.php" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header" method="post">
+                                <h2 class="modal-title">Enter new bug</h2>
+                                <button type="button" class="close" data-dismiss="modal">X</button>
+                            </div>
                             <div class="modal-body">
                                 <!-- have now tried all variations of http://c3po.fedos.info/xxx/newBug.php with no luck ... hmm -->
                                 <!-- <form id="newBugForm" action="php/newBug.php" method="post"> -->
@@ -237,11 +237,11 @@
                                 </label>
                                 <div id="newBugError" class="alert alert-danger" role="alert" hidden> </div>
                             </div>
-                            <div class="modal-footer">
-                                <button id="newBugSubmit" type="button" class="btn btn-default">Submit</button>
-                            </div>
-                        </form>
-                    </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="newBugSubmit" type="button" class="btn btn-default">Submit</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -284,6 +284,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
+                        <!-- <button id="editCardSubmit" type="button" class="btn btn-default" data-dismiss="modal">Submit</button> -->
                         <button id="editCardSubmit" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
                     </div>
                 </form>
