@@ -5,12 +5,14 @@ function dataValid() {
     var user = document.getElementById("user-list").value;
 
     if (!user || user.toString().match(/login/i)) {
+        document.getElementById("newBugError").style.visibility = 'visible';
         document.getElementById("newBugError").innerHTML = "Please log in";
         return false;
         //location.assign(document.getElementById("homeURL"));
         //location.reload(true);
     }
     else if (!(title && desc)) {
+        document.getElementById("newBugError").style.visibility = 'visible';
         document.getElementById("newBugError").innerHTML = "Please fill in title and description";
         return false;
         //location.assign(document.getElementById("homeURL"));
@@ -38,7 +40,7 @@ $(document).ready(function () {
                 $('#newBugForm .modal-header .modal-title').html("New bug added");
                 $('#newBugForm .modal-body').html(data);
                 $("#newBugSubmit").remove();
-                $("#newBugSubmit").reset(); // clear old data
+                $("#newBugForm").reset(); // clear old data
             },
             error: function (jqXHR, status, error) {
                 console.log(status + ": " + error);
