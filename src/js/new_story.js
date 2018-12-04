@@ -35,6 +35,7 @@ $(document).ready(function () {
             url: formURL,
             type: "POST",
             data: postData,
+            async: true,
             success: function (data, textStatus, jqXHR) {
                 //$('#newStoryForm .modal-header .modal-title').html("Added new Story");
                 //$('#newStoryForm .modal-body').html(data);
