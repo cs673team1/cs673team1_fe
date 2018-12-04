@@ -42,6 +42,7 @@ $(document).ready(function () {
             url: formURL,
             type: "POST",
             data: postData,
+            async: true,
             success: function (data, textStatus, jqXHR) {
                 hideModal();
                 //$('#editCardForm .modal-header .modal-title').html("Edited card");
