@@ -21,34 +21,6 @@ $(document).ready(function () {
         return true;
     }
 
-    $("#newBugForm").on("submit", function (e) {
-        var postData = $(this).serializeArray();
-        var title = $("#newBugTitle").val();
-        var owner = $("#newBugOwner").val();
-        var desc = $("#newBugDesc").val();
-        var status = document.querySelector('input[name=newBugStatusBtnGrp]:checked').value;
-        var user = document.getElementById("user-list").value;
-
-        var postData = 'Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status + '&UserName=' + user;
-        var formURL = $(this).attr("action");
-        $.ajax({
-            url: formURL,
-            type: "POST",
-            data: postData,
-            success: function (data, textStatus, jqXHR) {
-                //$('#newBugForm .modal-header .modal-title').html("New bug added");
-                //$('#newBugForm .modal-body').html(data);
-                //$("#newBugSubmit").remove();  NO ... this makes the button disappear ... no good
-                //document.getElementById("#newBugForm").reset(); // clear old data ... does not work, backdrop remains ...
-                //$(this).find("input, textarea, select").val([]); // clear old data ... no, only makes backdrop remain ...
-            },
-            error: function (jqXHR, status, error) {
-                console.log(status + ": " + error);
-            }
-        });
-        e.preventDefault();
-    });
-
     function clearFormFields () {
         document.getElementById("newBugTitle").value = "";
         //document.getElementById("newBugOwner").value = null; // TODO: this is not right for drop down, fix (null, "", and "None" all fail)
@@ -78,13 +50,43 @@ $(document).ready(function () {
         };
     }
 
-    $("#newBugSubmit").on('click', function() {
+    $("#newBugForm").on("submit", function (e) {
+        var postData = $(this).serializeArray();
+        var title = $("#newBugTitle").val();
+        var owner = $("#newBugOwner").val();
+        var desc = $("#newBugDesc").val();
+        var status = document.querySelector('input[name=newBugStatusBtnGrp]:checked').value;
+        var user = document.getElementById("user-list").value;
+
+        var postData = 'Title=' + title + '&Owner=' + owner + '&Description=' + desc + '&Status=' + status + '&UserName=' + user;
+        var formURL = $(this).attr("action");
+        $.ajax({
+            url: formURL,
+            type: "POST",
+            data: postData,
+            // potentially do async: true, here
+            success: function (data, textStatus, jqXHR) {
+                hideModal();
+                clearFormFields();
+                refreshPage(); // this does not appear to work here .. research
+                //location.reload(true); ... TODO: last bug is that new screen does not have updated bug ... but doing this here makes us lose it!
+
+                //$('#newBugForm .modal-header .modal-title').html("New bug added");
+                //$('#newBugForm .modal-body').html(data);
+                //$("#newBugSubmit").remove();  NO ... this makes the button disappear ... no good
+                //document.getElementById("#newBugForm").reset(); // clear old data ... does not work, backdrop remains ...
+                //$(this).find("input, textarea, select").val([]); // clear old data ... no, only makes backdrop remain ...
+            },
+            error: function (jqXHR, status, error) {
+                console.log(status + ": " + error);
+            }
+        });
+        e.preventDefault();
+    });
+
+     $("#newBugSubmit").on('click', function() {
         if (dataValid()) {
             $("#newBugForm").submit();
-            hideModal();
-            clearFormFields();
-            refreshPage(); // this does not appear to work here .. research
-            //location.reload(true); ... TODO: last bug is that new screen does not have updated bug ... but doing this here makes us lose it!
         }
     });
 
