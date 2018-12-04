@@ -61,7 +61,7 @@ $(document).ready(function () {
             data: postData,
             success: function (data, textStatus, jqXHR) {
                 hideModal();
-                refreshPage();
+                setTimeout(refreshPage(), 10);
                 //$('#editCardForm .modal-header .modal-title').html("Edited card");
                 //$('#editCardForm .modal-body').html(data);
                 //$("#editCardSubmit").remove(); ... NO, hides the button!
