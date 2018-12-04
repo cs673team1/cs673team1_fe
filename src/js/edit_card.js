@@ -6,19 +6,43 @@ $(document).ready(function () {
         var user = document.getElementById("user-list").value;
 
         if (!user || user.toString().match(/login/i)) {
-            document.getElementById("editCardError").hidden = '';
+            document.getElementById("editCardError").hidden = false;
             document.getElementById("editCardError").innerHTML = "Please log in";
             $("#editCardModal").reload(true);
             return false;
         }
         else if (!(title && desc)) {
-            document.getElementById("editCardError").hidden = '';
+            document.getElementById("editCardError").hidden = false;
             document.getElementById("editCardError").innerHTML = "Please fill in title and description";
             $("#editCardModal").reload(true);
             return false;
         }
 
         return true;
+    }
+
+    function hideModal() {
+        $("#editCardModal").hide();
+        $('.modal-backdrop').hide();
+        document.getElementById("editCardError").hidden = true; // let user make a new error first
+    }
+
+    function refreshPage() {
+        //location.reload(true); // works here but NOT in newBug, newStory (the POST is lost??) so do not use
+        if (window.XMLHttpRequest) {
+            http = new XMLHttpRequest();
+        }
+        else {
+            http = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        http.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                getCards("Current Iteration", "currentIteration");
+                getCards("Backlog", "backlog");
+                getCards("Bugs", "bugs");
+            }
+        };
     }
 
     $("#editCardForm").on("submit", function(e) {
@@ -38,11 +62,12 @@ $(document).ready(function () {
             data: postData,
             async: true,
             success: function (data, textStatus, jqXHR) {
+                hideModal();
+                refreshPage();
                 //$('#editCardForm .modal-header .modal-title').html("Edited card");
                 //$('#editCardForm .modal-body').html(data);
                 //$("#editCardSubmit").remove(); ... NO, hides the button!
                 // do not reset data ... maybe user wants to keep on editing
-                //location.reload(true);
             },
             error: function (jqXHR, status, error) {
                 console.log(status + ": " + error);
@@ -51,15 +76,13 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
-    function hideModal() {
-        $("#editCardModal").hide();
-        $('.modal-backdrop').hide();
-    }
-
     $("#editCardSubmit").on('click', function() {
         if (dataValid()) {
             $("#editCardForm").submit();
-            hideModal();
         }
+    });
+
+    $("#editCardClose").on('click', function() {
+        hideModal();
     });
 });

@@ -6,19 +6,49 @@ $(document).ready(function () {
         var user = document.getElementById("user-list").value;
 
         if (!user || user.toString().match(/login/i)) {
-            document.getElementById("newStoryError").hidden = '';
+            document.getElementById("newStoryError").hidden = false;
             document.getElementById("newStoryError").innerHTML = "Please log in";
             $("#newStoryModal").reload(true);
             return false;
         }
         else if (!(title && desc)) {
-            document.getElementById("newStoryError").hidden = '';
+            document.getElementById("newStoryError").hidden = false;
             document.getElementById("newStoryError").innerHTML = "Please fill in title and description";
             $("#newStoryModal").reload(true);
             return false;
         }
 
         return true;
+    }
+
+    function clearFormFields () {
+        document.getElementById("newStoryTitle").value = "";
+        //document.getElementById("newStoryOwner").value = "None"; // TODO: this is not right for drop down, fix (null, "", and "None" all fail)
+        document.getElementById("newStoryDesc").value = "";
+    }
+
+    function hideModal() {
+        $("#newStoryModal").hide();
+        $('.modal-backdrop').hide();
+        document.getElementById("newStoryError").hidden = true; // let user make a new error first
+    }
+
+    function refreshPage() {
+        //location.reload(true); // NO, newBug, newStory this line of code makes the new entry get lost somehow
+        if (window.XMLHttpRequest) {
+            http = new XMLHttpRequest();
+        }
+        else {
+            http = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        http.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                //getCards("Current Iteration", "currentIteration");
+                getCards("Backlog", "backlog");
+                //getCards("Bugs", "bugs");
+            }
+        };
     }
 
     $("#newStoryForm").on("submit", function(e) {
@@ -37,10 +67,12 @@ $(document).ready(function () {
             data: postData,
             async: true,
             success: function (data, textStatus, jqXHR) {
+                hideModal();
+                clearFormFields();
+                refreshPage();
                 //$('#newStoryForm .modal-header .modal-title').html("Added new Story");
                 //$('#newStoryForm .modal-body').html(data);
                 //$("#newStorySubmit").remove(); ... NO, hides button
-                //$("#newStorySubmit").reset(); // clear old data ... this does not work ...
             },
             error: function (jqXHR, status, error) {
                 console.log(status + ": " + error);
@@ -49,15 +81,14 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
-    function hideModal() {
-        $("#newStoryModal").hide();
-        $('.modal-backdrop').hide();
-    }
-
     $("#newStorySubmit").on('click', function() {
         if (dataValid()) {
             $("#newStoryForm").submit();
-            hideModal();
         }
+    });
+
+    $("#newStoryClose").on('click', function() {
+        hideModal();
+        clearFormFields();
     });
 });
