@@ -34,6 +34,8 @@ $(document).ready(function () {
     }
 
     function refreshPage() {
+        location.reload(true);
+        /*
         if (window.XMLHttpRequest) {
             http = new XMLHttpRequest();
         }
@@ -48,6 +50,7 @@ $(document).ready(function () {
                 getCards("Bugs", "bugs");
             }
         };
+        */
     }
 
     $("#newBugForm").on("submit", function (e) {
@@ -68,8 +71,9 @@ $(document).ready(function () {
             success: function (data, textStatus, jqXHR) {
                 hideModal();
                 clearFormFields();
-                refreshPage(); // this does not appear to work here .. research
+                refreshPage();
                 //location.reload(true); ... TODO: last bug is that new screen does not have updated bug ... but doing this here makes us lose it!
+                // try again ... in the edit script this worked!
 
                 //$('#newBugForm .modal-header .modal-title').html("New bug added");
                 //$('#newBugForm .modal-body').html(data);

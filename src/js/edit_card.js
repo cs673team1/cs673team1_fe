@@ -28,6 +28,8 @@ $(document).ready(function () {
     }
 
     function refreshPage() {
+        location.reload(true);
+        /*
         if (window.XMLHttpRequest) {
             http = new XMLHttpRequest();
         }
@@ -42,6 +44,7 @@ $(document).ready(function () {
                 getCards("Bugs", "bugs");
             }
         };
+        */
     }
 
     $("#editCardForm").on("submit", function(e) {
@@ -66,7 +69,6 @@ $(document).ready(function () {
                 //$('#editCardForm .modal-body').html(data);
                 //$("#editCardSubmit").remove(); ... NO, hides the button!
                 // do not reset data ... maybe user wants to keep on editing
-                location.reload(true);
             },
             error: function (jqXHR, status, error) {
                 console.log(status + ": " + error);

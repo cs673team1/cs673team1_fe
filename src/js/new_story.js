@@ -33,6 +33,26 @@ $(document).ready(function () {
         document.getElementById("newStoryError").hidden = true; // let user make a new error first
     }
 
+    function refreshPage() {
+        location.reload(true);
+        /*
+        if (window.XMLHttpRequest) {
+            http = new XMLHttpRequest();
+        }
+        else {
+            http = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        http.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                //getCards("Current Iteration", "currentIteration");
+                getCards("Backlog", "backlog");
+                //getCards("Bugs", "bugs");
+            }
+        };
+        */
+    }
+
     $("#newStoryForm").on("submit", function(e) {
         var postData = $(this).serializeArray();
         var title = $("#newStoryTitle").val();
@@ -50,6 +70,7 @@ $(document).ready(function () {
             success: function (data, textStatus, jqXHR) {
                 hideModal();
                 clearFormFields();
+                refreshPage();
                 //$('#newStoryForm .modal-header .modal-title').html("Added new Story");
                 //$('#newStoryForm .modal-body').html(data);
                 //$("#newStorySubmit").remove(); ... NO, hides button
