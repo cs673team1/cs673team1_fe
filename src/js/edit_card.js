@@ -21,6 +21,12 @@ $(document).ready(function () {
         return true;
     }
 
+    function hideModal() {
+        $("#editCardModal").hide();
+        $('.modal-backdrop').hide();
+        document.getElementById("editCardError").hidden = true; // let user make a new error first
+    }
+
     $("#editCardForm").on("submit", function(e) {
         var postData = $(this).serializeArray();
         var cardID = $("#editCardID").val();
@@ -37,6 +43,7 @@ $(document).ready(function () {
             type: "POST",
             data: postData,
             success: function (data, textStatus, jqXHR) {
+                hideModal();
                 //$('#editCardForm .modal-header .modal-title').html("Edited card");
                 //$('#editCardForm .modal-body').html(data);
                 //$("#editCardSubmit").remove(); ... NO, hides the button!
@@ -50,16 +57,9 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
-    function hideModal() {
-        $("#editCardModal").hide();
-        $('.modal-backdrop').hide();
-        document.getElementById("editCardError").hidden = true; // let user make a new error first
-    }
-
     $("#editCardSubmit").on('click', function() {
         if (dataValid()) {
             $("#editCardForm").submit();
-            hideModal();
         }
     });
 
