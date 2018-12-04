@@ -34,8 +34,9 @@ $(document).ready(function () {
     }
 
     function refreshPage() {
-        location.reload(true);
-        /*
+        //location.reload(true); // NO ... in newBug, newStory the new item is lost by doing this ... below code does not work but seems less damaging
+        // for some reason this works in editCard .. but it seems dicey ... below code (as it works in move and delete) is faster and less screen jerky!
+        // TODO: make this work here!
         if (window.XMLHttpRequest) {
             http = new XMLHttpRequest();
         }
@@ -50,7 +51,6 @@ $(document).ready(function () {
                 getCards("Bugs", "bugs");
             }
         };
-        */
     }
 
     $("#newBugForm").on("submit", function (e) {
@@ -72,9 +72,6 @@ $(document).ready(function () {
                 hideModal();
                 clearFormFields();
                 refreshPage();
-                //location.reload(true); ... TODO: last bug is that new screen does not have updated bug ... but doing this here makes us lose it!
-                // try again ... in the edit script this worked!
-
                 //$('#newBugForm .modal-header .modal-title').html("New bug added");
                 //$('#newBugForm .modal-body').html(data);
                 //$("#newBugSubmit").remove();  NO ... this makes the button disappear ... no good

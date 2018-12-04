@@ -28,8 +28,7 @@ $(document).ready(function () {
     }
 
     function refreshPage() {
-        location.reload(true);
-        /*
+        //location.reload(true); // works here but NOT in newBug, newStory (the POST is lost??) so do not use
         if (window.XMLHttpRequest) {
             http = new XMLHttpRequest();
         }
@@ -44,7 +43,6 @@ $(document).ready(function () {
                 getCards("Bugs", "bugs");
             }
         };
-        */
     }
 
     $("#editCardForm").on("submit", function(e) {

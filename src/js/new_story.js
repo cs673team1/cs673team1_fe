@@ -34,8 +34,7 @@ $(document).ready(function () {
     }
 
     function refreshPage() {
-        location.reload(true);
-        /*
+        //location.reload(true); // NO, newBug, newStory this line of code makes the new entry get lost somehow
         if (window.XMLHttpRequest) {
             http = new XMLHttpRequest();
         }
@@ -50,7 +49,6 @@ $(document).ready(function () {
                 //getCards("Bugs", "bugs");
             }
         };
-        */
     }
 
     $("#newStoryForm").on("submit", function(e) {
