@@ -78,7 +78,7 @@ if ($userResult->num_rows > 0) {
     $ownerID = NULL;
 }
 
-if ($cardName && $typeID && $description && $statusID && $complexity && $listID && $ownerID) {
+if ($cardName && $typeID && $description && $statusID && $complexity && $listID) {
     $result = $card->addCardToList($cardName, $typeID, $description, $statusID, $complexity, $listID, $ownerID );
 
     // Add new activity
