@@ -254,7 +254,11 @@ class card
      */
     public function updateCardOwner($cardID, $owner)
     {
-        $result = self::$dbInterface->query("UPDATE card SET owner= '" . $owner . "' WHERE cardID= '" . $cardID . "'");
+        if ($owner) {
+            $result = self::$dbInterface->query("UPDATE card SET owner= '" . $owner . "' WHERE cardID= '" . $cardID . "'");
+        } else {
+            $result = self::$dbInterface->query("UPDATE card SET owner=NULL WHERE cardID= '" . $cardID . "'");
+        }
         return $result;
     }
 
