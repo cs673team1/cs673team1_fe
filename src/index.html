@@ -111,22 +111,6 @@
         <div class="sticky HoverOver">
             <h2 class="Fixedtop panel panel-white post panel-shadow text-center">Current Iteration</h2>
 
-            <!-- ################################################################################################################ -->
-            <!--Filter Button-->
-            <!-- ################################################################################################################ --
-            <br>
-            <div class="dropdown filterBtn">
-                <button class="FixedFilter default btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Filter
-                    <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li><a onclick="filterSelection('all')"> Show All</a></li>
-                    <li><a onclick="filterSelection('Open')"> Open </a></li>
-                    <li><a onclick="filterSelection('In-Work')"> In-Work </a></li>
-                    <li><a onclick="filterSelection('Work-Done')"> Work-Done </a></li>
-                    <li><a onclick="filterSelection('Test-Pass')"> Test-Pass </a></li>
-                    <li><a onclick="filterSelection('Test-Fail')"> Test-Fail </a></li>
-                </ul>
-            </div>   -->
         </div>
         <br>
         <div class="" id="currentIteration">
@@ -149,11 +133,12 @@
                                 <button id="FilterClose" type="button" class="close" data-dismiss="modal">X</button>
                             </div>
                             <div class="modal-body">
-                                        <div class="dropdown filterBtn">
+                 <button class="btn" onclick="filterSelection('All')">Show All</button>               
+                <div class="dropdown filterBtn">
                 <button class="FixedFilter default btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Filter
                     <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                    <li><a onclick="filterSelection('All')"> Show All</a></li>
+                    <li><a onclick="filterSelection('n')"> Show All</a></li>
                     <li><a onclick="filterSelection('Open')"> Open </a></li>
                     <li><a onclick="filterSelection('In-Work')"> In-Work </a></li>
                     <li><a onclick="filterSelection('Work-Done')"> Work-Done </a></li>
