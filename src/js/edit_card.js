@@ -1,4 +1,6 @@
 // editCard java script, invoked from editCard modal ...
+import './cards'
+
 $(document).ready(function () {
     function dataValid() {
         var title = $("#editCardTitle").val();
@@ -28,21 +30,14 @@ $(document).ready(function () {
     }
 
     function refreshPage() {
-        //location.reload(true); // works here but NOT in newBug, newStory (the POST is lost??) so do not use
-        if (window.XMLHttpRequest) {
-            http = new XMLHttpRequest();
-        }
-        else {
-            http = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-
+        var http = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
         http.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 getCards("Current Iteration", "currentIteration");
                 getCards("Backlog", "backlog");
                 getCards("Bugs", "bugs");
             }
-        };
+        }
     }
 
     $("#editCardForm").on("submit", function(e) {
