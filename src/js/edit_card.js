@@ -1,5 +1,5 @@
 // editCard java script, invoked from editCard modal ...
-//import './cards';
+import './cards';
 
 $(document).ready(function () {
     function dataValid() {
