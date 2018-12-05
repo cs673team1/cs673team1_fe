@@ -132,10 +132,17 @@ class card
      */
     public function addCardToList($cardName, $typeID, $description, $statusID, $complexity, $listID, $owner)
     {
-        $result = self::$dbInterface -> query("INSERT INTO card (cardID, cardName, cardType, description, status, 
+        if ($owner) {
+            $result = self::$dbInterface->query("INSERT INTO card (cardID, cardName, cardType, description, status, 
                                                 complexity, list_listID, owner) 
-                                                VALUES (DEFAULT, '".$cardName."', '".$typeID."', '".$description."',
-                                                '".$statusID."', '".$complexity."', '".$listID."', $owner");
+                                                VALUES (DEFAULT, '" . $cardName . "', '" . $typeID . "', '" . $description . "',
+                                                '" . $statusID . "', '" . $complexity . "', '" . $listID . "', '" .$owner . "')");
+        } else {
+            $result = self::$dbInterface->query("INSERT INTO card (cardID, cardName, cardType, description, status, 
+                                                complexity, list_listID) 
+                                                VALUES (DEFAULT, '" . $cardName . "', '" . $typeID . "', '" . $description . "',
+                                                '" . $statusID . "', '" . $complexity . "', '" . $listID . "')");
+        }
         return $result;
     }
 
