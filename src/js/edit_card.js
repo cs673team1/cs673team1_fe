@@ -30,9 +30,9 @@ $(document).ready(function () {
     }
 
     function refreshPage() {
-        getCards("Current Iteration", "currentIteration");
-        getCards("Backlog", "backlog");
-        getCards("Bugs", "bugs");
+        //getCards("Current Iteration", "currentIteration");
+        //getCards("Backlog", "backlog");
+        //getCards("Bugs", "bugs");
     }
 
     $("#editCardForm").on("submit", function(e) {
@@ -50,7 +50,6 @@ $(document).ready(function () {
             url: formURL,
             type: "POST",
             data: postData,
-            async: true,
             success: function (data, textStatus, jqXHR) {
                 hideModal();
                 refreshPage();
