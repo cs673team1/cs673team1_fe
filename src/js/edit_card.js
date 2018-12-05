@@ -28,7 +28,7 @@ $(document).ready(function () {
     }
 
     // this function MUST track any changes in cards.js
-    function getCards(list, tag)
+    function getCardsX(list, tag)
     {
         if (window.XMLHttpRequest) {
             http = new XMLHttpRequest();
@@ -80,9 +80,9 @@ $(document).ready(function () {
     }
 
     function refreshPage() {
-        getCards("Current Iteration", "currentIteration");
-        getCards("Backlog", "backlog");
-        getCards("Bugs", "bugs");
+        getCardsX("Current Iteration", "currentIteration");
+        getCardsX("Backlog", "backlog");
+        getCardsX("Bugs", "bugs");
     }
 
     $("#editCardForm").on("submit", function(e) {
