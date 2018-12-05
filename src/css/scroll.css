@@ -99,7 +99,7 @@ div.sticky {
 }
 
 .show {
-  display: block;
+  display: contents;
 }
 .HoverOver{
     z-index: 1000;

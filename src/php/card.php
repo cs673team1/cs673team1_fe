@@ -135,7 +135,7 @@ class card
         $result = self::$dbInterface -> query("INSERT INTO card (cardID, cardName, cardType, description, status, 
                                                 complexity, list_listID, owner) 
                                                 VALUES (DEFAULT, '".$cardName."', '".$typeID."', '".$description."',
-                                                '".$statusID."', '".$complexity."', '".$listID."', '".$owner."')");
+                                                '".$statusID."', '".$complexity."', '".$listID."', $owner");
         return $result;
     }
 
