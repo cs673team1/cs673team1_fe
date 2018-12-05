@@ -152,7 +152,8 @@ CREATE TABLE IF NOT EXISTS `list` (
 INSERT INTO `list` (`listID`, `listName`, `project_projectID`) VALUES
                                                                       (1, 'Backlog', 1),
                                                                       (2, 'Current Iteration', 1),
-                                                                      (3, 'Bugs', 1);
+                                                                      (3, 'Bugs', 1),
+                                                                      (4, 'Archive', 1);
 /*!40000 ALTER TABLE `list` ENABLE KEYS */;
 
 -- Dumping structure for table c3poDB.message
