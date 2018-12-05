@@ -35,8 +35,8 @@ function getCards(list, tag)
                     "         </ul>\n" +
                     "      </div>\n" +
                     "   </div>\n" +
-                    "</div> <!--End Story Card -->\n" +
-                    "<br>";
+                    "<br>" +
+                    "</div> <!--End Story Card -->\n";
             }
 
             document.getElementById(tag).innerHTML = cards;
