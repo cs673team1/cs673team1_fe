@@ -1,4 +1,3 @@
-filterSelection("All")
 function filterSelection(criterion) {
    var filterTarget, i;
    filterTarget = document.getElementsByClassName("filterDiv");
