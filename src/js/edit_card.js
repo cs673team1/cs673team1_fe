@@ -1,5 +1,5 @@
 // editCard java script, invoked from editCard modal ...
-import './cards';
+//import './cards';
 
 $(document).ready(function () {
     function dataValid() {
@@ -30,9 +30,9 @@ $(document).ready(function () {
     }
 
     function refreshPage() {
-        getCards("Current Iteration", "currentIteration");
-        getCards("Backlog", "backlog");
-        getCards("Bugs", "bugs");
+        //getCards("Current Iteration", "currentIteration");
+        //getCards("Backlog", "backlog");
+        //getCards("Bugs", "bugs");
     }
 
     $("#editCardForm").on("submit", function(e) {
