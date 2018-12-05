@@ -1,8 +1,8 @@
-filterSelection("all")
+filterSelection("All")
 function filterSelection(criterion) {
    var filterTarget, i;
    filterTarget = document.getElementsByClassName("filterDiv");
-   if (criterion == "all") criterion = "";
+   if (criterion == "All") criterion = "";
    for (i = 0; i < filterTarget.length; i++) {
       w3RemoveClass(filterTarget[i], "show");
       if (filterTarget[i].className.indexOf(criterion) > -1) w3AddClass(filterTarget[i], "show");
