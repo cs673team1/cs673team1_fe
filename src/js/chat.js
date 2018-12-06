@@ -35,7 +35,7 @@ function getMessages()
                "   </div>\n" +
                "</div>\n\n";
          }
-
+// check
          document.getElementById("chatPane").innerHTML = msgs;
       }
    };
