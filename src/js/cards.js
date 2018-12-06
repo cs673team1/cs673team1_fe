@@ -12,7 +12,7 @@ function getCards(list, tag)
             const data = JSON.parse(this.responseText);
 
             cards = "";
-            filter = (list == "Current Iteration") ? "filterDiv " : "";
+            filter = (list == "Current Iteration") ? "filterDiv show" : "";
             for (x in data) {
                 cards +=
                     "<!-- Story Card -->\n" +
