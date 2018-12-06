@@ -83,6 +83,7 @@ $(document).ready(function () {
         getCardsX("Current Iteration", "currentIteration");
         getCardsX("Backlog", "backlog");
         getCardsX("Bugs", "bugs");
+        $('body').attr("style", "overflow:auto");
     }
 
     $("#editCardForm").on("submit", function(e) {
@@ -118,7 +119,8 @@ $(document).ready(function () {
 
     $("#editCardSubmit").on('click', function() {
         if (dataValid()) {
-            setTimeout(function () { $("#editCardForm").submit(); }, 500);
+            //setTimeout(function () { $("#editCardForm").submit(); }, 0);
+            $("#editCardForm").submit();
         }
     });
 
