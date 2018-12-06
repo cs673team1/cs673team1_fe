@@ -82,7 +82,9 @@ $(document).ready(function () {
     }
 
     function refreshPage() {
-        getCardsForNewBug("Bugs", "bugs");
+        getCardsForEditCard("Current Iteration", "currentIteration");
+        getCardsForEditCard("Backlog", "backlog");
+        getCardsForEditCard("Bugs", "bugs");
         $('body').attr("style", "overflow:auto"); // re-enable scrolling!
     }
 
