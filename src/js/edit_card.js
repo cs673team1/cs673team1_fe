@@ -118,7 +118,7 @@ $(document).ready(function () {
 
     $("#editCardSubmit").on('click', function() {
         if (dataValid()) {
-            $("#editCardForm").submit();
+            setTimeout(function () { $("#editCardForm").submit(); }, 500);
         }
     });
 
