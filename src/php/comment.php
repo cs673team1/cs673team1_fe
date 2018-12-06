@@ -17,7 +17,7 @@ class comment
     {
         // Try and connect to the database interface
         if (!isset(self::$dbInterface)) {
-            Self::$dbInterface = $db;
+            self::$dbInterface = $db;
         }
 
         // If database interface was not successful, handle the error
@@ -55,7 +55,7 @@ class comment
     /**
      * Get comment by commentID from database
      *
-     * @param commentID The commentID
+     * @param $commentID Integer commentID
      * @return mixed The result of the mysqli::query() function
      */
     public function getCommentByID($commentID)
@@ -68,7 +68,7 @@ class comment
     /**
      * Get check an commentID is in database
      *
-     * @param $commentID the commentID
+     * @param $commentID Integer commentID
      * @return mixed The result of the mysqli::query() function
      */
     public function exists($commentID)
@@ -84,7 +84,7 @@ class comment
     /**
      * Get comments for a specific userID
      *
-     * @param userID The userID
+     * @param $userID Integer userID
      * @return mixed The result of the mysqli::query() function
      */
     public function getCommentsForUser($userID)
@@ -97,7 +97,7 @@ class comment
     /**
      * Get all comments for userID from database in reverse chronological order
      *
-     * @param userID The userID
+     * @param $userID Integer userID
      * @return mixed The result of the mysqli::query() function
      */
     public function getCommentsForUserReverse($userID)
@@ -110,7 +110,7 @@ class comment
     /**
      * Get comments for a specific cardID
      *
-     * @param cardID The cardID
+     * @param $cardID Integer cardID
      * @return mixed The result of the mysqli::query() function
      */
     public function getCommentsForCard($cardID)
@@ -123,7 +123,7 @@ class comment
     /**
      * Get all comments from database in reverse chronological order
      *
-     * @param cardID The cardID
+     * @param $cardID Integer cardID
      * @return mixed The result of the mysqli::query() function
      */
     public function getCommentsForCardReverse($cardID)

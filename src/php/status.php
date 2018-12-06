@@ -16,7 +16,7 @@ class status
     {
         // Try and connect to the database interface
         if (!isset(self::$dbInterface)) {
-            Self::$dbInterface = $db;
+            self::$dbInterface = $db;
         }
 
         // If database interface was not successful, handle the error
@@ -40,7 +40,7 @@ class status
 
     /** Get status by statusID
      *
-     * @param $statusID The statusID
+     * @param $statusID Integer statusID
      * @return mixed The result of the mysqli::query() function
      */
     public function getStatusByID($statusID)
@@ -52,7 +52,7 @@ class status
     /** Get status by statusName
      *
      * @param $statusName ... name of the status
-     * @return result of the mysqli::query() function
+     * @return mixed of the mysqli::query() function
      */
     public function getStatusByName($statusName)
     {
@@ -63,7 +63,7 @@ class status
     /**
      * Check if statusID exists in database
      *
-     * @param $statusID the statusID
+     * @param $statusID Integer statusID
      * @return boolean 1 if statusID exists 0 if it doesn't exist
      */
     public function exists($statusID)

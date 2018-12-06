@@ -17,7 +17,7 @@ class activity
     {
         // Try and connect to the database interface
         if (!isset(self::$dbInterface)) {
-            Self::$dbInterface = $db;
+            self::$dbInterface = $db;
         }
 
         // If database interface was not successful, handle the error
@@ -55,7 +55,7 @@ class activity
     /**
      * Get activity by activityID from database
      *
-     * @param activityID The activityID
+     * @param $activityID Integer activityID
      * @return mixed The result of the mysqli::query() function
      */
     public function getActivityByID($activityID)
@@ -68,7 +68,7 @@ class activity
     /**
      * Get check an activityID is in database
      *
-     * @param $activityID the activityID
+     * @param $activityID Integer activityID
      * @return mixed The result of the mysqli::query() function
      */
     public function exists($activityID)
@@ -84,7 +84,7 @@ class activity
     /**
      * Get activity for a specific userID
      *
-     * @param userID The userID
+     * @param $userID Integer userID
      * @return mixed The result of the mysqli::query() function
      */
     public function getActivityForUser($userID)
@@ -97,7 +97,7 @@ class activity
     /**
      * Get all messages from database in reverse chronological order
      *
-     * @param userID The userID
+     * @param $userID Integer userID
      * @return mixed The result of the mysqli::query() function
      */
     public function getActivityForUserReverse($userID)
@@ -110,7 +110,7 @@ class activity
     /**
      * Get activity for a specific cardID
      *
-     * @param cardID The cardID
+     * @param $cardID Integer cardID
      * @return mixed The result of the mysqli::query() function
      */
     public function getActivityForCard($cardID)
@@ -123,7 +123,7 @@ class activity
     /**
      * Get all messages from database in reverse chronological order
      *
-     * @param cardID The cardID
+     * @param $cardID Integer cardID
      * @return mixed The result of the mysqli::query() function
      */
     public function getActivityForCardReverse($cardID)

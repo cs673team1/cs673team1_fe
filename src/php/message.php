@@ -15,7 +15,7 @@ class message
     {
         // Try and connect to the database interface
         if (!isset(self::$dbInterface)) {
-            Self::$dbInterface = $db;
+            self::$dbInterface = $db;
         }
 
         // If database interface was not successful, handle the error
@@ -51,7 +51,7 @@ class message
     /**
      * Get all messages from database for projectID
      *
-     * @param $projectID The projectID
+     * @param $projectID Integer projectID
      * @return mixed The result of the mysqli::query() function
      */
     public function getMessagesForProject($projectID)
