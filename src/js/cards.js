@@ -12,11 +12,12 @@ function getCards(list, tag)
             const data = JSON.parse(this.responseText);
 
             cards = "";
-            filter = (list == "Current Iteration") ? "filterDiv show" : "";
+            filter = (list == "Current Iteration") ? "filterDiv " : "";
+            show  = (list == "Current Iteration") ? " show" : "";
             for (x in data) {
                 cards +=
                     "<!-- Story Card -->\n" +
-                    "<div onclick=\"populateEditCard(" + data[x].cardID + ")\" class=\"card " + filter + data[x].status + "\" style=\"width: auto;\">\n" +
+                    "<div onclick=\"populateEditCard(" + data[x].cardID + ")\" class=\"card " + filter + data[x].status + show + "\" style=\"width: auto;\">\n" +
                     "   <div class=\"card-body\">\n" +
                     "      <h7 class=\"card-id mb-2 text-muted\">ID: " + data[x].cardID + "</h7>\n" +
                     "      <h5 class=\"card-title\">" + data[x].cardName + " <i>(" + data[x].status + ")</i></h5>\n" +
