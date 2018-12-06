@@ -27,15 +27,10 @@ $(document).ready(function () {
         document.getElementById("editCardError").hidden = true; // let user make a new error first
     }
 
-    // this function MUST track any changes in cards.js
-    function getCardsX(list, tag)
+    // WARNING: this function MUST track any changes made to getCards in cards.js
+    function getCardsForEditCard(list, tag)
     {
-        if (window.XMLHttpRequest) {
-            http = new XMLHttpRequest();
-        }
-        else {
-            http = new ActiveXObject("Microsoft.XMLHTTP");
-        }
+        var http = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
 
         http.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
@@ -80,10 +75,10 @@ $(document).ready(function () {
     }
 
     function refreshPage() {
-        getCardsX("Current Iteration", "currentIteration");
-        getCardsX("Backlog", "backlog");
-        getCardsX("Bugs", "bugs");
-        $('body').attr("style", "overflow:auto");
+        getCardsForEditCard("Current Iteration", "currentIteration");
+        getCardsForEditCard("Backlog", "backlog");
+        getCardsForEditCard("Bugs", "bugs");
+        $('body').attr("style", "overflow:auto"); // re-enable scrolling!
     }
 
     $("#editCardForm").on("submit", function(e) {
@@ -119,7 +114,6 @@ $(document).ready(function () {
 
     $("#editCardSubmit").on('click', function() {
         if (dataValid()) {
-            //setTimeout(function () { $("#editCardForm").submit(); }, 0);
             $("#editCardForm").submit();
         }
     });

@@ -1,11 +1,10 @@
+// WARNING: the getCards function is replicated in 3 other places: new_story.js, new_bug.js and edit_card.js!
+//          While this file is loaded before those files, calling this function from those files did not work, so for
+//          expediency the function is copied to those files.  If ANY changes are made here they must also be
+//          made in those files as well to maintain UI consistency.
 function getCards(list, tag)
 {
-    if (window.XMLHttpRequest) {
-        http = new XMLHttpRequest();
-    }
-    else {
-        http = new ActiveXObject("Microsoft.XMLHTTP");
-    }
+    var http = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
 
     http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
