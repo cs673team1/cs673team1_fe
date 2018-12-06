@@ -29,13 +29,13 @@ function getMessages()
                "            <h6 class=\"text-muted time\">" + data[x].timeSent + "</h6>\n" +
                "         </div>\n" +
                "      </div>\n" +
-               "      <div class=\"card\" style=\"height: 12rem\">\n" +
+               "      <div class=\"card\" style=\"height: auto\">\n" +
                "         <p class=\"card-text\">" + data[x].content + "</p>\n" +
                "      </div>\n" +
                "   </div>\n" +
                "</div>\n\n";
          }
-
+// check
          document.getElementById("chatPane").innerHTML = msgs;
       }
    };
