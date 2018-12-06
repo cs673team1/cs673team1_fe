@@ -1,5 +1,14 @@
 <?php
 /**
+ * Card is a class for interfacing with the mysql class table
+ *
+ * Card contains methods for getting, adding, deleting and modifying
+ * cards in the c3po database
+ *
+ * @author   Allen Bouchard
+ * @author   Lynn Cistulli
+ * @version  $Revision: 1.0 $
+ * @access   public
  * Created by PhpStorm.
  * User: Allen
  * Date: 11/13/2018
@@ -14,7 +23,7 @@
 require_once ('dB.php');
 class card
 {
-    // The database interface
+    // @var $dbInterface dB The database interface
     protected static $dbInterface;
 
     function __construct($db)
@@ -46,7 +55,7 @@ class card
 
     /** Get Card by cardID
      *
-     * @param $cardID The cardID
+     * @param $cardID Integer cardID
      * @return mixed The result of the mysqli::query() function
      */
     public function getCardByID($cardID)
@@ -59,7 +68,7 @@ class card
     /**
      * Get check if card is in database
      *
-     * @param $cardID the cardID
+     * @param $cardID Integer cardID
      * @return mixed The result of the mysqli::query() function
      */
     public function exists($cardID)
@@ -94,7 +103,7 @@ class card
     /**
      * Get all cards from database for listID
      *
-     * @param $listID the listID
+     * @param $listID Integer listID
      * @return mixed The result of the mysqli::query() function
      */
     public function getCardsForList($listID)
@@ -107,8 +116,8 @@ class card
     /**
      * Get all cards from database for listID, statusID pairs
      *
-     * @param $listID the listID
-     * @param $statusID the status for the cards
+     * @param $listID Integer listID
+     * @param $statusID Integer status for the cards
      * @return mixed The result of the mysqli::query() function
      */
     public function getCardsForListWithStatus($listID, $statusID)
@@ -149,6 +158,7 @@ class card
     /**
      * Update card
      *
+     * $cardID Integer the ID of the card being updated
      * @param $cardID
      * @param $cardName
      * @param $typeID
@@ -156,6 +166,7 @@ class card
      * @param $statusID
      * @param $complexity
      * @param $listID
+     * @param $owner
      * @return mixed The result of the mysqli::query() function
      */
     public function updateCard($cardID, $cardName, $typeID, $description, $statusID, $complexity, $listID, $owner)
@@ -170,7 +181,7 @@ class card
     /**
      * Update card status
      *
-     * @param $cardID,
+     * @param $cardID Integer the ID of the card being updated
      * @param $status
      * @return mixed The result of the mysqli::query() function
      */
@@ -183,7 +194,7 @@ class card
     /**
      * Update card type
      *
-     * @param $cardID,
+     * @param $cardID Integer the ID of the card being updated
      * @param $cardType
      * @return mixed The result of the mysqli::query() function
      */
@@ -196,7 +207,7 @@ class card
     /**
      * Update card list
      *
-     * @param $cardID,
+     * @param $cardID Integer the ID of the card being updated
      * @param $listID
      * @return mixed The result of the mysqli::query() function
      */
@@ -209,7 +220,7 @@ class card
     /**
      * Update card name
      *
-     * @param $cardID,
+     * @param $cardID Integer the ID of the card being updated
      * @param $cardName
      * @return mixed The result of the mysqli::query() function
      */
@@ -222,7 +233,7 @@ class card
     /**
      * Update card description
      *
-     * @param $cardID,
+     * @param $cardID Integer the ID of the card being updated
      * @param $description
      * @return mixed The result of the mysqli::query() function
      */
@@ -235,7 +246,7 @@ class card
     /**
      * Update card complexity
      *
-     * @param $cardID,
+     * @param $cardID Integer the ID of the card being updated
      * @param $complexity
      * @return mixed The result of the mysqli::query() function
      */
@@ -248,7 +259,7 @@ class card
     /**
      * Update card owner
      *
-     * @param $cardID,
+     * @param $cardID Integer the ID of the card being updated
      * @param $owner
      * @return mixed The result of the mysqli::query() function
      */
@@ -265,7 +276,7 @@ class card
     /**
      * Delete card
      *
-     * @param $cardID
+     * @param $cardID Integer the ID of the card being deleted
      * @return mixed The result of the mysqli::query() function
      */
     public function deleteCardByID($cardID) {
@@ -275,7 +286,7 @@ class card
 
     /** Get CardID by cardName (note: picks the first one only)
      *
-     * @param $cardName The cardName
+     * @param $cardName String The cardName
      * @return mixed The result of the mysqli::query() function
      */
     public function getCardIDByName($cardName)
