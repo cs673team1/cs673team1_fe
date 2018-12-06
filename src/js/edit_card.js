@@ -27,15 +27,10 @@ $(document).ready(function () {
         document.getElementById("editCardError").hidden = true; // let user make a new error first
     }
 
-    // this function MUST track any changes in cards.js
-    function getCards(list, tag)
+    // WARNING: this function MUST track any changes made to getCards in cards.js
+    function getCardsForEditCard(list, tag)
     {
-        if (window.XMLHttpRequest) {
-            http = new XMLHttpRequest();
-        }
-        else {
-            http = new ActiveXObject("Microsoft.XMLHTTP");
-        }
+        var http = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
 
         http.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
@@ -80,9 +75,10 @@ $(document).ready(function () {
     }
 
     function refreshPage() {
-        getCards("Current Iteration", "currentIteration");
-        getCards("Backlog", "backlog");
-        getCards("Bugs", "bugs");
+        getCardsForEditCard("Current Iteration", "currentIteration");
+        getCardsForEditCard("Backlog", "backlog");
+        getCardsForEditCard("Bugs", "bugs");
+        $('body').attr("style", "overflow:auto"); // re-enable scrolling!
     }
 
     $("#editCardForm").on("submit", function(e) {
@@ -100,6 +96,7 @@ $(document).ready(function () {
             url: formURL,
             type: "POST",
             data: postData,
+            async: true,
             success: function (data, textStatus, jqXHR) {
                 hideModal();
                 refreshPage();

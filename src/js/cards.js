@@ -1,22 +1,22 @@
+// WARNING: the getCards function is replicated in 3 other places: new_story.js, new_bug.js and edit_card.js!
+//          While this file is loaded before those files, calling this function from those files did not work, so for
+//          expediency the function is copied to those files.  If ANY changes are made here they must also be
+//          made in those files as well to maintain UI consistency.
 function getCards(list, tag)
 {
-    if (window.XMLHttpRequest) {
-        http = new XMLHttpRequest();
-    }
-    else {
-        http = new ActiveXObject("Microsoft.XMLHTTP");
-    }
+    var http = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
 
     http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             const data = JSON.parse(this.responseText);
 
-            cards = "";
-            filter = (list == "Current Iteration") ? "filterDiv " : "";
+            let cards = "";
+            let filter = (list === "Current Iteration") ? "filterDiv " : "";
+            let showFilter   = (list === "Current Iteration") ? " show" : "";
             for (x in data) {
                 cards +=
                     "<!-- Story Card -->\n" +
-                    "<div onclick=\"populateEditCard(" + data[x].cardID + ")\" class=\"card " + filter + data[x].status + "\" style=\"width: auto;\">\n" +
+                    "<div onclick=\"populateEditCard(" + data[x].cardID + ")\" class=\"card " + filter + data[x].status + showFilter + "\" style=\"width: auto;\">\n" +
                     "   <div class=\"card-body\">\n" +
                     "      <h7 class=\"card-id mb-2 text-muted\">ID: " + data[x].cardID + "</h7>\n" +
                     "      <h5 class=\"card-title\">" + data[x].cardName + " <i>(" + data[x].status + ")</i></h5>\n" +

@@ -15,7 +15,7 @@ class user
     {
         // Try and connect to the database interface
         if (!isset(self::$dbInterface)) {
-            Self::$dbInterface = $db;
+            self::$dbInterface = $db;
         }
 
         // If database interface was not successful, handle the error
@@ -40,7 +40,7 @@ class user
     /**
     * Get user by email from database
     *
-    * @param $email The users email
+    * @param $email String users email
      * @return mixed The result of the mysqli::query() function
     */
     public function getUserIdByEmail($email)
@@ -52,7 +52,7 @@ class user
     /**
      * Get user by name from database
      *
-     * @param $userName The users name
+     * @param $userName String users name
      * @return mixed The result of the mysqli::query() function
      */
     public function getUserIdByUserName($userName)
@@ -63,7 +63,7 @@ class user
 
     /** Get userName by userID
      *
-     * @param $userID The userID
+     * @param $userID Integer userID
      * @return mixed The result of the mysqli::query() function
      */
      public function getUserNameByUserID($userID)
@@ -75,8 +75,8 @@ class user
     /**
      * Add user to user table in the database
      *
-     * @param $email The users name
-     * @param $userName The users email
+     * @param $email String users name
+     * @param $userName String users email
      * @return mixed The result of the mysqli::query() function
      */
     public function addUser($email, $userName)
@@ -88,7 +88,7 @@ class user
     /**
      * Remove user by email
      *
-     * @param $email The users email
+     * @param $email String users email
      * @return mixed The result of the mysqli::query() function
      */
     public function removeUser($email)
@@ -100,7 +100,7 @@ class user
     /**
      * Get check if userID is in database
      *
-     * @param $userID the userID
+     * @param $userID Integer userID
      * @return mixed The result of the mysqli::query() function
      */
     public function exists($userID)

@@ -16,7 +16,7 @@ class cardType
     {
         // Try and connect to the database interface
         if (!isset(self::$dbInterface)) {
-            Self::$dbInterface = $db;
+            self::$dbInterface = $db;
         }
 
         // If database interface was not successful, handle the error
@@ -40,7 +40,7 @@ class cardType
 
     /** Get cardType by cardTypeID
      *
-     * @param $typeID The typeID
+     * @param $typeID Integer typeID
      * @return mixed The result of the mysqli::query() function
      */
     public function getCardTypeByID($typeID)
@@ -51,7 +51,7 @@ class cardType
 
     /** Get typeID by typeName
      *
-     * @param $typeName The typeName
+     * @param $typeName Integer typeName
      * @return mixed The result of the mysqli::query() function
      */
     public function getTypeIDByName($typeName)
@@ -63,7 +63,7 @@ class cardType
     /**
      * Check if cardTypeID exists in database
      *
-     * @param $cardTypeID the cardTypeID
+     * @param $cardTypeID Integer cardTypeID
      * @return boolean 1 if cardTypeID exists 0 if it doesn't exist
      */
     public function exists($cardTypeID)

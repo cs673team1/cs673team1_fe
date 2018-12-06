@@ -15,7 +15,7 @@ class project
     {
         // Try and connect to the database interface
         if (!isset(self::$dbInterface)) {
-            Self::$dbInterface = $db;
+            self::$dbInterface = $db;
         }
 
         // If database interface was not successful, handle the error
@@ -40,7 +40,7 @@ class project
     /**
      * Get a projectID by projectName from database
      *
-     * @param $projectName The projectName
+     * @param $projectName Integer projectName
      * @return mixed The result of the mysqli::query() function
      */
     public function getProjectIdByName($projectName)
@@ -51,7 +51,7 @@ class project
 
     /** Get projectName by projectID
      *
-     * @param $projectID The projectID
+     * @param $projectID Integer projectID
      * @return mixed The result of the mysqli::query() function
      */
     public function getProjectNameByProjectID($projectID)
@@ -75,7 +75,7 @@ class project
     /**
      * Remove project by projectName
      *
-     * @param $projectName The projectName
+     * @param $projectName Integer projectName
      * @return mixed The result of the mysqli::query() function
      */
     public function removeProject($projectName)
@@ -87,8 +87,8 @@ class project
     /**
      * Add User to a project
      *
-     * @param $userID The userID
-     * @param $projectName The projectName
+     * @param $userID Integer userID
+     * @param $projectName Integer projectName
      * @return mixed The result of the mysqli::query() function
      */
      public function addUserIDToProject($userID, $projectName)
