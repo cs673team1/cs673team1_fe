@@ -24,9 +24,14 @@ class dB
         if(!isset(self::$connection)) {
             // Load configuration as an array. Use the actual location of your configuration file
             // Put the configuration file outside of the document root
-            $config = parse_ini_file('./config.ini');
+            //$config = parse_ini_file('./config.ini');
+            $username = 'root';
+            $password = 'cs673Team2';
+            $dbname = 'c3poDB';
             //self::$connection = new mysqli('c3po.fedos.info',$config['username'],$config['password'],$config['dbname']);
-            self::$connection = new mysqli('localhost',$config['username'],$config['password'],$config['dbname']);
+            //self::$connection = new mysqli('localhost',$config['username'],$config['password'],$config['dbname']);
+            //self::$connection = new mysqli('c3po.fedos.info',$username,$password,$dbname);
+            self::$connection = new mysqli('localhost',$username,$password,$dbname);
         }
 
         // If connection was not successful, handle the error
