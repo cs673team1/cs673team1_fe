@@ -28,6 +28,9 @@ class dB
             $username = 'root';
             $password = 'cs673Team2';
             $dbname = 'c3poDB';
+            //$username = 'kevin';
+            //$password = 'koffink';
+            //$dbname = 'kevin';
             //self::$connection = new mysqli('c3po.fedos.info',$config['username'],$config['password'],$config['dbname']);
             //self::$connection = new mysqli('localhost',$config['username'],$config['password'],$config['dbname']);
             //self::$connection = new mysqli('c3po.fedos.info',$username,$password,$dbname);
