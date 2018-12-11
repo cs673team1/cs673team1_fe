@@ -1,10 +1,10 @@
-# Application Overview
+# Core Communication Collaboration Portal (C3PO) Overview
 
 #### Summary:  
-This document contains information on the C3PO application.  3CPO is a generic project management and
-communication application that supports multiple users via remote login to a central server.  The application handles 
-both project requirements and reported bugs, provides scheduling assitance for the latter into sprints, and allows 
-users to communicate in real time using a chat feature.  
+This document contains information on the C3PO application.  3CPO is a generic project management and communication 
+application that supports multiple users via a central server.  The application handles both project requirements and 
+bugs, provides scheduling assistance by way of sprints, and allows users to communicate in real time using a chat 
+feature.  
 
 #### Contents:
 This document is divided into two major sections; User Guide and Development Guide.  The User Guide contains user 
@@ -13,32 +13,96 @@ contains information for system deveopers who want to understand and modify the 
 
 ## User Guide
 
-### User Accounts
+---------------
 
-Before a user can access the various 3CPO features s/he must log in.  Log in provides two important functions; a) it 
-authenticates the user (ensures that they are allowd to access the system), and b) it informs the system of the user
-identity.  This user identity is used to note 'who did what' in the history log, who is talking via chat, etc.  
+### Screen Layout
 
-### Chat Feature
+C3PO uses a single page layout with various pop up (modal) dialogs and information screens.  The user never leaves 
+the main page however.  A sample main page follows:
 
-TODO 
-Chat works by ...
+![C3PO main page](c3po_main.jpg)
 
-### Sprint Management Feature
+Note that the screen is divided into four columns.  From left to right these are:
+- The Chat Function
+- The Current Iteration Function
+- The Feature-Backlog Function
+- The Bug-Backlog Function
 
-TODO
-Sprint management ...
+Each of these will be discussed below.
 
-### Requirements Management Feature
+### Login
 
-TODO
-Requirements (aka user stories) are managed in a panel ...
+Before a user can utilize the various 3CPO functions s/he must log in.  Users self-identify so that C3PO can track 
+their actions and identify who is talking via chat.  User identification is based on the honor system, although the 
+user list is populated from the database.  The login drop down is located in the upper right of the main screen. 
+The current users are supported:
 
-### Bug Management Feature
+![User login dialog](user_login.jpg)
 
-TODO
-Bugs are entered by ...
+### Chat Function
 
+Chat works by the user entering text in the lower left corner 'chat box' (pre-filled with "lets get chatty").  When
+the user is satisfied with their message they publish it to other users by entering the 'Share' button.  The new chat 
+message is appended to the top of the chat column. 
+
+![Chat dialog](chat.jpg)
+
+### Current Iteration (Sprint Management) Function, Feature and Bug Entry
+
+One of the main functions of C3PO is to enable users to manage (document and track) a set of product features and bugs 
+found in development, over a given development sprint.  To this end the remaining three columns of the main screen are
+used to track active items in the current iteration, to enter new feature requests to track, and the enter new bug 
+reports to track.  Bug and Feature entry are located to the right of the Current Iteration column as the 'backlog' of 
+un-done items is on the right, while the active ones in the Current Iteration are center screen, and thus near the chat 
+column which may be used to talk among users about them.  
+
+A bug or a feature (also commonly called a story) is first entered using a modal dialog brought up by using either the
+'Add Story' or 'Add Bug' buttons.  The dialogs are the same, but the data is entered into different internal tables so
+that as items are moved to and from the Current Iteration they return to the appropriate column (Feature or Bug).    
+
+![Add Bug or Story dialog](new_bug_story.jpg)
+  
+Note that a bug or story does not need to initially have an owner (it can just be reported for a future sprint).  The 
+presumed use would be to choose which bugs and features should be addressed by the current sprint, move them to the 
+current iteration, assign an owner (or have owners self select), mark the status as 'In-Work', fix the bug or implement
+the feature, then mark the item as 'Work-Done'.  Later an SQA evaluation would confirm that the item was complete and 
+it would be marked as 'Test-Pass', or alternately, 'Test-Fail' if not.  These paths are depicted in the following 
+sequence diagrams.
+
+The first half of a bug or feature lifecycle is to have it reported.  This is depicted below:
+
+![Sample Bug Lifecycle-1](sample_bug_lifecycle_1.jpg)
+
+The second half of a bug or feature lifecycle is to have it addressed.  This is depicted below:
+
+![Sample Bug Lifecycle-2](sample_bug_lifecycle_2.jpg)
+
+Bugs and Features (Stories) are moved to (and from) the Current Iteration column by using the drop down 'Action' menu 
+'Move' Function that is attached to each Bug or Story.  
+
+![Move Drop Down](move.jpg)
+
+The other functions available from the 'Action' menu for each item are to 'Edit' it or to 'Archive' it.  Editing is how
+a user changes the owner and state, although all fields can be modified (i.e., the title and description can also be
+updated).  Archive is very much a delete function, in that the bug or story can no longer be seen, although it
+is still in the database there is currently no means to retrieve and display archived items.  
+
+### Filter Function
+
+To provide a means to effectively manage the items in the Current Iteration, a 'Filter' function is provided that 
+allows the set of items to be filtered by their work status.  The current set of work status is {Open, In-Work, 
+Work-Done, Test-Pass and Test-Fail}.  The items that match the filter are displayed, and those that do not are hidden.
+A 'Show All' selection is provided to disable filtering.  
+
+![Filter Function](filter.jpg)
+
+### Activity Function
+
+Each operation performed on the database is tracked.  Thus each 'add bug', 'add story', 'enter chat message' event is
+recorded in a log.  The log uses the self identified login user.  The event list can be reviewed using the 'Activity 
+Log' button in the top of the screen.  
+
+![Activity Function](activity.jpg)
 
 ## Development Guide
 
@@ -47,20 +111,33 @@ development.
  
 ### Internals Overview
 
-The application is built as a web based service invoked from a web page.  As a web page both HTML and JavaScript are
-used at the very front end.  Web page updates are requested and posted using the AJAX (Asynchronous JavaScript And XML)
-JavaScript facility.  This 'very front end' passes control to a set of PHP files that receives the requests, queries 
-the back end database, and sends back a response which AJAX uses to update the page.
+The general architecture of C3PO is depicted in the following diagram:
 
-The database 'back end' is mySQL.  
-TODO: more on the database ... ERD, etc.
+![Architecture Overview](arch_overview.jpg)
 
-For development the user needs:
-- A browser
-- JavaScript
-- A PHP interpreter, 7.0 or greater
-   - Note: PHP requires Apache and Visual C++ redistributable libraries
-- mySQL
+The key features to note are:
+- That data is kept in a central store
+- That access if via a web browser
+- That Users enter and maintain items in a database called Cards
+- That each Card stores a bug or a feature request
+- That Card lists display active work, open bugs and features
+- That Chat messages are also stored in a database
+- And that chat updates are shown in real time
+
+C3PO is built as a web based service invoked from a web page.  As a web page both HTML and JavaScript are used at the 
+very front end.  Web page updates are requested and posted using the AJAX (Asynchronous JavaScript And XML) JavaScript 
+facility.  This 'very front end' passes control to a set of PHP files that receives the requests, queries the back end 
+database, and sends back a response which AJAX uses to update the page.  Note that the back end is 'stateless' and 
+that all state is kept at the front end.  Primarily this consists of a user login 'cookie'.  
+
+These interactions are depicted below:
+
+![Architecture Detail](c3po_arch_v2.jpg)
+
+The database 'back end' is mySQL.  Scripts to create the database are committed along with the code.  The current 
+database logical model is as follows:
+
+![Database ERD](dbase_erd.jpg)
 
 ### Installing Tools On Windows
 
@@ -168,17 +245,8 @@ chmod +x phpunit
 PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
 ```
 
-To use this the php directory must be C:\bin not C:\php ... argh.
+Note: To use this the php directory must be C:\bin not C:\php.
 
-#### mySQL
-
-TODO 
-
-
-### Installing Tools On Linux
-
-TODO
-  
 
 
 
